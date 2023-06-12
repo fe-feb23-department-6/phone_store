@@ -6,9 +6,9 @@
   flex-direction: column;
   align-items: center;
 
-  max-width: 1168px;
-
   margin: 0 auto;
+
+  max-width: 1168px;
 
   @include onDesctop {
     width: calc(3 * #{$productCard-width} + 2 * #{$productCards-gap-column});
@@ -16,5 +16,9 @@
 
   @media (max-width: 920px) {
     width: calc(2 * #{$productCard-width} + #{$productCards-gap-column});
+  }
+
+  @include onTab {
+    width: $productCard-width;
   }
 }
