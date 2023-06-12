@@ -10,10 +10,7 @@ export const Header: FC = () => {
   return (
     <div className="header">
       <a href="#home" className="header__logo">
-        <img
-          src={NiceGadgetsLogo}
-          alt="logo"
-        />
+        <img src={NiceGadgetsLogo} alt="logo" />
       </a>
       <nav className="nav">
         <ul className="nav__list">
@@ -49,19 +46,11 @@ export const Header: FC = () => {
       </nav>
       <div className="header__actions">
         <a href="#favorites" className="action">
-          <img
-            src={Favourite}
-            alt="favourite"
-            className="action__image"
-          />
+          <img src={Favourite} alt="favourite" className="action__image" />
         </a>
 
         <a href="#basket" className="action">
-          <img
-            src={Basket}
-            alt="basket"
-            className="action__image"
-          />
+          <img src={Basket} alt="basket" className="action__image" />
         </a>
       </div>
     </div>
