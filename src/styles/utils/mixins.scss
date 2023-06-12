@@ -1,5 +1,29 @@
-@mixin onMobile {
+@mixin onTab {
   @media (max-width: 639px) {
     @content;
   }
+}
+
+@mixin onDesctop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin cardParamsText {
+  font-family: $global-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $secondary-color;
+}
+
+@mixin cardParamsValues {
+  font-family: $global-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $secondary-color;
 }

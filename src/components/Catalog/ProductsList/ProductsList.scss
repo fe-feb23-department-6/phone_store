@@ -1,0 +1,11 @@
+@import '../../../styles/utils/vars.scss';
+@import '../../../styles/utils/mixins.scss';
+
+.productList {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  column-gap: $productCards-gap-column;
+  row-gap: $productCards-gap-row;
+}

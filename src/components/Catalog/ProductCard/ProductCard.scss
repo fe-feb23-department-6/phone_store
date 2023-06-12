@@ -1,0 +1,156 @@
+@import '../../../styles/utils/vars.scss';
+@import '../../../styles/utils/mixins.scss';
+
+.productCard {
+  box-sizing: border-box;
+
+  width: $productCard-width;
+  height: $productCard-hight;
+  padding: 32px;
+
+  background: #FFFFFF;
+  border: 1px solid #E2E6E9;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  border-radius: $borderRadius-standart;
+
+  transition: transform 500ms;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 320px) {
+    height: 440px;
+  }
+
+  &__productPhoto {
+    height: 196px;
+  
+    @media (max-width: 320px) {
+      height: 130px;
+    }
+  }
+
+  &-imageContainer {
+    display: flex;
+    justify-content: center;
+
+    margin: 0 auto;
+    margin-bottom: 24px;
+  }
+
+  &__productName {
+    height: 42px;
+
+    font-family: $global-font;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__price {
+    display: flex;
+    padding: 8px 0;
+    margin: 0;
+
+    &--current {
+      font-family: $global-font;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 140%;
+      padding-right: 8px;
+    }
+
+    &--full {
+      font-family: $global-font;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 29px;
+      color: $secondary-color;
+      text-decoration-line: line-through;
+    }
+  }
+}
+
+.phoneInfo {
+  padding: 16px 0;
+  border-top: 1px solid #E2E6E9;
+
+  &__screen {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+
+    &-text {
+      @include cardParamsText;
+    }
+
+    &-size {
+      @include cardParamsValues;
+    }
+  }
+
+  &__capacity {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+
+    &-text {
+      @include cardParamsText;
+    }
+
+    &-size {
+      @include cardParamsValues;
+    }
+  }
+
+  &__ram {
+    display: flex;
+    justify-content: space-between;
+
+    &-text {
+      @include cardParamsText;
+    }
+
+    &-size {
+      @include cardParamsValues;
+    }
+  }
+}
+
+.addToCartOrLike {
+  display: flex;
+  justify-content: space-between;
+
+  &__addToCart {
+    height: 40px;
+    width: 77%;
+    border-radius: $borderRadius-standart;
+    font-family: $global-font;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 37px;
+    color: #FFFFFF;
+    text-align: center;
+    
+    
+    background-color: #216CFF;
+  }
+
+  &__likeIcon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 1px solid #B4BDC3;
+    background-color: #FFFFFF;
+
+    background-image: url('./LikeImage.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
