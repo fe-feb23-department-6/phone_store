@@ -15,19 +15,28 @@ export const Footer: React.FC = () => (
       <nav className="footer-nav">
         <ul className="footer-nav__list">
           <li className="footer-nav__item">
-            <a className="footer-nav__link" href="/">
+            <a
+              className="footer-nav__link"
+              href="/"
+            >
               Github
             </a>
           </li>
 
           <li className="footer-nav__item">
-            <Link className="footer-nav__link" to="/">
+            <Link
+              className="footer-nav__link"
+              to="/"
+            >
               Contacts
             </Link>
           </li>
 
           <li className="footer-nav__item">
-            <Link className="footer-nav__link" to="/">
+            <Link
+              className="footer-nav__link"
+              to="/"
+            >
               Rights
             </Link>
           </li>
