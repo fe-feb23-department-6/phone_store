@@ -12,6 +12,5 @@ root.render(
     <StoreContextProvider>
       <App />
     </StoreContextProvider>
-    ,
   </BrowserRouter>,
 );
