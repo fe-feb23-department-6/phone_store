@@ -8,6 +8,8 @@ import { Cart } from './pages/Cart';
 import { NotFound } from './pages/NotFound';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
+import { Contacts } from './pages/Contacts';
+import { Rights } from './pages/Rights';
 
 export const App = () => {
   return (
@@ -27,6 +29,8 @@ export const App = () => {
             </Route>
             <Route path="/favourites" element={<Favorites />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/rights" element={<Rights />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
