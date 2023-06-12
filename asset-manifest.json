@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.5a601cbb.css",
-    "main.js": "/phone_store/static/js/main.3ca401be.js",
+    "main.css": "/phone_store/static/css/main.e854090f.css",
+    "main.js": "/phone_store/static/js/main.180cdd33.js",
     "static/media/Mont-Regular.otf": "/phone_store/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-Bold.otf": "/phone_store/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
-    "static/media/shopping_bag.svg": "/phone_store/static/media/shopping_bag.1beda4df7b041090b588f858e7122d17.svg",
-    "static/media/favourite.svg": "/phone_store/static/media/favourite.2901080b7c6eae55f8fa052d2d362a56.svg",
     "index.html": "/phone_store/index.html",
-    "main.5a601cbb.css.map": "/phone_store/static/css/main.5a601cbb.css.map",
-    "main.3ca401be.js.map": "/phone_store/static/js/main.3ca401be.js.map"
+    "static/media/back_to_top.svg": "/phone_store/static/media/back_to_top.63f7694b63fe546e42e6bb102a0ec7b0.svg",
+    "main.e854090f.css.map": "/phone_store/static/css/main.e854090f.css.map",
+    "main.180cdd33.js.map": "/phone_store/static/js/main.180cdd33.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a601cbb.css",
-    "static/js/main.3ca401be.js"
+    "static/css/main.e854090f.css",
+    "static/js/main.180cdd33.js"
   ]
 }
