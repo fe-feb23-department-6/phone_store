@@ -2,6 +2,7 @@
 @import '../../styles/utils/mixins';
 @import '../../styles/utils/reset';
 @import '../../styles/fonts/fonts.scss';
+@import '../../styles/utils/normalize';
 
 .footer {
   &__content {
@@ -23,14 +24,11 @@
   }
 
   &__link {
+    @include small-text;
+
     margin: 32px 0;
     color: $secondary-color;
     text-decoration: none;
-
-    font-family: 'Mont';
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
 
     &:hover {
       color: $primary-color;
