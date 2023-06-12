@@ -11,9 +11,11 @@ interface Props {
 export const NavigationLink: React.FC<Props> = ({ className, to, title }) => (
   <NavLink
     to={to}
-    className={({ isActive }) => cn(`${className}`, {
-      'is-active': isActive,
-    })}
+    className={({ isActive }) =>
+      cn(`${className}`, {
+        'is-active': isActive,
+      })
+    }
   >
     {title}
   </NavLink>
