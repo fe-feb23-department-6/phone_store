@@ -45,6 +45,8 @@
 }
 
 .footer-nav {
+  min-width: 40%;
+
   @include onTablet {
     &__list {
       display: flex;
@@ -59,11 +61,10 @@
     margin: 16px 0;
 
     @include onTablet {
-      margin-right: 16px;
-    }
-
-    @include onDesktop {
-      margin-right: 106px;
+      display: flex;
+      justify-content: space-around;
+      flex-grow: 1;
+      margin: 0 16px;
     }
 
     &:last-child {
