@@ -19,7 +19,7 @@ export const Footer: React.FC = () => (
             <NavigationLink
               className="footer-nav__link"
               to="/"
-              title="Gadgets"
+              title="Github"
             />
           </li>
           <li className="footer-nav__item">
