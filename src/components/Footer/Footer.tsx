@@ -28,7 +28,6 @@ export const Footer: React.FC = () => (
               to="/"
               title="Contacts"
             />
-
           </li>
           <li className="footer-nav__item">
             <NavigationLink
