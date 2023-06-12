@@ -19,11 +19,13 @@ export const Footer: React.FC = () => (
               Github
             </a>
           </li>
+
           <li className="footer-nav__item">
             <Link className="footer-nav__link" to="/">
               Contacts
             </Link>
           </li>
+
           <li className="footer-nav__item">
             <Link className="footer-nav__link" to="/">
               Rights
