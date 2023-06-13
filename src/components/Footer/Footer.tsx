@@ -1,11 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Footer.scss';
 import Logo from '../../img/nice_gadgets_logo.png';
 import BackToTop from '../../img/back_to_top.svg';
 
-export const Footer: React.FC = () => (
+export const Footer: FC = () => (
   <footer className="footer">
     <div className="footer__content">
       <Link className="footer__logo footer__link" to="/">
