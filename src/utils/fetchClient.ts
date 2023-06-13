@@ -5,18 +5,13 @@ async function request<T>(searchParams: string, method = 'GET'): Promise<T> {
   const options: RequestInit = { method };
 
   try {
-    const response = await fetch(BASE_URL + searchParams, {
-      headers: {
-        'Access-Control-Allow-Origin': 'http://localhost:3000',
-      },
-      ...options,
-    });
+    const response = await fetch(BASE_URL + searchParams, options);
 
     const responseData = await response.json();
 
     return responseData;
   } catch (error) {
-    throw error;
+    throw new Error('An error occurred: ' + String(error));
   }
 }
 

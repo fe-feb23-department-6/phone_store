@@ -1,15 +1,15 @@
 import { client } from '../utils/fetchClient';
-import { Phones } from '../types/Phones';
+import { Products } from '../types/Products';
 
-// search params is equal to useLocation().search
+// search params should be useLocation().search
 export const getProducts = async(searchParams: string) => {
-  const products = await client.getAllPhones<Phones[]>(
+  const products = await client.getAllPhones<Products>(
     `products${searchParams}`,
   );
 
-  //   products.map((item) => {
-  //     item.image = `https://backend-phone-store.onrender.com/${item.image}`;
-  //   });
+  products.products.map((item) => {
+    item.image = `https://backend-phone-store.onrender.com/${item.image}`;
+  });
 
   return products;
 };
