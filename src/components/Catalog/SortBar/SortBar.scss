@@ -10,7 +10,6 @@
 
 .sortBy {
   &__text {
-    font-family: $global-font;
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
@@ -21,28 +20,26 @@
   }
 
   &__list {
-    border: 1px solid #B4BDC3;
-    background-color: #fff;
+    border: 1px solid #b4bdc3;
+    background-color: $productCard-background;
     border-radius: $borderRadius-standart;
     height: 40px;
-    width: 185px;
+    width: 120px;
     margin-right: 24px;
     padding-left: 12px;
-    font-family: $global-font;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 21px;
 
-    @media (max-width: 320px) {
-      width: 120px;
+    @include onTab {
+      width: 185px;
     }
   }
 }
 
 .itemsOnPage {
   &__text {
-    font-family: $global-font;
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
@@ -55,11 +52,10 @@
   &__list {
     height: 40px;
     width: 135px;
-    border: 1px solid #B4BDC3;
-    background-color: #fff;
+    border: 1px solid #b4bdc3;
+    background-color: $productCard-background;
     border-radius: $borderRadius-standart;
     padding-left: 12px;
-    font-family: $global-font;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;

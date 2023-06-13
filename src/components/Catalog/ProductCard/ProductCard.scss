@@ -5,11 +5,11 @@
   box-sizing: border-box;
 
   width: $productCard-width;
-  height: $productCard-hight;
+  height: $productCard-hight-mobile;
   padding: 32px;
 
-  background: #FFFFFF;
-  border: 1px solid #E2E6E9;
+  background: $productCard-background;
+  border: 1px solid $productCard-borderColor;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   border-radius: $borderRadius-standart;
 
@@ -20,15 +20,15 @@
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
   }
 
-  @media (max-width: 320px) {
-    height: 440px;
+  @include onTab {
+    height: $productCard-hight;
   }
 
   &__productPhoto {
-    height: 196px;
-  
-    @media (max-width: 320px) {
-      height: 130px;
+    height: $productCard-photoHeight-mobile;
+
+    @include onTab {
+      height: $productCard-photoHeight;
     }
   }
 
@@ -43,7 +43,6 @@
   &__productName {
     height: 42px;
 
-    font-family: $global-font;
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -56,7 +55,6 @@
     margin: 0;
 
     &--current {
-      font-family: $global-font;
       font-style: normal;
       font-weight: 800;
       font-size: 22px;
@@ -65,7 +63,6 @@
     }
 
     &--full {
-      font-family: $global-font;
       font-style: normal;
       font-weight: 600;
       font-size: 22px;
@@ -78,9 +75,9 @@
 
 .phoneInfo {
   padding: 16px 0;
-  border-top: 1px solid #E2E6E9;
+  border-top: 1px solid $productCard-borderColor;
 
-  &__screen {
+  &__parameter {
     display: flex;
     justify-content: space-between;
     padding-bottom: 8px;
@@ -94,31 +91,8 @@
     }
   }
 
-  &__capacity {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 8px;
-
-    &-text {
-      @include cardParamsText;
-    }
-
-    &-size {
-      @include cardParamsValues;
-    }
-  }
-
-  &__ram {
-    display: flex;
-    justify-content: space-between;
-
-    &-text {
-      @include cardParamsText;
-    }
-
-    &-size {
-      @include cardParamsValues;
-    }
+  :last-child {
+    padding-bottom: 0;
   }
 }
 
@@ -129,25 +103,24 @@
   &__addToCart {
     height: 40px;
     width: 77%;
+    border: 1px solid #216CFF;
     border-radius: $borderRadius-standart;
-    font-family: $global-font;
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 37px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-align: center;
-    
-    
-    background-color: #216CFF;
+
+    background-color: #216cff;
   }
 
   &__likeIcon {
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    border: 1px solid #B4BDC3;
-    background-color: #FFFFFF;
+    border: 1px solid #b4bdc3;
+    background-color: #ffffff;
 
     background-image: url('./LikeImage.png');
     background-repeat: no-repeat;

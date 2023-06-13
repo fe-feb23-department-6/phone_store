@@ -1,13 +1,13 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import { Home } from './pages/Home';
-import { Catalog } from '../src/components/Catalog/Catalog';
+import { Catalog } from './pages/Catalog';
 import { Product } from './pages/Product';
 import { Favorites } from './pages/Favorites';
 import { NotFound } from './pages/NotFound';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
-import { Cart } from './components/Cart/Cart';
+import { Cart } from './pages/Cart';
 
 export const App = () => {
   return (
