@@ -15,31 +15,35 @@ export const Footer: React.FC = () => (
       <nav className="footer-nav">
         <ul className="footer-nav__list">
           <li className="footer-nav__item">
-            <a className="footer-nav__link" href="/">
+            <a
+              className="footer-nav__link"
+              href="https://github.com/fe-feb23-department-6/phone_store"
+              target="_blank"
+            >
               Github
             </a>
           </li>
 
           <li className="footer-nav__item">
-            <Link className="footer-nav__link" to="/">
+            <Link className="footer-nav__link" to="/contacts">
               Contacts
             </Link>
           </li>
 
           <li className="footer-nav__item">
-            <Link className="footer-nav__link" to="/">
+            <Link className="footer-nav__link" to="/rights">
               Rights
             </Link>
           </li>
         </ul>
       </nav>
 
-      <Link className="footer__link" to="/">
+      <a className="footer__link" href="#">
         <div className="footer__back-link">
           <span>Back to top</span>
           <img className="footer-icon" src={BackToTop} />
         </div>
-      </Link>
+      </a>
     </div>
   </footer>
 );
