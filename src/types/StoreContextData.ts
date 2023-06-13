@@ -1,6 +1,9 @@
-import { PhoneCard } from './PhoneCard';
+import { CartProductData } from './CartProductData';
+import { CatalogProductData } from './CatalogProductData';
+import { FullProductData } from './FullProductData';
 
 export interface StoreContextData {
-  cartContents: PhoneCard[];
-  setCartContents: React.Dispatch<React.SetStateAction<PhoneCard[]>>;
+  cartContents: CartProductData[];
+  addToCartCatalog: (product: CatalogProductData) => void;
+  addToCartProductPage: (product: FullProductData) => void;
 }

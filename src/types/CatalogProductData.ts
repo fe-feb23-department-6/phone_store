@@ -1,5 +1,5 @@
-export interface PhoneCard {
-  id: string;
+export interface CatalogProductData {
+  id: number;
   category: string;
   phoneId: string;
   itemId: string;
