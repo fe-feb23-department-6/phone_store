@@ -23,7 +23,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="/:categoryName">
+            <Route path="/category/:categoryName">
               <Route index element={<Catalog />} />
               <Route path=":productId" element={<Product />} />
             </Route>
