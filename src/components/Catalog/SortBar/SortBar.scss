@@ -20,7 +20,7 @@
   }
 
   &__list {
-    border: 1px solid #b4bdc3;
+    border: 1px solid $icons-color;
     background-color: $productCard-background;
     border-radius: $borderRadius-standart;
     height: 40px;
@@ -32,7 +32,7 @@
     font-size: 14px;
     line-height: 21px;
 
-    @include onTab {
+    @include onTablet {
       width: 185px;
     }
   }
@@ -52,7 +52,7 @@
   &__list {
     height: 40px;
     width: 135px;
-    border: 1px solid #b4bdc3;
+    border: 1px solid $icons-color;
     background-color: $productCard-background;
     border-radius: $borderRadius-standart;
     padding-left: 12px;
