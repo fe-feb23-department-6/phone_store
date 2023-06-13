@@ -1,0 +1,64 @@
+@import '../../../styles/utils/_vars.scss';
+@import '../../../styles/utils/_mixins.scss';
+
+.sortBar {
+  display: flex;
+
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.sortBy {
+  &__text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    color: $secondary-color;
+
+    margin: 0;
+  }
+
+  &__list {
+    border: 1px solid #b4bdc3;
+    background-color: $productCard-background;
+    border-radius: $borderRadius-standart;
+    height: 40px;
+    width: 120px;
+    margin-right: 24px;
+    padding-left: 12px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include onTab {
+      width: 185px;
+    }
+  }
+}
+
+.itemsOnPage {
+  &__text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    color: $secondary-color;
+
+    margin: 0;
+  }
+
+  &__list {
+    height: 40px;
+    width: 135px;
+    border: 1px solid #b4bdc3;
+    background-color: $productCard-background;
+    border-radius: $borderRadius-standart;
+    padding-left: 12px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}

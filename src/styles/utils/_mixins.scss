@@ -87,3 +87,31 @@
   font-size: 12px;
   line-height: 15px;
 }
+
+@mixin onTab {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin cardParamsText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $secondary-color;
+}
+
+@mixin cardParamsValues {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  color: $primary-color;
+}
