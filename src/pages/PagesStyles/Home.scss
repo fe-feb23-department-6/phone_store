@@ -2,15 +2,15 @@
 @import '../../styles/utils/_mixins.scss';
 
 .home {
-   max-width: 1200px;
-   margin: 0 auto;
-   padding: 24px 0 64px;
-   
-   @include onTablet {
-      padding: 32px 0 64px;
-   }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 0 64px;
 
-   @include onDesktop {
-      padding: 56px 0 80px;
-   }
+  @include onTablet {
+    padding: 32px 0 64px;
+  }
+
+  @include onDesktop {
+    padding: 56px 0 80px;
+  }
 }
