@@ -23,13 +23,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "format": "prettier --write . --ignore-path .gitignore",
-    "lint": "eslint . --ignore-path .gitignore --fix",
-    "fix-style": "npm run format && npm run lint",
+    "lint": "eslint . --ignore-path .gitignore",
+    "fix-style": "npm run format && npm run lint -- --fix",
     "prepare": "husky install"
   },
   "browserslist": {
@@ -56,6 +54,6 @@
     "node-sass": "^7.0.1"
   },
   "lint-staged": {
-    "*.js": "npm run lint"
+    "./src/*.{js,jsx,ts,tsx}": "npm run lint"
   }
 }
