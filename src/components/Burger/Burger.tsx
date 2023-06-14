@@ -1,22 +1,101 @@
 import { FC } from 'react';
-import NiceGadgetsLogo from '../../img/nice_gadgets.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import './Burger.scss';
 import cn from 'classnames';
+import BurgerClose from '../../img/icons/burger_menu_cross.svg';
+import NiceGadgetsLogo from '../../img/icons/nice_gadgets_burger.svg';
+import Favorite from '../../img/icons/favorite.svg';
+import Basket from '../../img/icons/shopping_bag.svg';
 
-interface Props {
-  handleClick: () => void;
-  isActive: boolean;
-}
-
-export const Burger: FC<Props> = ({ handleClick, isActive }) => (
+export const Burger: FC = () => (
   <div
     id="burger"
-    className={cn('burger', {
-      active: isActive,
-    })}
+    className="burger"
   >
-    <Link className="header__logo" to={'/'} onClick={handleClick}>
-      <img src={NiceGadgetsLogo} alt="logo" />
-    </Link>
+    <header className="burger__header">
+      <Link className="burger__header__logo" to="/">
+        <img src={NiceGadgetsLogo} alt="logo" />
+      </Link>
+
+      <Link to="#" className="burger__header__close">
+        <img src={BurgerClose} alt="burger_close" />
+      </Link>
+    </header>
+
+    <nav className='burger__nav'>
+      <ul className="nav__list--burger">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              cn('nav__link--burger', {
+                'is-active': isActive,
+              })
+            }
+          >
+          Home
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/phones"
+            className={({ isActive }) =>
+              cn('nav__link--burger', {
+                'is-active': isActive,
+              })
+            }
+          >
+          Phones
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/tablets"
+            className={({ isActive }) =>
+              cn('nav__link--burger', {
+                'is-active': isActive,
+              })
+            }
+          >
+          Tablets
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/accessories"
+            className={({ isActive }) =>
+              cn('nav__link--burger', {
+                'is-active': isActive,
+              })
+            }
+          >
+          Accessories
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+
+    <div className="burger__actions">
+      <NavLink
+        to={'/favorite'}
+        className={({ isActive }) => cn('actions__favorite', {
+          'is-active': isActive,
+        })}
+      >
+        <img src={Favorite} alt="favourite" className="burger__action__image" />
+      </NavLink>
+
+      <NavLink
+        to={'/cart'}
+        className={({ isActive }) => cn('actions__cart', {
+          'is-active': isActive,
+        })}
+      >
+        <img src={Basket} alt="cart" className="burger__action__image" />
+      </NavLink>
+    </div>
   </div>
 );

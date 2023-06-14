@@ -14,10 +14,10 @@ export const ActionsLink = () => (
     </NavLink>
 
     <NavLink
-      to={'/basket'}
+      to={'/cart'}
       className={({ isActive }) => cn('action', { 'is-active': isActive })}
     >
-      <img src={Basket} alt="basket" className="action__image" />
+      <img src={Basket} alt="cart" className="action__image" />
     </NavLink>
   </div>
 );
