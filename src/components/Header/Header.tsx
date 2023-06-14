@@ -14,6 +14,10 @@ export const Header: FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <header className="header">
@@ -26,11 +30,11 @@ export const Header: FC = () => {
         </div>
 
         <ActionsLink />
-        <Link to="#burger" className="burger__menu" onClick={handleMenuClick}>
+        <button className="burger__menu" onClick={handleMenuClick}>
           <img src={BurgerMenu} alt="burger_menu" />
-        </Link>
+        </button>
       </header>
-      {isMenuOpen && <Burger />}
+      {isMenuOpen && <Burger onClose={handleCloseMenu} />}
     </>
   );
 };
