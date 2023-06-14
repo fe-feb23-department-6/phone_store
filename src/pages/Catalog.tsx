@@ -44,9 +44,7 @@ export const Catalog = () => {
       </div>
       <SortBar />
       <ProductsList products={products} />
-      {totalPages
-        && <Pagination totalPages={totalPages}/>
-      }
+      {totalPages && <Pagination totalPages={totalPages} />}
     </div>
   );
 };
