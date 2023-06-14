@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.6d3c41a1.css",
-    "main.js": "/phone_store/static/js/main.fae65b4e.js",
+    "main.css": "/phone_store/static/css/main.847972a6.css",
+    "main.js": "/phone_store/static/js/main.44426fb5.js",
+    "static/media/nice_gadgets.svg": "/phone_store/static/media/nice_gadgets.e1b2d36b34e116d7687be9462d106ebd.svg",
+    "static/media/nice_gadgets_burger.svg": "/phone_store/static/media/nice_gadgets_burger.3c6bd1886792ca6da9d59ce7bea7dc78.svg",
     "static/media/Mont-Regular.otf": "/phone_store/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-Bold.otf": "/phone_store/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
     "static/media/shopping_bag.svg": "/phone_store/static/media/shopping_bag.6860bdcea57ff1b8495405107fd5476b.svg",
     "static/media/favorite.svg": "/phone_store/static/media/favorite.a68b583019ef3d99b63fd0c972a9eefa.svg",
+    "static/media/burger_menu_cross.svg": "/phone_store/static/media/burger_menu_cross.ab8ba6b8a2b2e909c744c9ff6ca3d86d.svg",
     "index.html": "/phone_store/index.html",
     "static/media/burger.svg": "/phone_store/static/media/burger.f2017e1e6e481c1a5d4f98c61be46d62.svg",
-    "main.6d3c41a1.css.map": "/phone_store/static/css/main.6d3c41a1.css.map",
-    "main.fae65b4e.js.map": "/phone_store/static/js/main.fae65b4e.js.map"
+    "main.847972a6.css.map": "/phone_store/static/css/main.847972a6.css.map",
+    "main.44426fb5.js.map": "/phone_store/static/js/main.44426fb5.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d3c41a1.css",
-    "static/js/main.fae65b4e.js"
+    "static/css/main.847972a6.css",
+    "static/js/main.44426fb5.js"
   ]
 }
