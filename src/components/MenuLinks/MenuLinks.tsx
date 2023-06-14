@@ -8,9 +8,11 @@ export const MenuLinks = () => (
       <li>
         <NavLink
           to={'/'}
-          className={({ isActive }) => cn('nav__link', {
-            'is-active': isActive,
-          })}
+          className={({ isActive }) =>
+            cn('nav__link', {
+              'is-active': isActive,
+            })
+          }
         >
           Home
         </NavLink>
@@ -19,9 +21,11 @@ export const MenuLinks = () => (
       <li>
         <NavLink
           to={'/phones'}
-          className={({ isActive }) => cn('nav__link', {
-            'is-active': isActive,
-          })}
+          className={({ isActive }) =>
+            cn('nav__link', {
+              'is-active': isActive,
+            })
+          }
         >
           Phones
         </NavLink>
@@ -30,9 +34,11 @@ export const MenuLinks = () => (
       <li>
         <NavLink
           to={'/tablets'}
-          className={({ isActive }) => cn('nav__link', {
-            'is-active': isActive,
-          })}
+          className={({ isActive }) =>
+            cn('nav__link', {
+              'is-active': isActive,
+            })
+          }
         >
           Tablets
         </NavLink>
@@ -41,11 +47,13 @@ export const MenuLinks = () => (
       <li>
         <NavLink
           to={'/accessories'}
-          className={({ isActive }) => cn('nav__link', {
-            'is-active': isActive,
-          })}
+          className={({ isActive }) =>
+            cn('nav__link', {
+              'is-active': isActive,
+            })
+          }
         >
-         Accessories
+          Accessories
         </NavLink>
       </li>
     </ul>

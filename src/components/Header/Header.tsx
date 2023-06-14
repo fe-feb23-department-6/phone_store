@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './header.scss';
 import { MenuLinks } from '../MenuLinks';
 import { ActionsLink } from '../ActionLinks';
-import { Burger } from '../Burger';
 import BurgerMenu from '../../img/icons/burger.svg';
 import NiceGadgetsLogo from '../../img/nice_gadgets.png';
 
@@ -31,7 +30,7 @@ export const Header: FC = () => {
         </Link>
       </header>
       {
-      // <Burger handleClick={handleMenuClick} isActive={isMenuOpen} />
+        // <Burger handleClick={handleMenuClick} isActive={isMenuOpen} />
       }
     </>
   );
