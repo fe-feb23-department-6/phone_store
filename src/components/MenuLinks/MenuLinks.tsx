@@ -7,7 +7,7 @@ export const MenuLinks = () => (
     <ul className="nav__list">
       <li>
         <NavLink
-          to={'/'}
+          to="/"
           className={({ isActive }) =>
             cn('nav__link', {
               'is-active': isActive,
@@ -20,7 +20,7 @@ export const MenuLinks = () => (
 
       <li>
         <NavLink
-          to={'/phones'}
+          to="/phones"
           className={({ isActive }) =>
             cn('nav__link', {
               'is-active': isActive,
@@ -33,7 +33,7 @@ export const MenuLinks = () => (
 
       <li>
         <NavLink
-          to={'/tablets'}
+          to="/tablets"
           className={({ isActive }) =>
             cn('nav__link', {
               'is-active': isActive,
@@ -46,7 +46,7 @@ export const MenuLinks = () => (
 
       <li>
         <NavLink
-          to={'/accessories'}
+          to="/accessories"
           className={({ isActive }) =>
             cn('nav__link', {
               'is-active': isActive,
