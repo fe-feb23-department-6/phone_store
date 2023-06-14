@@ -1,7 +1,6 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
-import './ActionsLink.scss';
+import './ActionLinks.scss';
 import Favorite from '../../img/icons/favorite.svg';
 import Basket from '../../img/icons/shopping_bag.svg';
 

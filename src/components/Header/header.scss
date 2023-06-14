@@ -19,7 +19,8 @@
     padding: 0px;
     gap: 32px;
   }
-  @include onTablet {
+
+  @include onDesktop {
     height: $desktop-heigh;
     gap: 48px;
   }

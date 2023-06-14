@@ -2,29 +2,29 @@
 @import '../../styles/utils/mixins.scss';
 
 .header__actions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  display: none;
 
-  @media (max-width: 639px) {
-    display: none;
+  @include onTablet {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 }
 
 .action {
   display: flex;
   justify-content: center;
+  height: 48px;
+  width: 48px;
 
-  height: 64px;
-  width: 64px;
   margin: auto;
 
   box-shadow: -1px 0 0 #e2e6e9;
   position: relative;
 
-  @media (max-width: 640px) {
-    height: 48px;
-    width: 48px;
+  @include onDesktop {
+    height: 64px;
+    width: 64px;
   }
 
   &__image {
@@ -32,5 +32,6 @@
     justify-content: center;
     position: relative;
     width: 30%;
+    height: 100%;
   }
 }

@@ -1,8 +1,8 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
-import { MenuLink } from '../MenuLink';
-import { ActionsLink } from '../ActionsLink';
+import { MenuLinks } from '../MenuLinks';
+import { ActionsLink } from '../ActionLinks';
 import { Burger } from '../Burger';
 import BurgerMenu from '../../img/icons/burger.svg';
 import NiceGadgetsLogo from '../../img/nice_gadgets.png';
@@ -22,7 +22,7 @@ export const Header: FC = () => {
             <img src={NiceGadgetsLogo} alt="logo" />
           </Link>
 
-          <MenuLink />
+          <MenuLinks />
         </div>
 
         <ActionsLink />
@@ -30,7 +30,9 @@ export const Header: FC = () => {
           <img src={BurgerMenu} alt="burger_menu" />
         </Link>
       </header>
-      <Burger handleClick={handleMenuClick} isActive={isMenuOpen} />
+      {
+      // <Burger handleClick={handleMenuClick} isActive={isMenuOpen} />
+      }
     </>
   );
 };
