@@ -1,35 +1,62 @@
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { FC } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
+import './Pagination.scss';
 
-export const Pagination = () => {
+type Props = {
+  totalPages: number;
+};
+
+export const Pagination: FC<Props> = ({ totalPages }) => {
   const [searchParams] = useSearchParams();
-  const pageQuery = 'page';
+  const currentPage = Number(searchParams.get('page')) || 1;
+  const pageParam = 'page';
 
-  const pageQuantity = 4;
-  const pages = Array.from({ length: pageQuantity }, (el, i) => String(i));
+  const pages = Array.from({ length: totalPages }, (el, i) => String(i + 1));
 
   const setPageNumber = (pageNumber: string) => {
     const updatedSearchParams = new URLSearchParams(searchParams);
 
-    updatedSearchParams.set(pageQuery, pageNumber);
+    updatedSearchParams.set(pageParam, pageNumber);
 
     return updatedSearchParams.toString();
   };
 
   return (
-    <div className="pagination-container">
+    <div className="pagination">
+      <Link
+        to={{
+          search: setPageNumber(String(currentPage - 1)),
+        }}
+        className={cn('pagination__link', 'pagination__link--prev-next', {
+          'pagination__link--disabled': currentPage === 1,
+        })}
+      >
+        {'‹'}
+      </Link>
       {pages.map((page) => (
-        <NavLink
-          to={setPageNumber(page)}
-          className={({ isActive }) =>
-            cn({
-              'active-page': isActive,
-            })
-          }
+        <Link
+          to={{
+            search: setPageNumber(page),
+          }}
+          className={cn('pagination__link', {
+            'pagination__link--active': page === String(currentPage),
+          })}
+          key={page}
         >
           {page}
-        </NavLink>
+        </Link>
       ))}
+      <Link
+        to={{
+          search: setPageNumber(String(currentPage + 1)),
+        }}
+        className={cn('pagination__link', 'pagination__link--prev-next', {
+          'pagination__link--disabled': currentPage === totalPages,
+        })}
+      >
+        {'›'}
+      </Link>
     </div>
   );
 };

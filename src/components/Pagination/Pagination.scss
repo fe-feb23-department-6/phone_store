@@ -1,0 +1,42 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  column-gap: 8px;
+
+  &__link {
+    @include body-text;
+
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid $elements-color;
+    text-decoration: none;
+    line-height: 32px;
+    color: $selected-color;
+
+    &:hover {
+      border-color: $selected-color;
+    }
+
+    &--active {
+      background-color: $selected-color;
+      border-color: $selected-color;
+      color: $white-color;
+    }
+
+    &--disabled {
+      color: $elements-color;
+      pointer-events: none;
+    }
+
+    &--prev-next {
+      border-color: $icons-color;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}
