@@ -1,0 +1,136 @@
+@import '../../../styles/utils/_vars.scss';
+@import '../../../styles/utils/mixins';
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+  height: 160px;
+  width: 100%;
+
+  border: 1px solid $elements-color;
+  border-radius: 16px;
+
+  @include onTablet {
+    flex-direction: row;
+
+    height: 128px;
+    padding: 24px;
+  }
+
+  &-phoneinfo-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+
+    @include onTablet {
+      column-gap: 35px;
+    }
+  }
+
+  &__delete-button {
+    padding: 0;
+    height: 16px;
+    width: 16px;
+
+    background-color: $white-color;
+    background-image: url('./Cross.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(1.009);
+      cursor: pointer;
+    }
+  }
+
+  &__photo-container {
+    display: flex;
+    align-items: center;
+
+    height: 80px;
+  }
+
+  &__photo {
+    height: 67px;
+  }
+
+  &__description {
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: $primary-color;
+  }
+
+  &-quantity-and-price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    @include onTablet {
+      width: 225px;
+      padding-left: 31px;
+    }
+  }
+
+  &__quantity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 13px;
+
+    font-size: 14px;
+
+    &-button {
+      height: 32px;
+      width: 32px;
+      padding: 0;
+
+      border: 1px solid $icons-color;
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: $white-color;
+
+      &:hover {
+        border: 1px solid $primary-color;
+        cursor: pointer;
+      }
+
+      &:active {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__price {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    color: $primary-color;
+  }
+}
+
+.quantity-button-subtract {
+  background-image: url('./MinusIcon.png');
+  background-size: 55%;
+}
+
+.quantity-button-add {
+  background-image: url('./PlusIcon.png');
+  background-size: 35%;
+}

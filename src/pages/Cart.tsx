@@ -14,8 +14,8 @@ export const Cart = () => (
   <div className="cart-wrapper">
     <h1 className="cart-text">Cart</h1>
     <div className="cart">
-      <CartList cartProducts={threeProductsInCart}/>
-      <Checkout totalPrice={2000} totalItems={3}/>
+      <CartList cartProducts={threeProductsInCart} />
+      <Checkout totalPrice={2000} totalItems={3} />
     </div>
   </div>
 );
