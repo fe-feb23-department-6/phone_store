@@ -1,0 +1,71 @@
+ <a href="#home" className="header__logo">
+        <img src={NiceGadgetsLogo} alt="logo" />
+      </a>
+      <nav className="nav">
+        <ul className="nav__list">
+          <li className="nav__item">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                cn('nav__link', { 'is-active': isActive })
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+
+          <li className="nav__item">
+            <a className="nav__link" href="#phones">
+              Phones
+            </a>
+          </li>
+
+          <li className="nav__item">
+            <a className="nav__link" href="#tablets">
+              Tablets
+            </a>
+          </li>
+
+          <li className="nav__item">
+            <a className="nav__link" href="#accessories">
+              Accessories
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div className="header__actions">
+        <a href="#favorites" className="action">
+          <img src={Favorite} alt="favourite" className="action__image" />
+        </a>
+
+        <a href="#basket" className="action">
+          <img src={Basket} alt="basket" className="action__image" />
+        </a>
+      </div>
+
+
+
+      //-------------------------------------//
+.nav {
+  flex-grow: 1;
+  align-items: center;
+  position: relative;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nav__item {
+  list-style-type: none;
+  margin-right: 64px;
+
+  @media (max-width: 640px) {
+    margin-right: 32px;
+  }
+}
+
+
+

@@ -1,0 +1,36 @@
+@import '../../styles/utils/vars.scss';
+@import '../../styles/utils/mixins.scss';
+
+.header__actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (max-width: 639px) {
+    display: none;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+
+  height: 64px;
+  width: 64px;
+  margin: auto;
+
+  box-shadow: -1px 0 0 #e2e6e9;
+  position: relative;
+
+  @media (max-width: 640px) {
+    height: 48px;
+    width: 48px;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 30%;
+  }
+}

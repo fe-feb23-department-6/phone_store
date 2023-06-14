@@ -1,0 +1,24 @@
+@import '../../styles/utils/vars.scss';
+@import '../../styles/utils/mixins.scss';
+
+@mixin uppercased-text {
+  font-family: $global-font;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+.nav__link {
+  display: flex;
+  @include uppercased-text;
+  text-decoration: none;
+  height: 100%;
+  color: $secondary-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
