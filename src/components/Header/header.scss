@@ -1,104 +1,86 @@
 @import '../../styles/utils/vars.scss';
-
-@mixin uppercased-text {
-  font-family: $global-font;
-  font-weight: 800;
-  font-size: 12px;
-  line-height: 11px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
+@import '../../styles/utils/mixins.scss';
 
 .header {
   display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 48px;
+
   justify-content: space-between;
   align-items: center;
 
-  box-shadow: 0 1px 0 #e2e6e9;
+  box-shadow: 0 1px 0 $elements-color;
 
-  width: 100%;
-  padding-left: 24px;
+  &__nav {
+    display: flex;
 
-  @media (max-width: 640px) {
-    padding-left: 16px;
+    align-items: center;
+    padding: 0px;
+    gap: 32px;
+  }
+  @include onTablet {
+    height: $desktop-heigh;
+    gap: 48px;
   }
 }
 
 .header__logo {
-  min-width: 80px;
-  margin: 0 auto;
   text-decoration: none;
-}
 
-.nav {
-  flex-grow: 1;
-  align-items: center;
-  position: relative;
-}
+  padding-left: 16px;
 
-.nav__list {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+  @include onTablet {
+    padding-left: 24px;
+  }
+  img {
+    width: 64px;
 
-.nav__item {
-  list-style-type: none;
-  margin-right: 64px;
-
-  @media (max-width: 640px) {
-    margin-right: 32px;
+    @include onTablet {
+      width: 80px;
+    }
   }
 }
 
-.nav__link {
-  display: flex;
-  position: relative;
-  @include uppercased-text;
-  text-decoration: none;
-  height: 100%;
-  color: $secondary-color;
-
-  &:hover {
-    color: $primary-color;
-  }
-}
-
-.header__actions {
-  display: flex;
-  align-items: center;
-}
-
-.action {
-  height: 64px;
-  width: 64px;
-
+.burger__menu {
   display: flex;
   justify-content: center;
-  box-shadow: -1px 0 0 #e2e6e9;
+  align-items: center;
 
-  @media (max-width: 640px) {
-    height: 48px;
-    width: 48px;
-  }
+  width: 48px;
+  height: 48px;
 
-  &__image {
-    padding: 24px;
+  box-shadow: -1px 0px 0px $elements-color;
+
+  @include onTablet {
+    display: none;
   }
 }
 
 .is-active {
-  position: relative;
   color: $primary-color;
+  position: relative;
 
   &:after {
     content: '';
     position: absolute;
     width: 100%;
     height: 4px;
-    top: 36px;
+    left: 0;
+    bottom: 0;
     display: block;
     background: $primary-color;
     border-radius: 8px;
+    transform: translateX(-100%);
+    animation: slide-in 0.5s forwards;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

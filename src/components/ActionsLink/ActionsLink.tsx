@@ -9,19 +9,14 @@ export const ActionsLink = () => (
   <div className="header__actions">
     <NavLink
       to={'/favorite'}
-      className={({ isActive }) =>
-        cn('action', { 'is-active': isActive })
-      }
+      className={({ isActive }) => cn('action', { 'is-active': isActive })}
     >
       <img src={Favorite} alt="favourite" className="action__image" />
-
     </NavLink>
 
     <NavLink
       to={'/basket'}
-      className={({ isActive }) =>
-        cn('action', { 'is-active': isActive })
-      }
+      className={({ isActive }) => cn('action', { 'is-active': isActive })}
     >
       <img src={Basket} alt="basket" className="action__image" />
     </NavLink>

@@ -1,58 +1,36 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './header.scss';
-import NiceGadgetsLogo from '../../img/Nice Gadgets.png';
-import Favourite from '../../img/icons/favourite.svg';
-import Basket from '../../img/icons/shopping_bag.svg';
-import { NavLink } from 'react-router-dom';
-import cn from 'classnames';
+import { MenuLink } from '../MenuLink';
+import { ActionsLink } from '../ActionsLink';
+import { Burger } from '../Burger';
+import BurgerMenu from '../../img/icons/burger.svg';
+import NiceGadgetsLogo from '../../img/nice_gadgets.png';
 
 export const Header: FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="header">
-      <a href="#home" className="header__logo">
-        <img src={NiceGadgetsLogo} alt="logo" />
-      </a>
-      <nav className="nav">
-        <ul className="nav__list">
-          <li className="nav__item">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                cn('nav__link', { 'is-active': isActive })
-              }
-            >
-              Home
-            </NavLink>
-          </li>
+    <>
+      <header className="header">
+        <div className="header__nav">
+          <Link className="header__logo" to={'/'}>
+            <img src={NiceGadgetsLogo} alt="logo" />
+          </Link>
 
-          <li className="nav__item">
-            <a className="nav__link" href="#phones">
-              Phones
-            </a>
-          </li>
+          <MenuLink />
+        </div>
 
-          <li className="nav__item">
-            <a className="nav__link" href="#tablets">
-              Tablets
-            </a>
-          </li>
-
-          <li className="nav__item">
-            <a className="nav__link" href="#accessories">
-              Accessories
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div className="header__actions">
-        <a href="#favorites" className="action">
-          <img src={Favourite} alt="favourite" className="action__image" />
-        </a>
-
-        <a href="#basket" className="action">
-          <img src={Basket} alt="basket" className="action__image" />
-        </a>
-      </div>
-    </div>
+        <ActionsLink />
+        <Link to="#burger" className="burger__menu" onClick={handleMenuClick}>
+          <img src={BurgerMenu} alt="burger_menu" />
+        </Link>
+      </header>
+      <Burger handleClick={handleMenuClick} isActive={isMenuOpen} />
+    </>
   );
 };
