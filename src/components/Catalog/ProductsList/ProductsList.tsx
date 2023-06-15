@@ -1,13 +1,13 @@
-import React from 'react';
+import { FC } from 'react';
 import './ProductsList.scss';
-import { ProductCard } from '../ProductCard/ProductCard';
+import { ProductCard } from '../ProductCard';
 import { CatalogProductData } from '../../../types/CatalogProductData';
 
 type Props = {
   products: CatalogProductData[];
 };
 
-export const ProductsList: React.FC<Props> = ({ products }) => (
+export const ProductsList: FC<Props> = ({ products }) => (
   <div className="productList">
     {products.map((product) => (
       <ProductCard key={product.id} product={product} />

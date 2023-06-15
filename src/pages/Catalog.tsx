@@ -1,34 +1,34 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { getProducts } from '../api/phones';
-import { SortBar } from '../components/Catalog/SortBar/SortBar';
-import { ProductsList } from '../components/Catalog/ProductsList/ProductsList';
+import { SortBar } from '../components/Catalog/SortBar';
+import { ProductsList } from '../components/Catalog/ProductsList';
 import { Pagination } from '../components/Pagination/Pagination';
-import './PagesStyles/Catalog.scss';
-import '../styles/fonts/fonts.scss';
-import '../styles/utils/_vars.scss';
-import '../styles/utils/_mixins.scss';
 import { CatalogProductData } from '../types/CatalogProductData';
+import { getProducts } from '../api/phones';
+import './PagesStyles/Catalog.scss';
 
 export const Catalog = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalPages, setTotalPages] = useState<null | number>(null);
+  const [productsCount, setProductsCount] = useState<null | number>(null);
   const [searchParams] = useSearchParams();
 
-  const searchLocation = useLocation().search;
+  const paramsString = useLocation().search;
 
-  // eslint-disable-next-line space-before-function-paren
-  const getCatalogContents = useCallback(async () => {
+  const getCatalogContents = useCallback(async() => {
     try {
-      const response = await getProducts(searchLocation);
-      const productsFromServer = response.products;
-      const pagesQuantity = response.totalPages;
+      const productsData = await getProducts(paramsString);
+      const {
+        products: productsFromServer,
+        totalPages: pagesQuantity,
+        totalCount: productsQuantity,
+      } = productsData;
 
+      setProductsCount(productsQuantity);
       setTotalPages(pagesQuantity);
       setProducts(productsFromServer);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
+    } catch {
+      throw new Error('Server error');
     }
   }, [searchParams]);
 
@@ -40,10 +40,15 @@ export const Catalog = () => {
     <div className="catalogContent">
       <div className="categoryName">
         <h1 className="categoryName-text">Mobile phones</h1>
-        <p className="categoryName-quantity">{`${products.length} models`}</p>
+        {productsCount && (
+          <p className="categoryName-quantity">{`${productsCount} models`}</p>
+        )}
       </div>
+
       <SortBar />
+
       <ProductsList products={products} />
+
       {totalPages && <Pagination totalPages={totalPages} />}
     </div>
   );

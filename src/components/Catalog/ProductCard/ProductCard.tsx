@@ -10,7 +10,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const { image, fullPrice, price, capacity, ram } = product;
 
   return (
-    <main className="productCard">
+    <div className="productCard">
       <div className="productCard-imageContainer">
         <img
           src={image}
@@ -20,10 +20,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </div>
       <div className="productCard__productName">{product.name}</div>
 
-      <p className="productCard__price">
+      <div className="productCard__price">
         <div className="productCard__price--current">{`$${price}`}</div>
         <div className="productCard__price--full">{`$${fullPrice}`}</div>
-      </p>
+      </div>
 
       <div className="productCard__phoneInfo phoneInfo">
         <div className="phoneInfo__parameter">
@@ -49,6 +49,6 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
         <button type="button" className="addToCartOrLike__likeIcon" />
       </div>
-    </main>
+    </div>
   );
 };

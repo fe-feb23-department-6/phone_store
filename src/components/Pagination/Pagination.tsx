@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
+import { pageParam } from '../../constants';
 import './Pagination.scss';
 
 type Props = {
@@ -9,8 +10,11 @@ type Props = {
 
 export const Pagination: FC<Props> = ({ totalPages }) => {
   const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page')) || 1;
-  const pageParam = 'page';
+
+  const pageFromParams = Number(searchParams.get(pageParam)) || 1;
+  const currentPage = pageFromParams <= totalPages
+    ? pageFromParams
+    : totalPages;
 
   const pages = Array.from({ length: totalPages }, (el, i) => String(i + 1));
 
@@ -34,6 +38,7 @@ export const Pagination: FC<Props> = ({ totalPages }) => {
       >
         {'‹'}
       </Link>
+
       {pages.map((page) => (
         <Link
           to={{
@@ -47,6 +52,7 @@ export const Pagination: FC<Props> = ({ totalPages }) => {
           {page}
         </Link>
       ))}
+
       <Link
         to={{
           search: setPageNumber(String(currentPage + 1)),
