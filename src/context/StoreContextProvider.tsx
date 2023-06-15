@@ -42,7 +42,7 @@ export const StoreContextProvider: FC<Props> = ({ children }) => {
   const handleFavChange = (id: string) => {
     setFavContents((currentContents) => {
       if (favContents.includes(id)) {
-        const contents = currentContents.filter(prodId => prodId !== id);
+        const contents = currentContents.filter((prodId) => prodId !== id);
 
         localStorage.setItem('cartContents', JSON.stringify(contents));
 
