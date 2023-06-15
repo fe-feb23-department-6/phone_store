@@ -1,0 +1,13 @@
+@import '../../../styles/utils/_vars.scss';
+@import '../../../styles/utils/mixins';
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+
+  @include onDesktop {
+    width: 752px;
+  }
+}
