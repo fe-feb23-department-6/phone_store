@@ -1,0 +1,100 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.banner {
+  margin-bottom: 66px;
+  object-fit: contain;
+  overflow: hidden;
+
+  @include onTablet {
+    margin-bottom: 74px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+  &-title {
+    margin-bottom: 24px;
+    font-size: 32px;
+
+    @include onTablet {
+      font-size: 48px;
+      margin-bottom: 32px;
+    }
+  }
+  &-item {
+    margin: 0 auto;
+    min-width: 300px;
+    // max-width: 630px;
+
+    &__img {
+      min-height: 320px;
+      min-width: 320px;
+      object-fit: cover;
+      max-height: 400px;
+
+      width: 100%;
+      height: 100%;
+      margin: 0 auto 28px;
+
+      @include onTablet {
+        min-height: 0;
+        object-fit: fill;
+      }
+    }
+
+    @include onTablet {
+      // max-width: 90%;
+      max-height: 400px;
+      // padding: 0 20px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.swiper {
+  &-button-prev,
+  &-button-next {
+    display: none;
+    background-color: $productCard-background;
+    @include onTablet {
+      display: block;
+      height: 85%;
+      max-height: 395px;
+      border: 1px solid #b4bdc4;
+      border-radius: 48px;
+      color: #0f0f11;
+      top: var(--swiper-navigation-top-offset, 10%);
+
+      &::after {
+        left: 48%;
+        position: absolute;
+        top: 50%;
+        font-weight: bolder;
+        font-size: 8px;
+      }
+    }
+  }
+
+
+
+  &-pagination {
+    &-bullet {
+      height: 4px;
+      width: 14px;
+      background-color: $icons-color;
+      border-radius: 0;
+
+      &-active {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+.swiper-container {
+  width: 90%;
+  height: 90%;
+  padding: 150px;
+}

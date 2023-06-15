@@ -1,13 +1,13 @@
 import './PagesStyles/Home.scss';
 
-import { Promo } from '../components/Promo';
-import { Categories } from '../components/Categories';
+import { Banner } from '../components/Home/Banner';
+import { Categories } from '../components/Home/Categories';
 import { ProductsSlider } from '../components/ProductsSlider';
 
 export const Home = () => {
   return (
     <div className="home">
-      <Promo />
+      <Banner />
 
       <section className="new-models products-slider">
         <h2 className="products-slider__title">New models</h2>
