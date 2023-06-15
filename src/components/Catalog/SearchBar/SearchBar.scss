@@ -1,0 +1,17 @@
+@import '../../../styles/utils/_vars.scss';
+@import '../../../styles/utils/_mixins.scss';
+
+.params-block__input {
+  height: 40px;
+  max-width: 360px;
+  width: 100%;
+  margin-right: 24px;
+  padding-left: 12px;
+
+  border: 1px solid $icons-color;
+  background-color: $productCard-background;
+  border-radius: $borderRadius-standart;
+
+  font-family: $global-font;
+  color: $selected-color;
+}
