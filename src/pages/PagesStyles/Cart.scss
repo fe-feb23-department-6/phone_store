@@ -3,16 +3,21 @@
 
 .cart-wrapper {
   padding: 16px;
-  width: 320px;
+  min-width: 320px;
+  max-width: 432px;
+  width: 100%;
   margin: 0 auto;
 
   @include onTablet {
     padding: 24px;
-    width: 640px;
+    min-width: 640px;
+    max-width: 800px;
+    width: 100%;
   }
 
   @include onDesktop {
     padding: 32px;
+    max-width: 1200px;
     width: 1200px;
   }
 }
@@ -27,22 +32,21 @@
     padding-top: 24px;
 
     text-align: left;
-    font-style: normal;
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 41px;
     color: $primary-color;
+
+    @include h1-mobile;
 
     @include onTablet {
       padding-top: 16px;
+      width: 100%;
 
-      font-size: 48px;
-      line-height: 56px;
+      @include h1-desktop;
     }
   }
 
   @include onDesktop {
     flex-direction: row;
     column-gap: 16px;
+    width: 100%;
   }
 }

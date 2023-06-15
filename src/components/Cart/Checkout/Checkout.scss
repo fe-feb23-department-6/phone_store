@@ -23,19 +23,15 @@
     border-bottom: 1px solid $elements-color;
 
     &-price {
-      font-style: normal;
-      font-weight: 800;
-      font-size: 32px;
-      line-height: 41px;
       color: $primary-color;
+
+      @include h2-desktop;
     }
 
     &-items {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 21px;
       color: $secondary-color;
+
+      @include body-text;
     }
   }
 
@@ -50,6 +46,7 @@
     border: 1px solid $accent-color;
     border-radius: 8px;
     background-color: $accent-color;
+    font-style: $global-font;
     color: $white-color;
     font-style: normal;
     font-weight: 700;

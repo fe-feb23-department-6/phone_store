@@ -1,7 +1,7 @@
 import './PagesStyles/Cart.scss';
-import { CartList } from '../components/Cart/CartList/CartList';
 import { Checkout } from '../components/Cart/Checkout/Checkout';
 import ProductsInCart from './../phonesBase.json';
+import { CartList } from '../components/Cart/Cartlist/CartList';
 
 const threeProductsInCart = ProductsInCart.slice(0, 3);
 
