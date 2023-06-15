@@ -5,9 +5,12 @@
   display: flex;
   margin-bottom: 24px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .params-block {
+  padding-top: 10px;
+
   &__title {
     margin-bottom: 4px;
 
@@ -22,8 +25,8 @@
     padding-left: 12px;
 
     border: 1px solid $icons-color;
-    background-color: $productCard-background;
-    border-radius: $borderRadius-standart;
+    background-color: $white-color;
+    border-radius: $border-radius-standart;
 
     font-family: $global-font;
     color: $selected-color;
@@ -49,8 +52,7 @@
     padding-left: 12px;
 
     border: 1px solid $icons-color;
-    background-color: $productCard-background;
-    border-radius: $borderRadius-standart;
+    border-radius: $border-radius-standart;
 
     font-family: $global-font;
     color: $selected-color;
