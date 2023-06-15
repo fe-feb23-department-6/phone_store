@@ -28,94 +28,96 @@ export const Burger: FC<Props> = ({ onClose }) => {
         </button>
       </header>
 
-      <nav className="burger__nav">
-        <ul className="nav__list--burger">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Home
-            </NavLink>
-          </li>
+      <div className="burger_content">
+        <nav className="burger__nav">
+          <ul className="nav__list--burger">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Home
+              </NavLink>
+            </li>
 
-          <li>
-            <NavLink
-              to="/phones"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Phones
-            </NavLink>
-          </li>
+            <li>
+              <NavLink
+                to="/phones"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Phones
+              </NavLink>
+            </li>
 
-          <li>
-            <NavLink
-              to="/tablets"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Tablets
-            </NavLink>
-          </li>
+            <li>
+              <NavLink
+                to="/tablets"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Tablets
+              </NavLink>
+            </li>
 
-          <li>
-            <NavLink
-              to="/accessories"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Accessories
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+            <li>
+              <NavLink
+                to="/accessories"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Accessories
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
 
-      <div className="burger__actions">
-        <NavLink
-          to={'/favorite'}
-          className={({ isActive }) =>
-            cn('actions__favorite', {
-              'is-active': isActive,
-            })
-          }
-          onClick={handleClick}
-        >
-          <img
-            src={Favorite}
-            alt="favourite"
-            className="burger__action__image"
-          />
-        </NavLink>
+        <div className="burger__actions">
+          <NavLink
+            to={'/favorite'}
+            className={({ isActive }) =>
+              cn('actions__favorite', {
+                'is-active': isActive,
+              })
+            }
+            onClick={handleClick}
+          >
+            <img
+              src={Favorite}
+              alt="favourite"
+              className="burger__action__image"
+            />
+          </NavLink>
 
-        <NavLink
-          to={'/cart'}
-          className={({ isActive }) =>
-            cn('actions__cart', {
-              'is-active': isActive,
-            })
-          }
-          onClick={handleClick}
-        >
-          <img src={Basket} alt="cart" className="burger__action__image" />
-        </NavLink>
+          <NavLink
+            to={'/cart'}
+            className={({ isActive }) =>
+              cn('actions__cart', {
+                'is-active': isActive,
+              })
+            }
+            onClick={handleClick}
+          >
+            <img src={Basket} alt="cart" className="burger__action__image" />
+          </NavLink>
+        </div>
       </div>
     </div>
   );
