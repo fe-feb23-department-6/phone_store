@@ -1,0 +1,63 @@
+@import '../../styles/utils/_vars.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.slider {
+  position: relative;
+  &-button {
+    position: absolute;
+    top: -40px;
+    left: 70%;
+    border: 1px solid $elements-color;
+    border-radius: 48px;
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    &:hover {
+      border-color: $selected-color;
+    }
+
+    @include onTablet {
+      top: -30px;
+    }
+
+    &__prev {
+      background: url('./left-arrow.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      left: 70%;
+      @include onTablet {
+        left: 88%;
+      }
+
+      @include onDesktop {
+         left: 90%;
+       }
+
+      &:hover {
+        background-image: url('./left-arrow-active.svg');
+      }
+    }
+    &__next {
+      background-image: url('./right-arrow.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      left: 85%;
+      @include onTablet {
+        left: 95%;
+      }
+      &:hover {
+        background-image: url('./right-arrow-active.svg');
+      }
+    }
+  }
+}
+
+.swiper {
+  & .product-card__item {
+    min-height: 530px;
+    min-width: 270px;
+  }
+  &-slide {
+    padding: 20px 0;
+  }
+}
