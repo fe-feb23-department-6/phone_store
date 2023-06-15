@@ -25,7 +25,7 @@ export const App = () => {
               <Route index element={<Catalog />} />
               <Route path=":productId" element={<Product />} />
             </Route>
-            <Route path="/favourites" element={<Favorites />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/rights" element={<Rights />} />

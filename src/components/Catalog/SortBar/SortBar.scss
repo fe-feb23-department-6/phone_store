@@ -1,64 +1,58 @@
 @import '../../../styles/utils/_vars.scss';
 @import '../../../styles/utils/_mixins.scss';
 
-.sortBar {
+.sort-bar {
   display: flex;
-
-  width: 100%;
   margin-bottom: 24px;
+  width: 100%;
 }
 
-.sortBy {
-  &__text {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    color: $secondary-color;
+.params-block {
+  &__title {
+    margin-bottom: 4px;
 
-    margin: 0;
+    @include small-text;
+    color: $secondary-color;
   }
 
-  &__list {
-    border: 1px solid $icons-color;
-    background-color: $productCard-background;
-    border-radius: $borderRadius-standart;
+  &__select {
     height: 40px;
     width: 120px;
     margin-right: 24px;
     padding-left: 12px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
 
-    @include onTablet {
-      width: 185px;
-    }
-  }
-}
-
-.itemsOnPage {
-  &__text {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    color: $secondary-color;
-
-    margin: 0;
-  }
-
-  &__list {
-    height: 40px;
-    width: 135px;
     border: 1px solid $icons-color;
     background-color: $productCard-background;
     border-radius: $borderRadius-standart;
+
+    font-family: $global-font;
+    color: $selected-color;
+
+    appearance: none;
+    background-image: url('../../../img/icons/angle_arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position-x: right 15px;
+    background-position-y: 50%;
+
+    &--large {
+      @include onTablet {
+        width: 185px;
+      }
+    }
+  }
+
+  &__input {
+    height: 40px;
+    max-width: 360px;
+    width: 100%;
+    margin-right: 24px;
     padding-left: 12px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
+
+    border: 1px solid $icons-color;
+    background-color: $productCard-background;
+    border-radius: $borderRadius-standart;
+
+    font-family: $global-font;
+    color: $selected-color;
   }
 }

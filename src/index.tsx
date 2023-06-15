@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as BrowserRouter } from 'react-router-dom';
 import { StoreContextProvider } from './context/StoreContextProvider';
 
 const root = ReactDOM.createRoot(

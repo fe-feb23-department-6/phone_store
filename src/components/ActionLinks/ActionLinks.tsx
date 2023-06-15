@@ -7,10 +7,10 @@ import Basket from '../../img/icons/shopping_bag.svg';
 export const ActionsLink = () => (
   <div className="header__actions">
     <NavLink
-      to={'/favorite'}
+      to={'/favorites'}
       className={({ isActive }) => cn('action', { 'is-active': isActive })}
     >
-      <img src={Favorite} alt="favourite" className="action__image" />
+      <img src={Favorite} alt="favorites" className="action__image" />
     </NavLink>
 
     <NavLink
