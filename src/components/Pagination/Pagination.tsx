@@ -12,9 +12,8 @@ export const Pagination: FC<Props> = ({ totalPages }) => {
   const [searchParams] = useSearchParams();
 
   const pageFromParams = Number(searchParams.get(pageParam)) || 1;
-  const currentPage = pageFromParams <= totalPages
-    ? pageFromParams
-    : totalPages;
+  const currentPage
+    = pageFromParams <= totalPages ? pageFromParams : totalPages;
 
   const pages = Array.from({ length: totalPages }, (el, i) => String(i + 1));
 
