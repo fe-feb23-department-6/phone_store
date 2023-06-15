@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { SortBar } from '../components/Catalog/SortBar';
 import { ProductsList } from '../components/Catalog/ProductsList';
-import { Pagination } from '../components/Pagination/Pagination';
+import { Pagination } from '../components/Catalog/Pagination';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { getProducts } from '../api/phones';
 import './PagesStyles/Catalog.scss';

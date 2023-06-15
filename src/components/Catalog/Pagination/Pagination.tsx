@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
-import { pageParam } from '../../constants';
+import { pageParam } from '../../../constants';
 import './Pagination.scss';
 
 type Props = {
