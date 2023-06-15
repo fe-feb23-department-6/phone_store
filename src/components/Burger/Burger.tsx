@@ -18,7 +18,6 @@ export const Burger: FC<Props> = ({ onClose }) => {
 
   return (
     <div id="burger" className="burger">
-
       <header className="burger__header">
         <Link className="burger__header__logo" to="/">
           <img src={NiceGadgetsLogo} alt="logo" />
@@ -28,8 +27,8 @@ export const Burger: FC<Props> = ({ onClose }) => {
           <img src={BurgerClose} alt="burger_close" />
         </button>
       </header>
-      <div className="burger_content">
 
+      <div className="burger_content">
         <nav className="burger__nav">
           <ul className="nav__list--burger">
             <li>
@@ -42,7 +41,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
                 }
                 onClick={handleClick}
               >
-              Home
+                Home
               </NavLink>
             </li>
 
@@ -56,7 +55,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
                 }
                 onClick={handleClick}
               >
-              Phones
+                Phones
               </NavLink>
             </li>
 
@@ -70,7 +69,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
                 }
                 onClick={handleClick}
               >
-              Tablets
+                Tablets
               </NavLink>
             </li>
 
@@ -84,7 +83,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
                 }
                 onClick={handleClick}
               >
-              Accessories
+                Accessories
               </NavLink>
             </li>
           </ul>
