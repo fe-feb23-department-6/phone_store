@@ -9,12 +9,28 @@
   width: 100%;
   flex-direction: column;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 1;
   background-color: $white-color;
+  opacity: 0;
+  animation: fade-in 0.5s forwards;
 
   @include onTablet {
     display: none;
   }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.burger__content {
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .burger__header {
