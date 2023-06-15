@@ -1,4 +1,5 @@
 @import './styles/utils/vars';
+@import './styles/fonts/fonts.scss';
 
 html {
   font-family: $global-font;
@@ -8,6 +9,10 @@ html {
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

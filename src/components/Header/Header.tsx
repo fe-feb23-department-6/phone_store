@@ -1,11 +1,40 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './header.scss';
+import { Burger } from '../Burger';
+import { MenuLinks } from '../MenuLinks';
+import { ActionsLink } from '../ActionLinks';
+import BurgerMenu from '../../img/icons/burger.svg';
+import NiceGadgetsLogo from '../../img/icons/nice_gadgets.svg';
 
-export const Header = () => (
-  <nav>
-    <NavLink to="/">Home</NavLink>
-    <NavLink to="/category/phones">Phones</NavLink>
-    <NavLink to="/category/tablets">Tablets</NavLink>
-    <NavLink to="/category/accessories">Accessories</NavLink>
-  </nav>
-);
+export const Header: FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  return (
+    <>
+      <header className="header">
+        <div className="header__nav">
+          <Link className="header__logo" to="/">
+            <img src={NiceGadgetsLogo} alt="logo" />
+          </Link>
+
+          <MenuLinks />
+        </div>
+
+        <ActionsLink />
+        <button className="burger__menu" onClick={handleMenuClick}>
+          <img src={BurgerMenu} alt="burger_menu" />
+        </button>
+      </header>
+      {isMenuOpen && <Burger onClose={handleCloseMenu} />}
+    </>
+  );
+};

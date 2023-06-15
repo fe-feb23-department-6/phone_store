@@ -1,0 +1,37 @@
+@import '../../styles/utils/vars.scss';
+@import '../../styles/utils/mixins.scss';
+
+.header__actions {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  width: 48px;
+
+  margin: auto;
+
+  box-shadow: -1px 0 0 #e2e6e9;
+  position: relative;
+
+  @include onDesktop {
+    height: 64px;
+    width: 64px;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 30%;
+    height: 100%;
+  }
+}
