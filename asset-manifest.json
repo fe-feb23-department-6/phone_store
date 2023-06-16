@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.fffe1dd4.css",
-    "main.js": "/phone_store/static/js/main.d539edd8.js",
+    "main.css": "/phone_store/static/css/main.947a5baf.css",
+    "main.js": "/phone_store/static/js/main.5d2b5da3.js",
     "static/media/nice_gadgets.svg": "/phone_store/static/media/nice_gadgets.e1b2d36b34e116d7687be9462d106ebd.svg",
     "static/media/nice_gadgets_burger.svg": "/phone_store/static/media/nice_gadgets_burger.3c6bd1886792ca6da9d59ce7bea7dc78.svg",
     "static/media/Mont-Regular.otf": "/phone_store/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
     "static/media/Mont-Bold.otf": "/phone_store/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
+    "static/media/testImage.jpg": "/phone_store/static/media/testImage.6dec137a9aabb9fb9fd5.jpg",
     "static/media/shopping_bag.svg": "/phone_store/static/media/shopping_bag.1beda4df7b041090b588f858e7122d17.svg",
     "static/media/favorite.svg": "/phone_store/static/media/favorite.2901080b7c6eae55f8fa052d2d362a56.svg",
+    "static/media/favorites_add.svg": "/phone_store/static/media/favorites_add.a8d9e1341bff31e7955d.svg",
+    "static/media/favorites_remove.svg": "/phone_store/static/media/favorites_remove.0a5015bc0d543429a896.svg",
     "static/media/burger_menu_cross.svg": "/phone_store/static/media/burger_menu_cross.ab8ba6b8a2b2e909c744c9ff6ca3d86d.svg",
     "index.html": "/phone_store/index.html",
     "static/media/burger.svg": "/phone_store/static/media/burger.3f3c3f2fcc2d0b60dfa752fd3c1cab9c.svg",
     "static/media/back_to_top.svg": "/phone_store/static/media/back_to_top.63f7694b63fe546e42e6bb102a0ec7b0.svg",
     "static/media/angle_arrow_down.svg": "/phone_store/static/media/angle_arrow_down.6f403b1254ae9f90c650.svg",
-    "main.fffe1dd4.css.map": "/phone_store/static/css/main.fffe1dd4.css.map",
-    "main.d539edd8.js.map": "/phone_store/static/js/main.d539edd8.js.map"
+    "main.947a5baf.css.map": "/phone_store/static/css/main.947a5baf.css.map",
+    "main.5d2b5da3.js.map": "/phone_store/static/js/main.5d2b5da3.js.map"
   },
   "entrypoints": [
-    "static/css/main.fffe1dd4.css",
-    "static/js/main.d539edd8.js"
+    "static/css/main.947a5baf.css",
+    "static/js/main.5d2b5da3.js"
   ]
 }
