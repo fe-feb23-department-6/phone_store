@@ -1,0 +1,125 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.banner-slider {
+  margin-bottom: 66px;
+
+  @include onTablet {
+    margin-bottom: 74px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 40px;
+  padding: 0;
+  height: 400px;
+
+  &-title {
+    font-size: 32px;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      font-size: 48px;
+      margin-bottom: 32px;
+    }
+  }
+
+  @include onTablet {
+    height: 100%;
+    padding: 0 50px;
+  }
+
+  @include onDesktop {
+  }
+
+  &-control {
+    display: none;
+    position: absolute;
+    top: 0;
+
+    &__prev {
+      background: url(./left-arrow.svg) no-repeat center;
+      left: 0;
+      &:hover {
+        background: url(./left-arrow-active.svg) no-repeat center;
+        border-color: $selected-color;
+      }
+    }
+
+    &__next {
+      background: url(./right-arrow.svg) no-repeat center;
+      right: 0;
+      &:hover {
+        background: url(./right-arrow-active.svg) no-repeat center;
+        border-color: $selected-color;
+      }
+    }
+
+    @include onTablet {
+      display: block;
+      height: 100%;
+      background-color: transparent;
+      border: 1px solid #b4bdc4;
+      border-radius: 48px;
+      width: 32px;
+    }
+
+    @include onDesktop {
+      display: block;
+      background-color: transparent;
+      border: 1px solid #b4bdc4;
+      border-radius: 48px;
+      width: 32px;
+    }
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+
+  &-slide {
+    width: 100%;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-container {
+    overflow: auto;
+  }
+
+  &-pag {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+
+    & .swiper-pagination-bullet {
+      position: relative;
+      bottom: -18px;
+      width: 14px;
+      height: 4px;
+      border-radius: 0;
+      background-color: $secondary-color;
+      margin-left: auto;
+
+      &-active {
+        background-color: $selected-color;
+      }
+    }
+  }
+}
