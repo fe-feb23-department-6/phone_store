@@ -20,9 +20,7 @@ export const CategoryCard: FC<Props> = ({ image, path, categoryName }) => {
         {categoryName}
       </Link>
 
-      <div className="category__item__model">
-        95 models
-      </div>
+      <div className="category__item__model">95 models</div>
     </div>
   );
 };

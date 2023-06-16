@@ -7,7 +7,7 @@ import Accessories from '../../../img/accessories.png';
 
 export const Categories = () => {
   return (
-    <div className='categories'>
+    <div className="categories">
       <CategoryCard
         path="/category/phones"
         image={Phones}
@@ -26,6 +26,5 @@ export const Categories = () => {
         categoryName="Accessories"
       />
     </div>
-
   );
 };

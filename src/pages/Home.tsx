@@ -15,9 +15,7 @@ export const Home = () => {
       </section>
 
       <section className="shop-categories">
-        <h2 className="shop-categories__title">
-          Shop by category
-        </h2>
+        <h2 className="shop-categories__title">Shop by category</h2>
         <Categories />
       </section>
 

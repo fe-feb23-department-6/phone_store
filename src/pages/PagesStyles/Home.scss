@@ -16,15 +16,15 @@
 }
 
 .shop-categories {
-   margin: 0 16px;
+  margin: 0 16px;
 }
 
 .shop-categories__title {
   padding-bottom: 24px;
 
-   @include h2-mobile;
+  @include h2-mobile;
 
-    @include onTablet {
-      @include h2-desktop;
-    }
+  @include onTablet {
+    @include h2-desktop;
+  }
 }
