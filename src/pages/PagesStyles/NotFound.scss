@@ -1,0 +1,93 @@
+@import '../../styles/utils/_vars.scss';
+@import '../../styles/utils/_mixins.scss';
+
+$footer-height: 300px;
+$footer-height-desktop: 96px;
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $primary-color;
+  height: 100vh;
+  cursor: pointer;
+
+  .not-found__title {
+    @include h1-mobile;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      @include h1-desktop;
+      text-align: left;
+    }
+  }
+
+  .not-found__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include onDesktop {
+      align-items: baseline;
+    }
+  }
+
+  .not-found__message {
+    @include h2-mobile;
+    text-align: center;
+    color: $secondary-color;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      @include h2-desktop;
+      text-align: left;
+      font-weight: 800;
+    }
+  }
+
+  .not-found__button {
+    padding: 8px 16px;
+    @include buttons-text;
+    background-color: $primary-color;
+    text-decoration: none;
+    color: $white-color;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $secondary-accent-color;
+    }
+
+    @include onTablet {
+      margin-top: 24px;
+    }
+  }
+
+  @include onDesktop {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+
+    .not-found__title,
+    .not-found__message {
+      text-align: left;
+    }
+
+    .not-found__title {
+      @include h1-desktop;
+      font-size: 200px;
+      flex: 0 0 auto;
+      margin-right: 24px;
+    }
+
+    .not-found__message {
+      @include h2-desktop;
+      font-weight: 800;
+    }
+  }
+}
