@@ -10,10 +10,7 @@ export const SearchBar: FC = () => {
   const [query, setQuery] = useState('');
   const [appliedQuery, setAppliedQuery] = useState('');
 
-  const applyQuery = useCallback(
-    debounce(setAppliedQuery, 1000),
-    [],
-  );
+  const applyQuery = useCallback(debounce(setAppliedQuery, 1000), []);
 
   const setQueryParam = (searchQuery: string) => {
     const updatedSearchParams = new URLSearchParams(searchParams);

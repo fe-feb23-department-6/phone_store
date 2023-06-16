@@ -61,10 +61,9 @@ export const Catalog = () => {
         <ProductsList products={products} />
       )}
 
-      {!isLoading
-        && totalPages !== null
-        && totalPages > 1
-        && <Pagination totalPages={totalPages} />}
+      {!isLoading && totalPages !== null && totalPages > 1 && (
+        <Pagination totalPages={totalPages} />
+      )}
     </div>
   );
 };
