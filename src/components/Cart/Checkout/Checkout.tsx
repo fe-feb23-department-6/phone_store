@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import './Checkout.scss';
 
 type Props = {
@@ -5,7 +6,7 @@ type Props = {
   totalItems: number;
 };
 
-export const Checkout: React.FC<Props> = ({ totalPrice, totalItems }) => (
+export const Checkout: FC<Props> = ({ totalPrice, totalItems }) => (
   <div className="checkout">
     <div className="checkout__total">
       <p className="checkout__total-price">{`$${totalPrice}`}</p>
