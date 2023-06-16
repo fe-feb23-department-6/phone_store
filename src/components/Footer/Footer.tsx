@@ -6,9 +6,9 @@ import Logo from '../../img/nice_gadgets_logo.png';
 import BackToTop from '../../img/back_to_top.svg';
 
 export const Footer: FC = () => (
-  <footer className="footer">
-    <div className="footer__content">
-      <Link className="footer__logo footer__link" to="/">
+  <footer className="store-footer">
+    <div className="store-footer__content">
+      <Link className="store-footer__logo store-footer__link" to="/">
         <img src={Logo} alt="Nice Gadgets logo" />
       </Link>
 
@@ -38,8 +38,8 @@ export const Footer: FC = () => (
         </ul>
       </nav>
 
-      <a className="footer__link" href="#">
-        <div className="footer__back-link">
+      <a className="store-footer__link" href="#">
+        <div className="store-footer__back-link">
           <span>Back to top</span>
           <img className="footer-icon" src={BackToTop} />
         </div>

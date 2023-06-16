@@ -1,7 +1,8 @@
 @import './styles/fonts/fonts.scss';
+@import './styles/utils/_mixins.scss';
 @import './styles/utils/_vars.scss';
 
-html {
+body {
   font-family: $global-font;
 }
 
@@ -12,4 +13,9 @@ html {
 
 .main {
   background-color: $hover-bg-color;
+  padding-bottom: 64px;
+
+  @include onDesktop {
+    padding-bottom: 80px;
+  }
 }
