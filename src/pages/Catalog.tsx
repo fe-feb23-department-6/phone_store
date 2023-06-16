@@ -21,7 +21,7 @@ export const Catalog = () => {
     try {
       setIsLoading(true);
 
-      const productsData = await getProducts(paramsString);
+      const productsData = await getProducts('phones', paramsString);
       const {
         products: productsFromServer,
         totalPages: pagesQuantity,

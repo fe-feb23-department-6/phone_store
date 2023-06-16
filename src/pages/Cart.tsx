@@ -1,14 +1,14 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import { Checkout } from '../components/Cart/Checkout/Checkout';
 import ProductsInCart from './../phonesBase.json';
 import { CartList } from '../components/Cart/Cartlist/CartList';
 import './PagesStyles/Cart.scss';
-import { StoreContext } from '../context/StoreContext';
+// import { StoreContext } from '../context/StoreContext';
 
 const threeProductsInCart = ProductsInCart.slice(0, 3);
 
 export const Cart = () => {
-  const { cartContents } = useContext(StoreContext);
+  // const { cartContents } = useContext(StoreContext);
 
   return (
     <div className="cart-wrapper">
