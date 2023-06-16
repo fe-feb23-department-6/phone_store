@@ -33,6 +33,7 @@ export const Banner = () => {
         >
           <SwiperSlide>
             <img
+              className="banner-img"
               // eslint-disable-next-line max-len
               src="https://backend-phone-store.onrender.com/img/banner-phones.png"
               alt="iphone-banner"
@@ -40,6 +41,7 @@ export const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <img
+              className="banner-img"
               // eslint-disable-next-line max-len
               src="https://backend-phone-store.onrender.com/img/banner-phones.png"
               alt="iphone-banner"
@@ -47,6 +49,7 @@ export const Banner = () => {
           </SwiperSlide>
           <SwiperSlide>
             <img
+              className="banner-img"
               // eslint-disable-next-line max-len
               src="https://backend-phone-store.onrender.com/img/banner-phones.png"
               alt="iphone-banner"
