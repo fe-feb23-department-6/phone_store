@@ -1,0 +1,41 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins.scss';
+
+.category__item {
+  display: flex;
+  flex-direction: column;
+  
+
+    align-items: flex-start;
+  
+
+  &__photo {
+    img {
+      width: 100%;
+      border-radius: 8px;
+
+      @media (width: 1200px) {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &__name {
+    text-decoration: none;
+    @include h3-mobile;
+    color: $selected-color;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    filter: brightness(80%);
+  }
+
+  &__model {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: $secondary-color;
+  }
+}
