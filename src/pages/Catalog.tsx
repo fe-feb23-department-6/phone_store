@@ -43,11 +43,11 @@ export const Catalog = () => {
   }, [searchParams]);
 
   return (
-    <div className="catalogContent">
-      <div className="categoryName">
-        <h1 className="categoryName-text">Mobile phones</h1>
+    <div className="catalog-content">
+      <div className="category-name">
+        <h1 className="category-name-text">Mobile phones</h1>
         {productsCount && (
-          <p className="categoryName-quantity">{`${productsCount} models`}</p>
+          <p className="category-name-quantity">{`${productsCount} models`}</p>
         )}
       </div>
 
