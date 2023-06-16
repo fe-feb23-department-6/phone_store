@@ -12,16 +12,21 @@ import { ProductCard } from '../Catalog/ProductCard';
 import './ProductsSlider.scss';
 
 type Props = {
+  sectionName: string;
   products: CatalogProductData[];
 };
 
-export const ProductsSlider: FC<Props> = ({ products }) => {
+export const ProductsSlider: FC<Props> = ({ sectionName, products }) => {
   return (
     <div className="slider">
       <div className="slider-top">
         <div className="slider-buttons">
-          <button className="slider-button slider-button__next"></button>
-          <button className="slider-button slider-button__prev"></button>
+          <button
+            className={`slider-button slider-button__next ${sectionName}-button__next`}
+          ></button>
+          <button
+            className={`slider-button slider-button__prev ${sectionName}-button__prev`}
+          ></button>
         </div>
       </div>
       <Swiper
@@ -29,8 +34,8 @@ export const ProductsSlider: FC<Props> = ({ products }) => {
         spaceBetween={16}
         loop={true}
         navigation={{
-          prevEl: '.slider-button__prev',
-          nextEl: '.slider-button__next',
+          prevEl: `.${sectionName}-button__prev`,
+          nextEl: `.${sectionName}-button__next`,
         }}
         breakpoints={{
           1200: {
@@ -55,12 +60,10 @@ export const ProductsSlider: FC<Props> = ({ products }) => {
             slidesPerView: 1.2,
           },
         }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {products.map((product: CatalogProductData) => (
           <SwiperSlide key={product.id}>
-            <ProductCard product={product} />
+            <ProductCard key={product.id} product={product} />
           </SwiperSlide>
         ))}
       </Swiper>

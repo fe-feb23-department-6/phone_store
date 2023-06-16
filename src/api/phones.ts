@@ -15,21 +15,9 @@ export const getProducts = async(searchParams: string) => {
   return products;
 };
 
-export const getNewProducts = async() => {
+export const getProductsForSlider = async(endPoint: string) => {
   const products = await client.getAllPhones<CatalogProductData[]>(
-    'products/new',
-  );
-
-  products.map((item) => {
-    item.image = `https://backend-phone-store.onrender.com/${item.image}`;
-  });
-
-  return products;
-};
-
-export const getDiscountProducts = async() => {
-  const products = await client.getAllPhones<CatalogProductData[]>(
-    'products/discount',
+    `products/${endPoint}`,
   );
 
   products.map((item) => {
