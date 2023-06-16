@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import debounce from 'lodash.debounce';
-import { queryParam } from '../../../constants';
+import { queryParam, pageParam } from '../../../constants';
 import './SearchBar.scss';
 
 export const SearchBar: FC = () => {
@@ -10,10 +10,7 @@ export const SearchBar: FC = () => {
   const [query, setQuery] = useState('');
   const [appliedQuery, setAppliedQuery] = useState('');
 
-  const applyQuery = useCallback(
-    debounce(setAppliedQuery, 1000),
-    [],
-  );
+  const applyQuery = useCallback(debounce(setAppliedQuery, 1000), []);
 
   const setQueryParam = (searchQuery: string) => {
     const updatedSearchParams = new URLSearchParams(searchParams);
@@ -24,6 +21,7 @@ export const SearchBar: FC = () => {
       updatedSearchParams.set(queryParam, searchQuery);
     }
 
+    updatedSearchParams.delete(pageParam);
     setSearchParams(updatedSearchParams.toString());
   };
 

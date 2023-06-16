@@ -4,7 +4,7 @@ import { SortBar } from '../components/Catalog/SortBar';
 import { ProductsList } from '../components/Catalog/ProductsList';
 import { Pagination } from '../components/Catalog/Pagination';
 import { CatalogProductData } from '../types/CatalogProductData';
-import { getProducts } from '../api/phones';
+import { getProducts } from '../api';
 import './PagesStyles/Catalog.scss';
 import { Loader } from '../components/Loader';
 
@@ -21,7 +21,7 @@ export const Catalog = () => {
     try {
       setIsLoading(true);
 
-      const productsData = await getProducts(paramsString);
+      const productsData = await getProducts('phones', paramsString);
       const {
         products: productsFromServer,
         totalPages: pagesQuantity,
@@ -61,10 +61,9 @@ export const Catalog = () => {
         <ProductsList products={products} />
       )}
 
-      {!isLoading
-        && totalPages !== null
-        && totalPages > 1
-        && <Pagination totalPages={totalPages} />}
+      {!isLoading && totalPages !== null && totalPages > 1 && (
+        <Pagination totalPages={totalPages} />
+      )}
     </div>
   );
 };

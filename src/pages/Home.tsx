@@ -4,7 +4,7 @@ import { Banner } from '../components/Home/Banner';
 import { Categories } from '../components/Home/Categories';
 import { ProductsSlider } from '../components/ProductsSlider';
 import { useCallback, useEffect, useState } from 'react';
-import { getProductsForSlider } from '../api/phones';
+import { getProductsForSlider } from '../api';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { Loader } from '../components/Loader';
 
