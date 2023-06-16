@@ -1,3 +1,5 @@
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import { Home } from './pages/Home';

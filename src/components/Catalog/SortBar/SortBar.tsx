@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react';
+import { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   pageParam,
@@ -8,10 +8,10 @@ import {
   pageLimitOptions,
 } from '../../../constants';
 import './SortBar.scss';
+import { SearchBar } from '../SearchBar';
 
 export const SortBar: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState('');
 
   const setSortType = (sortType: string) => {
     const updatedSearchParams = new URLSearchParams(searchParams);
@@ -28,10 +28,6 @@ export const SortBar: FC = () => {
     updatedSearchParams.delete(pageParam);
 
     setSearchParams(updatedSearchParams.toString());
-  };
-
-  const handleQueryChange = (inputEvent: ChangeEvent<HTMLInputElement>) => {
-    setQuery(inputEvent.target.value);
   };
 
   return (
@@ -64,12 +60,7 @@ export const SortBar: FC = () => {
       </div>
       <div className="params-block">
         <p className="params-block__title">Search</p>
-        <input
-          type="search"
-          className="params-block__input"
-          value={query}
-          onChange={handleQueryChange}
-        />
+        <SearchBar />
       </div>
     </div>
   );
