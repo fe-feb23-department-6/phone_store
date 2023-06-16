@@ -1,9 +1,9 @@
 import { CartProductData } from './CartProductData';
-import { CatalogProductData } from './CatalogProductData';
-import { FullProductData } from './FullProductData';
 
 export interface StoreContextData {
   cartContents: CartProductData[];
-  addToCartCatalog: (product: CatalogProductData) => void;
-  addToCartProductPage: (product: FullProductData) => void;
+  addToCart: (id: string) => void;
+  removeFromCart: (id: string) => void;
+  favContents: string[];
+  handleFavChange: (id: string) => void;
 }
