@@ -1,0 +1,78 @@
+@import '../../../styles/utils/_vars.scss';
+@import '../../../styles/utils/mixins';
+
+
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 48px - 257px); // didn't found heigths of header and footer in vars
+
+  @include onTablet {
+    height: calc(100vh - 48px - 96px);  // didn't found heigths of header and footer in vars
+  }
+
+  @include onDesktop {
+    height: calc(100vh - 64px - 96px);  // didn't found heigths of header and footer in vars
+  }
+
+  background-color: rgb(218, 218, 218);
+}
+
+.cart-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 40%;
+  height: 50%;
+  padding: 15px;
+
+  background: $white-color;
+  border: 1px solid $elements-color;
+  border-radius: 16px;
+
+  &__text {
+    margin: auto;
+    color: $secondary-accent-color;
+    text-align: center;
+
+    @include h4-mobile;
+
+    @include onTablet {
+      @include h3-desktop;
+    }
+  }
+
+  &__to-main-page {
+    width: 45%;
+    height: 25px;
+    margin: 0 auto;
+    border: 1px solid $accent-color;
+    background-color: $accent-color;
+    border-radius: $borderRadius-standart;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 7px;
+    color: $white-color;
+    text-align: center;
+
+    &:hover {
+      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &:active {
+      background-color: $white-color;
+      border: 1px solid $elements-color;
+      color: $accent-color;
+    }
+
+    @include onTablet {
+      font-size: 12px;
+      height: 40px;
+      width: 50%;
+      margin: 0 auto 10px auto;
+    }
+  }
+}
