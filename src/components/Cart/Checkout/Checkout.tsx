@@ -16,11 +16,7 @@ export const Checkout: React.FC<Props> = ({
       <p className="checkout__total-price">{`$${totalPrice}`}</p>
       <p className="checkout__total-items">{`Total for ${totalItems} items`}</p>
     </div>
-    <button
-      type="button"
-      className="checkout__button"
-      onClick={onCheckout}
-    >
+    <button type="button" className="checkout__button" onClick={onCheckout}>
       Checkout
     </button>
   </div>
