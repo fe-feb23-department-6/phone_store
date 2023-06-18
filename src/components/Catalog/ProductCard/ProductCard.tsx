@@ -1,4 +1,5 @@
 import { FC, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { CatalogProductData } from '../../../types/CatalogProductData';
 import { StoreContext } from '../../../context/StoreContext';
@@ -24,6 +25,17 @@ export const ProductCard: FC<Props> = ({ product }) => {
 
   const isInCart = cartContents.map(({ id }) => id).includes(itemId);
   const isInFavorites = favContents.includes(itemId);
+  const navigate = useNavigate();
+
+  const handleCartAction = () => {
+    if (isInCart) {
+      navigate('/cart');
+
+      return;
+    }
+
+    addToCart(itemId);
+  };
 
   return (
     <div className="product-card">
@@ -64,7 +76,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
           className={cn('buttons-block__add-to-cart', {
             'buttons-block__add-to-cart--in-cart': isInCart,
           })}
-          onClick={() => addToCart(itemId)}
+          onClick={handleCartAction}
         >
           {isInCart ? 'Added to cart' : 'Add to cart'}
         </button>

@@ -3,8 +3,9 @@ import { CartStorageProduct } from './CartStorageProduct';
 export interface StoreContextData {
   cartContents: CartStorageProduct[];
   addToCart: (id: string) => void;
-  removeFromCart: (id: string) => void;
   changeCartProdQuantity: (id: string, delta: number) => void;
+  removeCartProduct: (id: string) => void;
+  cleanCartContents: () => void;
   favContents: string[];
   handleFavChange: (id: string) => void;
 }
