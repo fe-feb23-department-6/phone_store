@@ -3,13 +3,11 @@
 
 .cart-item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 16px;
-  height: 160px;
   width: 100%;
+
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 16px;
 
   border: 1px solid $elements-color;
   border-radius: 16px;
@@ -47,9 +45,10 @@
 
   &__photo-container {
     display: flex;
-    align-items: center;
-
     height: 80px;
+
+    align-items: center;
+    flex-shrink: 0;
   }
 
   &__photo {

@@ -19,26 +19,22 @@ export const App = () => {
       <Header />
 
       <main className="main">
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="/category/:categoryName">
-              <Route index element={<Catalog />} />
-              <Route path=":productId" element={<Product />} />
-            </Route>
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/rights" element={<Rights />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="/category/:categoryName">
+            <Route index element={<Catalog />} />
+            <Route path=":productId" element={<Product />} />
+          </Route>
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/rights" element={<Rights />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
 
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
