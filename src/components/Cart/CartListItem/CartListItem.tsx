@@ -1,34 +1,70 @@
+import { FC, useContext } from 'react';
+import cn from 'classnames';
+import { StoreContext } from '../../../context/StoreContext';
+import { CartProductData } from '../../../types/CartProductData';
 import './CartListItem.scss';
-import { CatalogProductData } from '../../../types/CatalogProductData';
-import testPhoto from './testImage.jpg';
-//  need to be replaced to CartProductData after, same in Props
 
 type Props = {
-  cartProduct: CatalogProductData;
+  cartProduct: CartProductData;
 };
 
-export const CartListItem: React.FC<Props> = ({ cartProduct }) => (
-  <div className="cart-item">
-    <div className="cart-item-phoneinfo-wrapper">
-      <button type="button" className="cart-item__delete-button"></button>
-      <div className="cart-item__photo-container">
-        <img src={testPhoto} className="cart-item__photo" alt="" />
-      </div>
-      <p className="cart-item__description">{cartProduct.name}</p>
-    </div>
-    <div className="cart-item-quantity-and-price-wrapper">
-      <div className="cart-item__quantity">
+export const CartListItem: FC<Props> = ({ cartProduct }) => {
+  const {
+    changeCartProdQuantity,
+    removeFromCart,
+  } = useContext(StoreContext);
+
+  const {
+    id,
+    prodName,
+    image,
+    price,
+    quantity,
+  } = cartProduct;
+
+  return (
+    <div className="cart-item">
+      <div className="cart-item-phoneinfo-wrapper">
         <button
           type="button"
-          className="cart-item__quantity-button quantity-button-subtract"
-        />
-        <p className="cart-item__quantity-number">1</p>
-        <button
-          type="button"
-          className="cart-item__quantity-button quantity-button-add"
-        />
+          className="cart-item__delete-button"
+          onClick={() => removeFromCart(id)}
+        >
+          <i className="fa-solid fa-xmark" />
+        </button>
+
+        <div className="cart-item__photo-container">
+          <img src={image} className="cart-item__photo" alt="" />
+        </div>
+
+        <p className="cart-item__description">{prodName}</p>
       </div>
-      <p className="cart-item__price">{`$${cartProduct.price}`}</p>
+
+      <div className="cart-item-quantity-and-price-wrapper">
+        <div className="cart-item__quantity">
+          <button
+            type="button"
+            className={cn('cart-item__quantity-button', {
+              'cart-item__quantity-button--disabled': quantity === 1,
+            })}
+            onClick={() => changeCartProdQuantity(id, -1)}
+          >
+            -
+          </button>
+
+          <p className="cart-item__quantity-number">{quantity}</p>
+
+          <button
+            type="button"
+            className="cart-item__quantity-button"
+            onClick={() => changeCartProdQuantity(id, 1)}
+          >
+            +
+          </button>
+        </div>
+
+        <p className="cart-item__price">${price * quantity}</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};

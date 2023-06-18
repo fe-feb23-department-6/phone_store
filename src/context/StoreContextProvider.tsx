@@ -1,6 +1,6 @@
 import { FC, ReactNode, useState } from 'react';
 import { StoreContext } from './StoreContext';
-import { CartProductData } from '../types/CartProductData';
+import { CartStorageProduct } from '../types/CartStorageProduct';
 
 type Props = {
   children: ReactNode;
@@ -14,7 +14,7 @@ const savedFavContents = storagedFavorites ? JSON.parse(storagedFavorites) : [];
 
 export const StoreContextProvider: FC<Props> = ({ children }) => {
   const [cartContents, setCartContents]
-    = useState<CartProductData[]>(savedCartContents);
+    = useState<CartStorageProduct[]>(savedCartContents);
   const [favContents, setFavContents] = useState<string[]>(savedFavContents);
 
   const addToCart = (id: string) => {
@@ -34,6 +34,25 @@ export const StoreContextProvider: FC<Props> = ({ children }) => {
       );
 
       localStorage.setItem('cartContents', JSON.stringify(newContents));
+
+      return newContents;
+    });
+  };
+
+  const changeCartProdQuantity = (id: string, delta: number) => {
+    setCartContents((currentContents) => {
+      // eslint-disable-next-line no-console
+      console.log(id, delta);
+
+      const newContents = currentContents.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + delta }
+          : product);
+
+      localStorage.setItem('cartContents', JSON.stringify(newContents));
+
+      // eslint-disable-next-line no-console
+      console.log(newContents);
 
       return newContents;
     });
@@ -61,6 +80,7 @@ export const StoreContextProvider: FC<Props> = ({ children }) => {
     cartContents,
     addToCart,
     removeFromCart,
+    changeCartProdQuantity,
     favContents,
     handleFavChange,
   };

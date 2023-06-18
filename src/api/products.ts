@@ -27,9 +27,9 @@ export const getProductsForSlider = async(endPoint: string) => {
   return products;
 };
 
-export const getProductsForCart = async(endPoint: string) => {
+export const getProductsForCart = async(phoneIds: string) => {
   const products = await client.getAllPhones<CatalogProductData[]>(
-    `products/${endPoint}`,
+    `cart?phoneIds=${phoneIds}`,
   );
 
   products.map((item) => {

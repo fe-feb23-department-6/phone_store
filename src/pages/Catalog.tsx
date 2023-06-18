@@ -3,10 +3,10 @@ import { useLocation, useSearchParams } from 'react-router-dom';
 import { SortBar } from '../components/Catalog/SortBar';
 import { ProductsList } from '../components/Catalog/ProductsList';
 import { Pagination } from '../components/Catalog/Pagination';
+import { Loader } from '../components/Loader';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { getProducts } from '../api';
 import './PagesStyles/Catalog.scss';
-import { Loader } from '../components/Loader';
 
 export const Catalog = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
