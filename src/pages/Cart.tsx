@@ -18,15 +18,18 @@ export const Cart = () => {
   const isNotEmptyCart = cartContents.length > 0;
   const phoneIds = cartContents.map(({ id }) => id).join(',');
 
-  const [totalPrice, totalItems] = useMemo(() => cartContents.reduce(
-    (acc, { id, quantity }) => {
-      const price = products.find(
-        prod => prod.itemId === id,
-      )?.price || 0;
+  const [totalPrice, totalItems] = useMemo(
+    () =>
+      cartContents.reduce(
+        (acc, { id, quantity }) => {
+          const price = products.find((prod) => prod.itemId === id)?.price || 0;
 
-      return [acc[0] + price * quantity, acc[1] + quantity];
-    }, [0, 0],
-  ), [products, cartContents]);
+          return [acc[0] + price * quantity, acc[1] + quantity];
+        },
+        [0, 0],
+      ),
+    [products, cartContents],
+  );
 
   const onCheckout = () => {
     setIsSuccess(true);
@@ -62,29 +65,26 @@ export const Cart = () => {
       <div className="cart-wrapper">
         <GoBackButton />
         <h1 className="cart-title">Cart</h1>
-        {isNotEmptyCart
-          ? <>
-            {!isLoading
-              ? (
-                <div className="cart">
-                  <CartList products={products} />
-                  <Checkout
-                    totalPrice={totalPrice}
-                    totalItems={totalItems}
-                    onCheckout={onCheckout}
-                  />
-                </div>
-              ) : (
-                <Loader />
-              )
-            }
+        {isNotEmptyCart ? (
+          <>
+            {!isLoading ? (
+              <div className="cart">
+                <CartList products={products} />
+                <Checkout
+                  totalPrice={totalPrice}
+                  totalItems={totalItems}
+                  onCheckout={onCheckout}
+                />
+              </div>
+            ) : (
+              <Loader />
+            )}
           </>
-          : (
-            <h2>Your cart is empty</h2>
-          )
-        }
+        ) : (
+          <h2>Your cart is empty</h2>
+        )}
       </div>
-      {isSuccess && <CartModal onClick={closeModal}/>}
+      {isSuccess && <CartModal onClick={closeModal} />}
     </>
   );
 };
