@@ -3,11 +3,10 @@
 
 .cart-list {
   display: flex;
+  width: 100%;
+  max-width: 752px;
+
   flex-direction: column;
   align-items: center;
   row-gap: 16px;
-
-  @include onDesktop {
-    width: 752px;
-  }
 }

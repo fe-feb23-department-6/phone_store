@@ -27,7 +27,20 @@ export const StoreContextProvider: FC<Props> = ({ children }) => {
     });
   };
 
-  const removeFromCart = (id: string) => {
+  const changeCartProdQuantity = (id: string, delta: number) => {
+    setCartContents((currentContents) => {
+      const newContents = currentContents.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + delta }
+          : product);
+
+      localStorage.setItem('cartContents', JSON.stringify(newContents));
+
+      return newContents;
+    });
+  };
+
+  const removeCartProduct = (id: string) => {
     setCartContents((currentContents) => {
       const newContents = currentContents.filter(
         ({ id: prodId }) => prodId !== id,
@@ -39,23 +52,9 @@ export const StoreContextProvider: FC<Props> = ({ children }) => {
     });
   };
 
-  const changeCartProdQuantity = (id: string, delta: number) => {
-    setCartContents((currentContents) => {
-      // eslint-disable-next-line no-console
-      console.log(id, delta);
-
-      const newContents = currentContents.map((product) =>
-        product.id === id
-          ? { ...product, quantity: product.quantity + delta }
-          : product);
-
-      localStorage.setItem('cartContents', JSON.stringify(newContents));
-
-      // eslint-disable-next-line no-console
-      console.log(newContents);
-
-      return newContents;
-    });
+  const cleanCartContents = () => {
+    setCartContents([]);
+    localStorage.removeItem('cartContents');
   };
 
   const handleFavChange = (id: string) => {
@@ -79,8 +78,9 @@ export const StoreContextProvider: FC<Props> = ({ children }) => {
   const contextValue = {
     cartContents,
     addToCart,
-    removeFromCart,
     changeCartProdQuantity,
+    removeCartProduct,
+    cleanCartContents,
     favContents,
     handleFavChange,
   };

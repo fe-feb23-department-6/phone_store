@@ -5,8 +5,9 @@ import { StoreContextData } from '../types/StoreContextData';
 export const StoreContext = createContext<StoreContextData>({
   cartContents: [],
   addToCart: () => {},
-  removeFromCart: () => {},
+  removeCartProduct: () => {},
   changeCartProdQuantity: () => {},
+  cleanCartContents: () => {},
   favContents: [],
   handleFavChange: () => {},
 });

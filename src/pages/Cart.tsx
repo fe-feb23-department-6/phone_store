@@ -1,59 +1,73 @@
 import { useState, useContext, useMemo, useEffect, useCallback } from 'react';
-import { Checkout } from '../components/Cart/Checkout/Checkout';
-import { CartList } from '../components/Cart/Cartlist/CartList';
-import { CartModal } from '../components/Cart/CartModal/CartModal';
+import { CartList } from '../components/Cart/Cartlist';
+import { Checkout } from '../components/Cart/Checkout';
+import { CartModal } from '../components/Cart/CartModal';
 import { Loader } from '../components/Loader';
 import { StoreContext } from '../context/StoreContext';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { getProductsForCart } from '../api';
 import './PagesStyles/Cart.scss';
+import { GoBackButton } from '../components/GoBackButton';
 
 export const Cart = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
-  const [showModal, setShowModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const { cartContents } = useContext(StoreContext);
 
-  const onCheckout = () => {
-    setTimeout(() => {
-      setShowModal(true);
-    }, 100);
-  };
-
+  const isNotEmptyCart = cartContents.length > 0;
   const phoneIds = cartContents.map(({ id }) => id).join(',');
+
+  const [totalPrice, totalItems] = useMemo(
+    () =>
+      cartContents.reduce(
+        (acc, { id, quantity }) => {
+          const price = products.find((prod) => prod.itemId === id)?.price || 0;
+
+          return [acc[0] + price * quantity, acc[1] + quantity];
+        },
+        [0, 0],
+      ),
+    [products, cartContents],
+  );
+
+  const onCheckout = () => {
+    setIsSuccess(true);
+    // cleanCartContents();
+  };
 
   const getCartContents = useCallback(async() => {
     try {
+      setIsLoading(true);
+
       const productsData = await getProductsForCart(phoneIds);
 
       setProducts(productsData);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       throw new Error('Failed to load cart products from server');
     }
   }, []);
 
+  const closeModal = () => {
+    setIsSuccess(false);
+  };
+
   useEffect(() => {
-    getCartContents();
+    if (isNotEmptyCart) {
+      getCartContents();
+    }
   }, []);
-
-  const [totalPrice, totalItems] = useMemo(() => cartContents.reduce(
-    (acc, { id, quantity }) => {
-      const price = products.find(
-        prod => prod.itemId === id,
-      )?.price || 0;
-
-      return [acc[0] + price * quantity, acc[1] + quantity];
-    }, [0, 0],
-  ), [products, cartContents]);
 
   return (
     <>
-      {showModal ? (
-        <CartModal />
-      ) : (
-        <div className="cart-wrapper">
-          <h1 className="cart-text">Cart</h1>
-          {products.length > 0
-            ? (
+      <div className="cart-wrapper">
+        <GoBackButton />
+        <h1 className="cart-title">Cart</h1>
+        {isNotEmptyCart ? (
+          <>
+            {!isLoading ? (
               <div className="cart">
                 <CartList products={products} />
                 <Checkout
@@ -64,10 +78,13 @@ export const Cart = () => {
               </div>
             ) : (
               <Loader />
-            )
-          }
-        </div>
-      )}
+            )}
+          </>
+        ) : (
+          <h2>Your cart is empty</h2>
+        )}
+      </div>
+      {isSuccess && <CartModal onClick={closeModal} />}
     </>
   );
 };

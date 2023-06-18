@@ -3,8 +3,10 @@
 
 .checkout {
   display: flex;
+  max-width: 752px;
   flex-direction: column;
   justify-content: space-between;
+  text-align: center;
 
   border: 1px solid $elements-color;
   border-radius: 16px;
@@ -13,7 +15,6 @@
   height: 190px;
 
   @include onDesktop {
-    height: 206px;
     width: 368px;
   }
 
@@ -46,16 +47,13 @@
     border: 1px solid $accent-color;
     border-radius: 8px;
     background-color: $accent-color;
-    font-style: $global-font;
-    color: $white-color;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
+    font-family: $global-font;
     color: $white-color;
 
+    @include buttons-text;
+
     &:hover {
-      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+      box-shadow: $action-button-hover;
       cursor: pointer;
     }
 
