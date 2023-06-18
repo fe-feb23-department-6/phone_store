@@ -3,12 +3,9 @@ import './PagesStyles/Cart.scss';
 import { Checkout } from '../components/Cart/Checkout/Checkout';
 import ProductsInCart from './../phonesBase.json';
 import { CartList } from '../components/Cart/Cartlist/CartList';
-import { CartModal } from '../components/Cart/CartModal/Cartmodal';
+import { CartModal } from '../components/Cart/CartModal/CartModal';
 
 const threeProductsInCart = ProductsInCart.slice(0, 3);
-
-export const Cart = () => {
-  // const { cartContents } = useContext(StoreContext);
 
 export const Cart = () => {
   const [showModal, setShowModal] = useState(false);
