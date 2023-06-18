@@ -1,5 +1,5 @@
 import { FC, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { CatalogProductData } from '../../../types/CatalogProductData';
 import { StoreContext } from '../../../context/StoreContext';
@@ -46,7 +46,9 @@ export const ProductCard: FC<Props> = ({ product }) => {
           alt={prodName}
         />
       </div>
-      <div className="product-card__product-name">{prodName}</div>
+      <div className="product-card__product-name">
+        <Link to={`/${itemId}`}>{prodName}</Link>
+      </div>
 
       <div className="product-card__price">
         <div className="product-card__price--current">{`$${price}`}</div>

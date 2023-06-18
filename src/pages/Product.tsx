@@ -1,8 +1,8 @@
-import React from 'react';
-import phonesFromServer from '../fullProductData.json';
+import { FC, useCallback, useState, useEffect } from 'react';
+// import phonesFromServer from '../fullProductData.json';
 
 import { FullProductData } from '../types/FullProductData';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Back from '../img/icons/angle_arrow_left.svg';
 import Home from '../img/icons/home_icon.svg';
 import './PagesStyles/Product.scss';
@@ -10,11 +10,20 @@ import { ProductGallery } from '../components/Product/ProductGallery';
 import { ProductInfo } from '../components/Product/ProductInfo';
 import { ProductAbout } from '../components/Product/ProductAbout';
 import { ProductTechSpechs } from '../components/Product/ProductTechSpechs';
+import { getProductById, getProductsByNamespace } from '../api';
+import { Loader } from '../components/Loader';
 
-export const Product: React.FC = () => {
-  const product: FullProductData = phonesFromServer;
+export const Product: FC = () => {
+  const [initProduct, setInitProduct] = useState<FullProductData | null>(null);
+  const [currProduct, setCurrProduct] = useState<FullProductData | null>(null);
+  const [products, setProducts] = useState<FullProductData[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const {
+  const { prodId } = useParams();
+
+  /* const product: FullProductData = phonesFromServer; */
+
+  /* const {
     // eslint-disable-next-line no-shadow
     screen,
     resolution,
@@ -25,7 +34,56 @@ export const Product: React.FC = () => {
     camera,
     zoom,
     cell,
-  } = product;
+  } = initProduct; */
+
+  const getProduct = useCallback(async() => {
+    try {
+      setIsLoading(true);
+
+      if (prodId) {
+        const productData = await getProductById(prodId);
+
+        setInitProduct(productData);
+      }
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      throw new Error('Failed to load product from server');
+    }
+  }, []);
+
+  const getNamespaceProducts = useCallback(async() => {
+    try {
+      const namespaceId = initProduct?.namespaceId;
+
+      if (namespaceId) {
+        const productsData = await getProductsByNamespace(namespaceId);
+
+        setProducts(productsData);
+      }
+    } catch (error) {
+      throw new Error('Failed to load product from server');
+    }
+  }, [initProduct]);
+
+  const changeNamespaceProduct = useCallback(
+    (newId: string) => {
+      const newCurrentProd = products.find(({ id }) => id === newId);
+
+      if (newCurrentProd) {
+        setCurrProduct(newCurrentProd);
+      }
+    },
+    [products],
+  );
+
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  useEffect(() => {
+    getNamespaceProducts();
+  }, [initProduct]);
 
   return (
     <div className="product-page">
@@ -47,31 +105,33 @@ export const Product: React.FC = () => {
         />
         <span>Back</span>
       </Link>
+      {!isLoading ? (
+        currProduct ? (
+          <>
+            <h1 className="product-page__title">{currProduct.name}</h1>
+            <div className="product-page__product-container product-container">
+              <div className="product-container__main-section">
+                <ProductGallery
+                  product={currProduct}
+                  onClick={changeNamespaceProduct}
+                />
 
-      <h1 className="product-page__title">{product.name}</h1>
+                <ProductInfo product={currProduct} />
+              </div>
 
-      <div className="product-page__product-container product-container">
-        <div className="product-container__main-section">
-          <ProductGallery product={product} />
+              <div className="product-container__secondary-section">
+                <ProductAbout description={currProduct.description} />
 
-          <ProductInfo product={product} />
-        </div>
-
-        <div className="product-container__secondary-section">
-          <ProductAbout description={description} />
-
-          <ProductTechSpechs
-            screen={screen}
-            resolution={resolution}
-            processor={processor}
-            ram={ram}
-            capacity={capacity}
-            camera={camera}
-            zoom={zoom}
-            cell={cell}
-          />
-        </div>
-      </div>
+                <ProductTechSpechs product={currProduct} />
+              </div>
+            </div>
+          </>
+        ) : (
+          <h2>We do not have this product</h2>
+        )
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

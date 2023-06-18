@@ -4,10 +4,11 @@ import './ProductGallery.scss';
 
 interface Props {
   product: FullProductData;
+  onClick: (newId: string) => void;
 }
 
-export const ProductGallery: React.FC<Props> = ({ product }) => {
-  const { images } = product;
+export const ProductGallery: React.FC<Props> = ({ product, onClick }) => {
+  const { id, images } = product;
 
   return (
     <div className="product-page__section content-gallery">
@@ -27,6 +28,7 @@ export const ProductGallery: React.FC<Props> = ({ product }) => {
                 className="content-gallery__secondary-photo-item"
                 src={require(`../../../${image}`)}
                 alt={image.slice(-6)}
+                onClick={() => onClick(id)}
               />
             </div>
           </div>
