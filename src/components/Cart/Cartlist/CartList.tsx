@@ -1,13 +1,13 @@
-import './CartList.scss';
+import { FC } from 'react';
 import { CartListItem } from '../CartListItem/CartListItem';
 import { CatalogProductData } from '../../../types/CatalogProductData';
-//  need to be replaced to CartProductData after, same in Props
+import './CartList.scss';
 
 type Props = {
   cartProducts: CatalogProductData[];
 };
 
-export const CartList: React.FC<Props> = ({ cartProducts }) => (
+export const CartList: FC<Props> = ({ cartProducts }) => (
   <div className="cart-list">
     {cartProducts.map((cartProduct) => (
       <CartListItem key={cartProduct.id} cartProduct={cartProduct} />

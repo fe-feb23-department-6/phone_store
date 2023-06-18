@@ -1,6 +1,7 @@
 export const pageParam = 'page';
 export const sortParam = 'sort';
 export const pageLimitParam = 'limit';
+export const queryParam = 'query';
 
 export const sortOptions = {
   newest: 'Newest',

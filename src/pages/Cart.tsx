@@ -7,10 +7,8 @@ import { CartModal } from '../components/Cart/CartModal/Cartmodal';
 
 const threeProductsInCart = ProductsInCart.slice(0, 3);
 
-// totalPrice = threeProductsInCart.reduce((x, sum) =>
-// (x.price * x.quantity) + sum, 0);
-// totalItems = threeProductsInCart.reduce((x, sum) =>
-// x.quantity + sum, 0);
+export const Cart = () => {
+  // const { cartContents } = useContext(StoreContext);
 
 export const Cart = () => {
   const [showModal, setShowModal] = useState(false);

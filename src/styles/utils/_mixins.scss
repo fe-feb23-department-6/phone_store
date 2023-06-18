@@ -71,7 +71,7 @@
 }
 
 @mixin buttons-text {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   line-height: 21px;
 }
@@ -86,20 +86,4 @@
   font-weight: 600;
   font-size: 12px;
   line-height: 15px;
-}
-
-@mixin cardParamsText {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  color: $secondary-color;
-}
-
-@mixin cardParamsValues {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
-  color: $primary-color;
 }

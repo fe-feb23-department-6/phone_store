@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import './Checkout.scss';
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
   onCheckout: () => void;
 };
 
-export const Checkout: React.FC<Props> = ({
+export const Checkout: FC<Props> = ({
   totalPrice,
   totalItems,
   onCheckout,

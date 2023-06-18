@@ -1,9 +1,6 @@
-/* eslint-disable no-shadow */
 import { FC, ReactNode, useState } from 'react';
 import { StoreContext } from './StoreContext';
 import { CartProductData } from '../types/CartProductData';
-import { CatalogProductData } from '../types/CatalogProductData';
-import { FullProductData } from '../types/FullProductData';
 
 type Props = {
   children: ReactNode;
@@ -12,44 +9,60 @@ type Props = {
 const storagedCart = localStorage.getItem('cartContents');
 const savedCartContents = storagedCart ? JSON.parse(storagedCart) : [];
 
+const storagedFavorites = localStorage.getItem('favoritesContents');
+const savedFavContents = storagedFavorites ? JSON.parse(storagedFavorites) : [];
+
 export const StoreContextProvider: FC<Props> = ({ children }) => {
   const [cartContents, setCartContents]
     = useState<CartProductData[]>(savedCartContents);
+  const [favContents, setFavContents] = useState<string[]>(savedFavContents);
 
-  const addToCartCatalog = (product: CatalogProductData) => {
-    setCartContents((currentCart) => {
-      const { itemId, name, image, price } = product;
-      const newCartProduct = {
-        id: itemId,
-        name,
-        image,
-        price,
-        quantity: 1,
-      };
+  const addToCart = (id: string) => {
+    setCartContents((currentContents) => {
+      const newContents = [...currentContents, { id, quantity: 1 }];
 
-      return [...currentCart, newCartProduct];
+      localStorage.setItem('cartContents', JSON.stringify(newContents));
+
+      return newContents;
     });
   };
 
-  const addToCartProductPage = (product: FullProductData) => {
-    setCartContents((currentCart) => {
-      const { id, name, images, priceDiscount } = product;
-      const newCartProduct = {
-        id,
-        name,
-        image: images[0],
-        price: priceDiscount,
-        quantity: 1,
-      };
+  const removeFromCart = (id: string) => {
+    setCartContents((currentContents) => {
+      const newContents = currentContents.filter(
+        ({ id: prodId }) => prodId !== id,
+      );
 
-      return [...currentCart, newCartProduct];
+      localStorage.setItem('cartContents', JSON.stringify(newContents));
+
+      return newContents;
+    });
+  };
+
+  const handleFavChange = (id: string) => {
+    setFavContents((currentContents) => {
+      if (favContents.includes(id)) {
+        const contents = currentContents.filter((prodId) => prodId !== id);
+
+        localStorage.setItem('cartContents', JSON.stringify(contents));
+
+        return contents;
+      }
+
+      const newContents = [...currentContents, id];
+
+      localStorage.setItem('favoritesContents', JSON.stringify(newContents));
+
+      return newContents;
     });
   };
 
   const contextValue = {
     cartContents,
-    addToCartCatalog,
-    addToCartProductPage,
+    addToCart,
+    removeFromCart,
+    favContents,
+    handleFavChange,
   };
 
   return (

@@ -4,7 +4,7 @@ import { SortBar } from '../components/Catalog/SortBar';
 import { ProductsList } from '../components/Catalog/ProductsList';
 import { Pagination } from '../components/Catalog/Pagination';
 import { CatalogProductData } from '../types/CatalogProductData';
-import { getProducts } from '../api/phones';
+import { getProducts } from '../api';
 import './PagesStyles/Catalog.scss';
 import { Loader } from '../components/Loader';
 
@@ -21,7 +21,7 @@ export const Catalog = () => {
     try {
       setIsLoading(true);
 
-      const productsData = await getProducts(paramsString);
+      const productsData = await getProducts('phones', paramsString);
       const {
         products: productsFromServer,
         totalPages: pagesQuantity,
@@ -43,11 +43,11 @@ export const Catalog = () => {
   }, [searchParams]);
 
   return (
-    <div className="catalogContent">
-      <div className="categoryName">
-        <h1 className="categoryName-text">Mobile phones</h1>
+    <div className="catalog-content">
+      <div className="category-name">
+        <h1 className="category-name-text">Mobile phones</h1>
         {productsCount && (
-          <p className="categoryName-quantity">{`${productsCount} models`}</p>
+          <p className="category-name-quantity">{`${productsCount} models`}</p>
         )}
       </div>
 
@@ -61,7 +61,9 @@ export const Catalog = () => {
         <ProductsList products={products} />
       )}
 
-      {!isLoading && totalPages && <Pagination totalPages={totalPages} />}
+      {!isLoading && totalPages !== null && totalPages > 1 && (
+        <Pagination totalPages={totalPages} />
+      )}
     </div>
   );
 };
