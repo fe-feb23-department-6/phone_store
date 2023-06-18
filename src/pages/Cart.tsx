@@ -35,15 +35,18 @@ export const Cart = () => {
     getCartContents();
   }, []);
 
-  const [totalPrice, totalItems] = useMemo(() => cartContents.reduce(
-    (acc, { id, quantity }) => {
-      const price = products.find(
-        prod => prod.itemId === id,
-      )?.price || 0;
+  const [totalPrice, totalItems] = useMemo(
+    () =>
+      cartContents.reduce(
+        (acc, { id, quantity }) => {
+          const price = products.find((prod) => prod.itemId === id)?.price || 0;
 
-      return [acc[0] + price * quantity, acc[1] + quantity];
-    }, [0, 0],
-  ), [products, cartContents]);
+          return [acc[0] + price * quantity, acc[1] + quantity];
+        },
+        [0, 0],
+      ),
+    [products, cartContents],
+  );
 
   return (
     <>
@@ -52,20 +55,18 @@ export const Cart = () => {
       ) : (
         <div className="cart-wrapper">
           <h1 className="cart-text">Cart</h1>
-          {products.length > 0
-            ? (
-              <div className="cart">
-                <CartList products={products} />
-                <Checkout
-                  totalPrice={totalPrice}
-                  totalItems={totalItems}
-                  onCheckout={onCheckout}
-                />
-              </div>
-            ) : (
-              <Loader />
-            )
-          }
+          {products.length > 0 ? (
+            <div className="cart">
+              <CartList products={products} />
+              <Checkout
+                totalPrice={totalPrice}
+                totalItems={totalItems}
+                onCheckout={onCheckout}
+              />
+            </div>
+          ) : (
+            <Loader />
+          )}
         </div>
       )}
     </>

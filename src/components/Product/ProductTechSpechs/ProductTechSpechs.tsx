@@ -23,7 +23,6 @@ export const ProductTechSpechs: React.FC<Props> = ({
   zoom,
   cell,
 }) => (
-
   <section className="tech-spechs product-page__section">
     <h3 className="tech-spechs__title">Tech Specs</h3>
 

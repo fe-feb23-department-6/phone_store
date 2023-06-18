@@ -11,17 +11,12 @@ export const ProductAbout: React.FC<Props> = ({ description }) => (
     <h3 className="about__title">About</h3>
 
     {description.map((characteristics) => (
-      <div
-        className="about__characteristics"
-        key={characteristics.title}
-      >
+      <div className="about__characteristics" key={characteristics.title}>
         <h4 className="about__characteristics-subtitle">
           {characteristics.title}
         </h4>
 
-        <p className="about__characteristics-text">
-          {characteristics.text}
-        </p>
+        <p className="about__characteristics-text">{characteristics.text}</p>
       </div>
     ))}
   </section>

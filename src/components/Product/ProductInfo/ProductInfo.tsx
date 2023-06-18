@@ -32,18 +32,14 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
         <div className="product-info__content-container">
           <div className="product-info__available-colors available-colors">
             <div className="available-colors__container">
-              <div className='available-colors__text'>
-                Available colors
-              </div>
+              <div className="available-colors__text">Available colors</div>
             </div>
 
-            <div className='available-colors__id'>
-              {`ID:${userId}`}
-            </div>
+            <div className="available-colors__id">{`ID:${userId}`}</div>
           </div>
 
           <div className="product-info__main-spechs">
-            <div className='product-info__available-colors-icons'>
+            <div className="product-info__available-colors-icons">
               {/* {colors.map((color) => (
                 <img
                   className='color-icon'
@@ -51,38 +47,26 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
                   alt={`${color}`}
                 />
               ))} */}
-              <img
-                className='color-icon'
-                src={Beige}
-                alt='beige-color-icon'
-              />
+              <img className="color-icon" src={Beige} alt="beige-color-icon" />
+
+              <img className="color-icon" src={Green} alt="green-color-icon" />
+
+              <img className="color-icon" src={Grey} alt="grey-color-icon" />
 
               <img
-                className='color-icon'
-                src={Green}
-                alt='green-color-icon'
-              />
-
-              <img
-                className='color-icon'
-                src={Grey}
-                alt='grey-color-icon'
-              />
-
-              <img
-                className='color-icon'
+                className="color-icon"
                 src={Silver}
-                alt='silver-color-icon'
+                alt="silver-color-icon"
               />
             </div>
 
             <div className="product-info__select-capacity">
-              <div className='product-info__select-capacity-text'>
+              <div className="product-info__select-capacity-text">
                 Select capacity
               </div>
               {capacityAvailable.map((memory: string) => (
                 <button
-                  className='product-info__select-capacity-btn'
+                  className="product-info__select-capacity-btn"
                   key={memory}
                 >
                   {memory}
@@ -96,7 +80,10 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
             </div>
 
             <div
-              className="product-info__add-to-cart-or-like add-to-cart-or-like">
+              className="
+                product-info__add-to-cart-or-like
+                add-to-cart-or-like"
+            >
               <button
                 type="button"
                 className="add-to-cart-or-like__add-to-cart"
@@ -104,8 +91,10 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
                 Add to cart
               </button>
 
-              <button type="button" className="add-to-cart-or-like__like-icon">
-              </button>
+              <button
+                type="button"
+                className="add-to-cart-or-like__like-icon"
+              ></button>
             </div>
 
             <div className="product-info__phone-info phone-info">

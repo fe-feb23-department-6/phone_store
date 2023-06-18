@@ -29,18 +29,18 @@ export const Product: React.FC = () => {
   } = product;
 
   return (
-    <div className='product-page'>
+    <div className="product-page">
       <div className="product-page__breadcrumbs">
-        <Link to={'/'} className='product-page__breadcrumbs-link'>
+        <Link to={'/'} className="product-page__breadcrumbs-link">
           <img
-            className='product-page__breadcrumbs-img'
+            className="product-page__breadcrumbs-img"
             src={Home}
             alt="home"
           />
         </Link>
       </div>
 
-      <Link to={'/'} className='product-page__button-back'>
+      <Link to={'/'} className="product-page__button-back">
         <img
           className="product-page__button-back-img"
           src={Back}
@@ -51,14 +51,14 @@ export const Product: React.FC = () => {
 
       <h1 className="product-page__title">{product.name}</h1>
 
-      <div className='product-page__product-container product-container'>
-        <div className='product-container__main-section'>
+      <div className="product-page__product-container product-container">
+        <div className="product-container__main-section">
           <ProductGallery product={product} />
 
           <ProductInfo product={product} />
         </div>
 
-        <div className='product-container__secondary-section'>
+        <div className="product-container__secondary-section">
           <ProductAbout description={description} />
 
           <ProductTechSpechs
