@@ -6,6 +6,7 @@ export const StoreContext = createContext<StoreContextData>({
   cartContents: [],
   addToCart: () => {},
   removeFromCart: () => {},
+  changeCartProdQuantity: () => {},
   favContents: [],
   handleFavChange: () => {},
 });

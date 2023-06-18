@@ -13,6 +13,7 @@
 
   border: 1px solid $elements-color;
   border-radius: 16px;
+  background-color: $white-color;
 
   @include onTablet {
     flex-direction: row;
@@ -38,20 +39,10 @@
     width: 16px;
 
     background-color: $white-color;
-    background-image: url('./Cross.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    color: $icons-color;
+    font-size: 16px;
     border: none;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:active {
-      transform: scale(1.009);
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 
   &__photo-container {
@@ -102,17 +93,21 @@
 
       border: 1px solid $icons-color;
       border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: center;
       background-color: $white-color;
+      cursor: pointer;
+
+      font-family: $global-font;
+      font-size: 24px;
+      line-height: 24px;
 
       &:hover {
         border: 1px solid $primary-color;
-        cursor: pointer;
       }
 
-      &:active {
-        cursor: pointer;
+      &--disabled {
+        border-color: $elements-color;
+        color: $elements-color;
+        pointer-events: none;
       }
     }
   }
@@ -124,14 +119,4 @@
     line-height: 140%;
     color: $primary-color;
   }
-}
-
-.quantity-button-subtract {
-  background-image: url('./MinusIcon.png');
-  background-size: 55%;
-}
-
-.quantity-button-add {
-  background-image: url('./PlusIcon.png');
-  background-size: 35%;
 }

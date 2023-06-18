@@ -7,11 +7,7 @@ type Props = {
   onCheckout: () => void;
 };
 
-export const Checkout: FC<Props> = ({
-  totalPrice,
-  totalItems,
-  onCheckout,
-}) => (
+export const Checkout: FC<Props> = ({ totalPrice, totalItems, onCheckout }) => (
   <div className="checkout">
     <div className="checkout__total">
       <p className="checkout__total-price">{`$${totalPrice}`}</p>
