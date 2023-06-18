@@ -2,7 +2,6 @@ import React from 'react';
 import phonesFromServer from '../fullProductData.json';
 
 import { FullProductData } from '../types/FullProductData';
-// import { ProductPage } from '../components/Product/ProductPage';
 import { Link } from 'react-router-dom';
 import Back from '../img/icons/angle_arrow_left.svg';
 import Home from '../img/icons/home_icon.svg';
@@ -73,8 +72,6 @@ export const Product: React.FC = () => {
           />
         </div>
       </div>
-
-      {/* <ProductPage product={product} /> */}
     </div>
   );
 };

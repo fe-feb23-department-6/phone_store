@@ -122,6 +122,5 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
         </div>
       </div>
     </section>
-    // </div>
   );
 };
