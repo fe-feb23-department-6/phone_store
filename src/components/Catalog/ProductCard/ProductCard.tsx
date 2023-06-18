@@ -39,6 +39,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
       <div className="product-card__price">
         <div className="product-card__price--current">{`$${price}`}</div>
         <div className="product-card__price--full">{`$${fullPrice}`}</div>
+
       </div>
 
       <div className="product-info">
