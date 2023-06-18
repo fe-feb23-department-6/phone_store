@@ -21,3 +21,17 @@
     padding-right: 100px;
   }
 }
+
+.shop-categories {
+  margin: 0 16px;
+}
+
+.shop-categories__title {
+  padding-bottom: 24px;
+
+  @include h2-mobile;
+
+  @include onTablet {
+    @include h2-desktop;
+  }
+}
