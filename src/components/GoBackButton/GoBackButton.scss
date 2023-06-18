@@ -1,0 +1,30 @@
+@import '../../styles/utils/_vars';
+@import '../../styles/utils/_mixins';
+
+.go-back {
+  cursor: pointer;
+
+  border: none;
+  background-color: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  color: $secondary-color;
+  font-family: $global-font;
+  @include small-text;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  &::before {
+    font-family: "Font Awesome 6 Free"; 
+    content: "\f053";
+    margin-right: 10px;
+    color: $primary-color;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

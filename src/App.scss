@@ -6,16 +6,23 @@ body {
   font-family: $global-font;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
+.App {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
   background-color: $hover-bg-color;
-  padding-bottom: 64px;
+  padding: 24px 16px 56px;
+  flex: 1 1 auto;
+
+  @include onTablet {
+    padding: 24px 24px 64px;
+  }
 
   @include onDesktop {
-    padding-bottom: 80px;
+    padding: 24px 32px 80px;
   }
 }

@@ -1,8 +1,8 @@
 import { FC, useContext } from 'react';
-import { CartListItem } from '../CartListItem/CartListItem';
+import { CartListItem } from '../CartListItem';
+import { StoreContext } from '../../../context/StoreContext';
 import { CatalogProductData } from '../../../types/CatalogProductData';
 import './CartList.scss';
-import { StoreContext } from '../../../context/StoreContext';
 
 type Props = {
   products: CatalogProductData[];

@@ -2,43 +2,36 @@
 @import '../../styles/utils/mixins';
 
 .cart-wrapper {
-  padding: 16px;
-  min-width: 320px;
-  max-width: 432px;
-  width: 100%;
+  display: flex;
+  max-width: 440px;
+
+  flex-wrap: wrap;
   margin: 0 auto;
 
   @include onTablet {
-    padding: 24px;
-    min-width: 640px;
-    max-width: 800px;
-    width: 100%;
-  }
-
-  @include onDesktop {
-    padding: 32px;
-    max-width: 1200px;
-    width: 1200px;
+    max-width: 1136px;  
+    padding-top: 16px;
   }
 }
 
 .cart {
   display: flex;
+  width: 100%;
   flex-direction: column;
   row-gap: 30px;
+  align-items: center;
+  justify-content: center;
 
-  &-text {
+  &-title {
+    width: 100%;
+
     padding-bottom: 32px;
     padding-top: 24px;
-
-    text-align: left;
-    color: $primary-color;
 
     @include h1-mobile;
 
     @include onTablet {
       padding-top: 16px;
-      width: 100%;
 
       @include h1-desktop;
     }
@@ -47,6 +40,6 @@
   @include onDesktop {
     flex-direction: row;
     column-gap: 16px;
-    width: 100%;
+    align-items: start;
   }
 }

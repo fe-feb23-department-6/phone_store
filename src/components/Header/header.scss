@@ -21,7 +21,7 @@
   }
 
   @include onDesktop {
-    height: $desktop-heigh;
+    height: 64px;
     gap: 48px;
   }
 }

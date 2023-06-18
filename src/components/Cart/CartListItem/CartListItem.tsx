@@ -9,7 +9,8 @@ type Props = {
 };
 
 export const CartListItem: FC<Props> = ({ cartProduct }) => {
-  const { changeCartProdQuantity, removeFromCart } = useContext(StoreContext);
+  const { changeCartProdQuantity, removeCartProduct }
+    = useContext(StoreContext);
 
   const { id, prodName, image, price, quantity } = cartProduct;
 
@@ -19,7 +20,7 @@ export const CartListItem: FC<Props> = ({ cartProduct }) => {
         <button
           type="button"
           className="cart-item__delete-button"
-          onClick={() => removeFromCart(id)}
+          onClick={() => removeCartProduct(id)}
         >
           <i className="fa-solid fa-xmark" />
         </button>
