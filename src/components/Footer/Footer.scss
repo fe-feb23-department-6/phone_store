@@ -16,6 +16,8 @@
 
     text-align: left;
 
+    box-shadow: 0px -1px 0px $elements-color;
+
     @include onTablet {
       flex-direction: row;
       align-items: baseline;

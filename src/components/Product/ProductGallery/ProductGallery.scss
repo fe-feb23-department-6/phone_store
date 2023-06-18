@@ -1,0 +1,83 @@
+@import '../../../styles/utils/mixins';
+@import '../../../styles/utils/reset';
+@import '../../../styles/utils/vars';
+
+.content-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+
+  @include onTablet {
+    flex-direction: row-reverse;
+    align-items: start;
+  }
+
+  @include onDesktop {
+    margin-right: 64px;
+  }
+
+  &__main-photo {
+    flex-basis: 274px;
+    margin-bottom: 16px;
+    margin: 0 8px;
+    object-fit: contain;
+
+    @include onTablet {
+      flex-grow: 1;
+      margin: 8px;
+    }
+  }
+
+  &__main-photo-item {
+    display: flex;
+    flex-grow: 1;
+    max-width: 442px;
+    max-height: 442px;
+  }
+
+  &__photos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include onTablet {
+      flex-direction: column;
+    }
+  }
+
+  &__secondary-photo {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 50px;
+    max-width: 80px;
+    margin-right: 8px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      margin-right: 0;
+    }
+  }
+
+  &__secondary-photo-container {
+    display: flex;
+    border: 1px solid $elements-color;
+    border-radius: 4px;
+    align-items: center;
+  }
+
+  &__secondary-photo-item {
+    display: flex;
+    flex-basis: 50px;
+    align-items: stretch;
+    padding: 5px;
+    object-fit: contain;
+    object-position: center;
+
+    @include onTablet {
+      max-width: 80px;
+      max-height: 80px;
+      margin: 0 auto;
+    }
+  }
+}

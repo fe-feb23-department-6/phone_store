@@ -1,0 +1,62 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/reset';
+@import '../../styles/fonts/fonts.scss';
+
+.product-page {
+  margin: 0 16px;
+  max-width: 1200px;
+  @include onTablet {
+    margin: 0 32px;
+  }
+  @include onDesktop {
+    margin: 0 auto;
+  }
+
+  &__section {
+    @include onTablet {
+      flex-grow: 1;
+    }
+
+    @include onDesktop {
+      max-width: 560px;
+    }
+  }
+
+  &__title {
+    @include h1-mobile;
+    @include onTablet {
+      @include h1-desktop;
+    }
+    margin-bottom: 16px;
+  }
+
+  &__button-back {
+    @include small-text;
+    margin-bottom: 16px;
+    color: $secondary-color;
+  }
+
+  &__button-back-img {
+    padding-right: 8px;
+  }
+
+  &__breadcrumbs-img {
+    margin: 16px 0;
+  }
+}
+
+.product-container {
+  &__main-section {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__secondary-section {
+    @include onDesktop {
+      display: flex;
+    }
+  }
+}
