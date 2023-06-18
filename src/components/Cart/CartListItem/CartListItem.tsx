@@ -9,18 +9,9 @@ type Props = {
 };
 
 export const CartListItem: FC<Props> = ({ cartProduct }) => {
-  const {
-    changeCartProdQuantity,
-    removeFromCart,
-  } = useContext(StoreContext);
+  const { changeCartProdQuantity, removeFromCart } = useContext(StoreContext);
 
-  const {
-    id,
-    prodName,
-    image,
-    price,
-    quantity,
-  } = cartProduct;
+  const { id, prodName, image, price, quantity } = cartProduct;
 
   return (
     <div className="cart-item">

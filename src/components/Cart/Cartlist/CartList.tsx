@@ -14,17 +14,13 @@ export const CartList: FC<Props> = ({ products }) => {
   return (
     <div className="cart-list">
       {cartContents.map(({ id, quantity }) => {
-        const product = products.find(prod => prod.itemId === id);
+        const product = products.find((prod) => prod.itemId === id);
 
         if (!product) {
           return null;
         }
 
-        const {
-          name: prodName,
-          image,
-          price,
-        } = product;
+        const { name: prodName, image, price } = product;
 
         const cartProduct = {
           id,
