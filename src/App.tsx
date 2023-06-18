@@ -18,7 +18,7 @@ export const App = () => {
     <div className="App">
       <Header />
 
-      <main>
+      <main className="main">
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
