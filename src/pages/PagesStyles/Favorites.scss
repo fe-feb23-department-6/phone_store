@@ -23,8 +23,8 @@
 
 .favorites__empty {
   margin-top: 40px;
-  @include  h2-mobile;
- 
+  @include h2-mobile;
+
   @include onTablet {
     @include h2-desktop;
   }
@@ -37,7 +37,7 @@
 
   max-width: 1200px;
 
-   @include onTablet {
+  @include onTablet {
     padding: 0 24px;
   }
 

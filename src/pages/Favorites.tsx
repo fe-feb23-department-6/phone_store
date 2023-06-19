@@ -6,7 +6,9 @@ import { CatalogProductData } from '../types/CatalogProductData';
 
 export const Favorites = () => {
   // eslint-disable-next-line max-len
-  const [favoriteProducts, setFavoriteProducts] = useState<CatalogProductData[]>([]);
+  const [favoriteProducts, setFavoriteProducts] = useState<
+    CatalogProductData[]
+  >([]);
 
   useEffect(() => {
     const storagedFavorites = localStorage.getItem('favoritesContents');
@@ -23,9 +25,7 @@ export const Favorites = () => {
     <div className="favorites">
       <GoHomeButton />
       <h1 className="favorites__title">Favorites</h1>
-      <span className="favorites__subtitle">
-        {favoritesCount} items
-      </span>
+      <span className="favorites__subtitle">{favoritesCount} items</span>
 
       {favoritesCount > 0 ? (
         <div className="favorites__items">
