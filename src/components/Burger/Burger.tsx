@@ -108,8 +108,12 @@ export const Burger: FC<Props> = ({ onClose }) => {
             onClick={handleClick}
           >
             {favoriteCount > 0 && (
-              <span className="burger__action__count
-">{favoriteCount}</span>
+              <span
+                className="burger__action__count
+"
+              >
+                {favoriteCount}
+              </span>
             )}
             <img
               src={Favorite}
@@ -127,8 +131,12 @@ export const Burger: FC<Props> = ({ onClose }) => {
             }
             onClick={handleClick}
           >
-            <span className="burger__action__count
-">{1}</span>
+            <span
+              className="burger__action__count
+"
+            >
+              {1}
+            </span>
             <img src={Basket} alt="cart" className="burger__action__image" />
           </NavLink>
         </div>

@@ -31,11 +31,8 @@ export const Favorites = () => {
       {favoritesCount > 0 ? (
         <div className="favorites__items">
           {favoriteProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          )) }
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       ) : (
         <h2 className="favorites__empty">
