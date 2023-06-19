@@ -5,40 +5,42 @@
 .content-gallery {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 32px;
 
   @include onTablet {
     flex-direction: row-reverse;
-    align-items: start;
   }
 
   @include onDesktop {
-    margin-right: 64px;
+    margin-right: 0;
   }
 
   &__main-photo {
-    flex-basis: 274px;
-    margin-bottom: 16px;
-    margin: 0 8px;
+    width: auto;
+    height: 274px;
+    margin: 0 auto 16px;
     object-fit: contain;
+    object-position: center;
 
     @include onTablet {
-      flex-grow: 1;
-      margin: 8px;
+      margin: 0 auto 32px;
+    }
+
+    @include onDesktop {
+      height: 442px;
     }
   }
 
   &__main-photo-item {
-    display: flex;
-    flex-grow: 1;
-    max-width: 442px;
-    max-height: 442px;
+    display: block;
+    height: 100%;
+    @include onTablet {
+      max-width: 442px;
+      max-height: 442px;
+    }
   }
 
   &__photos-container {
     display: flex;
-    align-items: center;
     justify-content: center;
 
     @include onTablet {
@@ -48,36 +50,32 @@
 
   &__secondary-photo {
     display: flex;
-    flex-grow: 1;
-    flex-basis: 50px;
-    max-width: 80px;
     margin-right: 8px;
 
     @include onTablet {
       margin-bottom: 16px;
       margin-right: 0;
+      min-height: 80px;
     }
   }
 
-  &__secondary-photo-container {
-    display: flex;
+  &__secondary-photo-item {
     border: 1px solid $elements-color;
     border-radius: 4px;
-    align-items: center;
-  }
-
-  &__secondary-photo-item {
+    margin-bottom: 16px;
     display: flex;
-    flex-basis: 50px;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
     align-items: stretch;
     padding: 5px;
     object-fit: contain;
     object-position: center;
 
     @include onTablet {
-      max-width: 80px;
-      max-height: 80px;
-      margin: 0 auto;
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
     }
   }
 }
