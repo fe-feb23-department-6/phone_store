@@ -40,7 +40,7 @@ export const getProductsForCart = async(phoneIds: string) => {
   return products;
 };
 
-export const getProductById = async(id: string) => {
+/* export const getProductById = async(id: string) => {
   const product = await client.getProductsFromServer<FullProductData>(
     `products/${id}`,
   );
@@ -50,16 +50,18 @@ export const getProductById = async(id: string) => {
   );
 
   return product;
-};
+}; */
 
-export const getProductsByNamespace = async(namespace: string) => {
+export const getProductsByNamespace = async(category: string, id: string) => {
   const products = await client.getProductsFromServer<FullProductData[]>(
-    `products/${namespace}`,
+    `products/${category}/${id}`,
   );
 
-  products.map((item) => {
-    item.images.map(
-      (image) => `https://backend-phone-store.onrender.com/${image}`,
+  products.map(({ images }) => {
+    images.forEach(
+      (image, index) => {
+        images[index] = `https://backend-phone-store.onrender.com/${image}`;
+      },
     );
   });
 

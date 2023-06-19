@@ -12,9 +12,12 @@ type Props = {
 export const ProductCard: FC<Props> = ({ product }) => {
   const { cartContents, addToCart, favContents, handleFavChange }
     = useContext(StoreContext);
+  const navigate = useNavigate();
+
   const {
     itemId,
     name: prodName,
+    category,
     image,
     fullPrice,
     price,
@@ -25,7 +28,6 @@ export const ProductCard: FC<Props> = ({ product }) => {
 
   const isInCart = cartContents.map(({ id }) => id).includes(itemId);
   const isInFavorites = favContents.includes(itemId);
-  const navigate = useNavigate();
 
   const handleCartAction = () => {
     if (isInCart) {
@@ -47,7 +49,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
         />
       </div>
       <div className="product-card__product-name">
-        <Link to={`/${itemId}`}>{prodName}</Link>
+        <Link to={`/category/${category}/${itemId}`}>{prodName}</Link>
       </div>
 
       <div className="product-card__price">

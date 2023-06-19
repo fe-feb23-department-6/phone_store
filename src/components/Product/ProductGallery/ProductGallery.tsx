@@ -1,22 +1,31 @@
-import React from 'react';
+import { FC, useState, useCallback, useEffect } from 'react';
 import { FullProductData } from '../../../types/FullProductData';
 import './ProductGallery.scss';
 
 interface Props {
   product: FullProductData;
-  onClick: (newId: string) => void;
 }
 
-export const ProductGallery: React.FC<Props> = ({ product, onClick }) => {
-  const { id, images } = product;
+export const ProductGallery: FC<Props> = ({ product }) => {
+  const { images, name: prodName } = product;
+
+  const [currentImage, setCurrentImage] = useState('');
+
+  const handleImageChange = useCallback((image: string) => {
+    setCurrentImage(image);
+  }, []);
+
+  useEffect(() => {
+    setCurrentImage(images[0]);
+  }, [product]);
 
   return (
     <div className="product-page__section content-gallery">
       <div className="content-gallery__main-photo">
         <img
           className="content-gallery__main-photo-item"
-          src={require(`../../../${images[0]}`)}
-          alt={images[0].slice(-6)}
+          src={currentImage}
+          alt={prodName}
         />
       </div>
 
@@ -26,9 +35,9 @@ export const ProductGallery: React.FC<Props> = ({ product, onClick }) => {
             <div className="content-gallery__secondary-photo-container">
               <img
                 className="content-gallery__secondary-photo-item"
-                src={require(`../../../${image}`)}
-                alt={image.slice(-6)}
-                onClick={() => onClick(id)}
+                src={image}
+                alt={prodName}
+                onClick={() => handleImageChange(image)}
               />
             </div>
           </div>
