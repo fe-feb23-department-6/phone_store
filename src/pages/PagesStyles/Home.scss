@@ -17,21 +17,41 @@
 
 .new-models,
 .new-products {
+  margin-left: 16px;
+  margin-bottom: 80px;
   &__title {
     padding-right: 100px;
+    @include h2-mobile;
+
+    @include onTablet {
+      @include h2-desktop;
+    }
   }
 }
 
 .shop-categories {
   margin: 0 16px;
+
+  &__title {
+    @include h2-mobile;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      @include h2-desktop;
+    }
+  }
 }
 
-.shop-categories__title {
-  padding-bottom: 24px;
+.products-slider__title {
+  margin-bottom: 10px;
 
   @include h2-mobile;
 
   @include onTablet {
     @include h2-desktop;
   }
+}
+
+.hot-prices {
+  margin-top: 81px;
 }

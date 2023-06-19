@@ -1,12 +1,9 @@
-/* eslint-disable no-console */
-
 import { FC } from 'react';
 import { CatalogProductData } from '../../types/CatalogProductData';
 
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
 import { ProductCard } from '../Catalog/ProductCard';
 import './ProductsSlider.scss';
@@ -30,6 +27,7 @@ export const ProductsSlider: FC<Props> = ({ sectionName, products }) => {
         </div>
       </div>
       <Swiper
+        wrapperClass="product-slider"
         modules={[Navigation]}
         spaceBetween={16}
         loop={true}
@@ -39,7 +37,7 @@ export const ProductsSlider: FC<Props> = ({ sectionName, products }) => {
         }}
         breakpoints={{
           1200: {
-            slidesPerView: 4,
+            slidesPerView: 4.1,
           },
           1100: {
             slidesPerView: 3.5,
@@ -48,15 +46,15 @@ export const ProductsSlider: FC<Props> = ({ sectionName, products }) => {
             slidesPerView: 3,
           },
           700: {
-            slidesPerView: 2.5,
+            slidesPerView: 2.3,
           },
           550: {
-            slidesPerView: 2,
+            slidesPerView: 1.9,
           },
           450: {
             slidesPerView: 1.5,
           },
-          340: {
+          320: {
             slidesPerView: 1.2,
           },
         }}
