@@ -22,13 +22,11 @@ export const ProductGallery: React.FC<Props> = ({ product }) => {
       <div className="content-gallery__photos-container">
         {images.map((image: string) => (
           <div className="content-gallery__secondary-photo" key={image}>
-            <div className="content-gallery__secondary-photo-container">
-              <img
-                className="content-gallery__secondary-photo-item"
-                src={require(`../../../${image}`)}
-                alt={image.slice(-6)}
-              />
-            </div>
+            <img
+              className="content-gallery__secondary-photo-item"
+              src={require(`../../../${image}`)}
+              alt={image.slice(-6)}
+            />
           </div>
         ))}
       </div>
