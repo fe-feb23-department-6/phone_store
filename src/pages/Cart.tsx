@@ -13,7 +13,7 @@ export const Cart = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const { cartContents } = useContext(StoreContext);
+  const { cartContents, cleanCartContents } = useContext(StoreContext);
 
   const isNotEmptyCart = cartContents.length > 0;
   const phoneIds = cartContents.map(({ id }) => id).join(',');
@@ -33,7 +33,7 @@ export const Cart = () => {
 
   const onCheckout = () => {
     setIsSuccess(true);
-    // cleanCartContents();
+    cleanCartContents();
   };
 
   const getCartContents = useCallback(async() => {

@@ -16,5 +16,5 @@ async function request<T>(searchParams: string, method = 'GET'): Promise<T> {
 }
 
 export const client = {
-  getAllPhones: <T>(url: string) => request<T>(url),
+  getProductsFromServer: <T>(url: string) => request<T>(url),
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { SortBar } from '../components/Catalog/SortBar';
 import { ProductsList } from '../components/Catalog/ProductsList';
 import { Pagination } from '../components/Catalog/Pagination';
@@ -16,23 +16,28 @@ export const Catalog = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const paramsString = useLocation().search;
+  const { categoryName } = useParams();
 
   const getCatalogContents = useCallback(async() => {
     try {
       setIsLoading(true);
 
-      const productsData = await getProducts('phones', paramsString);
-      const {
-        products: productsFromServer,
-        totalPages: pagesQuantity,
-        totalCount: productsQuantity,
-      } = productsData;
+      if (categoryName) {
+        const productsData = await getProducts(categoryName, paramsString);
 
-      setProductsCount(productsQuantity);
-      setTotalPages(pagesQuantity);
-      setProducts(productsFromServer);
+        const {
+          products: productsFromServer,
+          totalPages: pagesQuantity,
+          totalCount: productsQuantity,
+        } = productsData;
+
+        setProductsCount(productsQuantity);
+        setTotalPages(pagesQuantity);
+        setProducts(productsFromServer);
+      }
+
       setIsLoading(false);
-    } catch {
+    } catch (error) {
       setIsLoading(false);
       throw new Error('Server error');
     }

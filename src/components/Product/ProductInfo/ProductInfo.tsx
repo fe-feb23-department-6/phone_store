@@ -1,28 +1,31 @@
 /* eslint-disable no-shadow */
-import React from 'react';
+import { FC } from 'react';
 import { FullProductData } from '../../../types/FullProductData';
 import './ProductInfo.scss';
-import Beige from '../../../img/icons/beige_color_icon.svg';
-import Green from '../../../img/icons/green_color_icon.svg';
-import Grey from '../../../img/icons/grey_color_icon.svg';
-import Silver from '../../../img/icons/silver_color_icon.svg';
-// import AddInFav from '../../../img/icons/favorites_add_fullbutton.svg';
+import { ColorOptions, colorIcons } from '../../../img/icons/product_colors';
+
+const isColorOption = (color: string): color is ColorOptions => {
+  return (color as ColorOptions) in colorIcons;
+};
 
 interface Props {
   product: FullProductData;
+  onProductChange: (newColor: string, newRam: string) => void;
 }
 
 const userId = Math.floor(Math.random() * 1000000);
-// const colors = ['Beige', 'Green', 'Grey', 'Silver'];
 
-export const ProductInfo: React.FC<Props> = ({ product }) => {
+export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
   const {
+    color,
+    colorsAvailable,
     capacityAvailable,
     priceRegular,
     priceDiscount,
     screen,
     resolution,
     processor,
+    capacity,
     ram,
   } = product;
 
@@ -40,24 +43,21 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
 
           <div className="product-info__main-spechs">
             <div className="product-info__available-colors-icons">
-              {/* {colors.map((color) => (
-                <img
-                  className='color-icon'
-                  src={`${color}`}
-                  alt={`${color}`}
-                />
-              ))} */}
-              <img className="color-icon" src={Beige} alt="beige-color-icon" />
+              {colorsAvailable.map((color) => {
+                if (isColorOption(color)) {
+                  const iconPath = colorIcons[color];
 
-              <img className="color-icon" src={Green} alt="green-color-icon" />
-
-              <img className="color-icon" src={Grey} alt="grey-color-icon" />
-
-              <img
-                className="color-icon"
-                src={Silver}
-                alt="silver-color-icon"
-              />
+                  return (
+                    <img
+                      className="color-icon"
+                      src={iconPath}
+                      alt="beige-color-icon"
+                      onClick={() => onProductChange(color, capacity)}
+                      key={color}
+                    />
+                  );
+                }
+              })}
             </div>
 
             <div className="product-info__select-capacity">
@@ -67,6 +67,7 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
               {capacityAvailable.map((memory: string) => (
                 <button
                   className="product-info__select-capacity-btn"
+                  onClick={() => onProductChange(color, memory)}
                   key={memory}
                 >
                   {memory}
