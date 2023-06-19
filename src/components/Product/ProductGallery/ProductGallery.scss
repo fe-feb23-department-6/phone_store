@@ -1,10 +1,10 @@
 @import '../../../styles/utils/mixins';
-@import '../../../styles/utils/reset';
 @import '../../../styles/utils/vars';
 
 .content-gallery {
   display: flex;
   flex-direction: column;
+  margin-bottom: $large-gap;
 
   @include onTablet {
     flex-direction: row-reverse;
@@ -17,12 +17,12 @@
   &__main-photo {
     width: auto;
     height: 274px;
-    margin: 0 auto 16px;
+    margin: 0 auto $medium-gap;
     object-fit: contain;
     object-position: center;
 
     @include onTablet {
-      margin: 0 auto 32px;
+      margin: 0 auto $large-gap;
     }
 
     @include onDesktop {
@@ -33,6 +33,7 @@
   &__main-photo-item {
     display: block;
     height: 100%;
+
     @include onTablet {
       max-width: 442px;
       max-height: 442px;
@@ -45,36 +46,40 @@
 
     @include onTablet {
       flex-direction: column;
+      justify-content: flex-start;
     }
   }
 
   &__secondary-photo {
     display: flex;
-    margin-right: 8px;
+    margin-right: $small-gap;
 
     @include onTablet {
-      margin-bottom: 16px;
+      margin-bottom: $medium-gap;
       margin-right: 0;
       min-height: 80px;
     }
   }
 
   &__secondary-photo-item {
-    border: 1px solid $elements-color;
-    border-radius: 4px;
     display: flex;
     flex-shrink: 0;
+    align-items: stretch;
+
     width: 50px;
     height: 50px;
-    align-items: stretch;
     padding: 5px;
     object-fit: contain;
     object-position: center;
 
+    border: 1px solid $elements-color;
+    border-radius: $border-radius-small;
+
     @include onTablet {
       width: 80px;
       height: 80px;
-      border-radius: 8px;
+
+      border-radius: $border-radius-standart;
     }
   }
 }

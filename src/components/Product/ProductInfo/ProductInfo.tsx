@@ -53,10 +53,13 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
   };
 
   return (
-    <section className="product-page__section product-info">
-      <div className="product-info__content">
-        <div className="product-info__content-container">
-          <div className="product-info__available-colors available-colors">
+    <section className="product-page__section store-product-info">
+      <div className="store-product-info__content">
+        <div className="store-product-info__content-container">
+          <div
+            className="store-product-info__available-colors
+            available-colors"
+          >
             <div className="available-colors__container">
               <div className="available-colors__text">Available colors</div>
             </div>
@@ -64,8 +67,8 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
             <div className="available-colors__id">{`ID:${userId}`}</div>
           </div>
 
-          <div className="product-info__main-spechs">
-            <div className="product-info__available-colors-icons">
+          <div className="store-product-info__main-spechs">
+            <div className="store-product-info__available-colors-icons">
               {colorsAvailable.map((color) => {
                 if (isColorOption(color)) {
                   const iconPath = colorIcons[color];
@@ -73,10 +76,10 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
                   return (
                     <img
                       className={cn('color-icon', {
-                        'ACTIVE-COLOR': color === currentColor,
+                        'color-icon--active': color === currentColor,
                       })}
                       src={iconPath}
-                      alt="beige-color-icon"
+                      alt={`${color}-color-icon`}
                       onClick={() => onProductChange(color, capacity)}
                       key={color}
                     />
@@ -85,14 +88,15 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
               })}
             </div>
 
-            <div className="product-info__select-capacity">
-              <div className="product-info__select-capacity-text">
+            <div className="store-product-info__select-capacity">
+              <div className="store-product-info__select-capacity-text">
                 Select capacity
               </div>
               {capacityAvailable.map((memory: string) => (
                 <button
-                  className={cn('product-info__select-capacity-btn', {
-                    'ACTIVE-MEMORY': memory === capacity,
+                  className={cn('store-product-info__select-capacity-btn', {
+                    'store-product-info__select-capacity-btn--active':
+                      memory === capacity,
                   })}
                   onClick={() => onProductChange(currentColor, memory)}
                   key={memory}
@@ -102,20 +106,20 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
               ))}
             </div>
 
-            <div className="product-info__price">
-              <div className="product-info__price--current">{`$${priceRegular}`}</div>
-              <div className="product-info__price--full">{`$${priceDiscount}`}</div>
+            <div className="store-product-info__price">
+              <div className="store-product-info__price--current">{`$${priceRegular}`}</div>
+              <div className="store-product-info__price--full">{`$${priceDiscount}`}</div>
             </div>
 
             <div
               className="
-                product-info__add-to-cart-or-like
+                store-product-info__add-to-cart-or-like
                 add-to-cart-or-like"
             >
               <button
                 type="button"
                 className={cn('add-to-cart-or-like__add-to-cart', {
-                  'IS-IN-CART': isInCart,
+                  'add-to-cart-or-like__is-in-cart': isInCart,
                 })}
                 onClick={handleCartAction}
               >
@@ -125,13 +129,14 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
               <button
                 type="button"
                 className={cn('add-to-cart-or-like__like-icon', {
-                  'IS-IN-FAVORITES': isInFavorites,
+                  'add-to-cart-or-like__like-icon--is-in-favorites':
+                    isInFavorites,
                 })}
                 onClick={() => handleFavChange(id)}
               />
             </div>
 
-            <div className="product-info__phone-info phone-info">
+            <div className="store-product-info__phone-info phone-info">
               <div className="phone-info__parameter">
                 <div className="phone-info__parameter-text">Screen</div>
                 <div className="phone-info__parameter-size">{screen}</div>

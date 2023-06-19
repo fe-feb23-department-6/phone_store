@@ -4,45 +4,50 @@
 @import '../../styles/fonts/fonts.scss';
 
 .product-page {
-  margin: 0 16px;
+  margin: 0 $small-gap;
   max-width: 1200px;
-  @include onTablet {
-    margin: 0 32px;
-  }
+
   @include onDesktop {
     margin: 0 auto;
   }
 
   &__section {
+    margin-bottom: 56px;
+
     @include onTablet {
       flex-grow: 1;
+      margin-bottom: 64px;
     }
 
     @include onDesktop {
       max-width: 560px;
+      margin-bottom: 80px;
     }
   }
 
   &__title {
     @include h1-mobile;
+
     @include onTablet {
       @include h1-desktop;
     }
-    margin-bottom: 16px;
+
+    margin: $medium-gap 0;
   }
 
   &__button-back {
     @include small-text;
-    margin-bottom: 16px;
+
+    margin-bottom: $medium-gap;
     color: $secondary-color;
   }
 
   &__button-back-img {
-    padding-right: 8px;
+    padding-right: $small-gap;
   }
 
   &__breadcrumbs-img {
-    margin: 16px 0;
+    margin: 0 0 $medium-gap;
   }
 }
 

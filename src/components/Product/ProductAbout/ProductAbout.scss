@@ -1,16 +1,10 @@
 @import '../../../styles/utils/vars';
 @import '../../../styles/utils/mixins';
-@import '../../../styles/utils/reset';
-@import '../../../styles/fonts/fonts.scss';
 
 .about {
-  text-align: left;
   flex-grow: 1;
   flex-shrink: 2;
-
-  @include onTablet {
-    margin-right: 32px;
-  }
+  text-align: left;
 
   &__title {
     @include h3-mobile;
@@ -18,8 +12,9 @@
     @include onTablet {
       @include h3-desktop;
     }
-    padding-bottom: 16px;
-    margin-bottom: 32px;
+
+    padding-bottom: $medium-gap;
+    margin-bottom: $large-gap;
 
     border-bottom: 1px solid $secondary-color;
   }
@@ -30,13 +25,14 @@
     @include onTablet {
       @include h4-desktop;
     }
-    margin-bottom: 16px;
+
+    margin-bottom: $medium-gap;
   }
 
   &__characteristics-text {
     @include body-text;
 
-    margin-bottom: 32px;
+    margin-bottom: $large-gap;
     color: $secondary-color;
   }
 }
