@@ -20,12 +20,8 @@ interface Props {
 const userId = Math.floor(Math.random() * 1000000);
 
 export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
-  const {
-    cartContents,
-    addToCart,
-    favContents,
-    handleFavChange,
-  } = useContext(StoreContext);
+  const { cartContents, addToCart, favContents, handleFavChange }
+    = useContext(StoreContext);
 
   const navigate = useNavigate();
 

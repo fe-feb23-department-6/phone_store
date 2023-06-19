@@ -8,10 +8,8 @@ export const GoHomeButton = () => {
 
   let currentPageName = currentLocation.pathname.substring(1);
 
-  currentPageName = currentPageName
-    .charAt(0)
-    .toUpperCase() + currentPageName
-    .slice(1);
+  currentPageName
+    = currentPageName.charAt(0).toUpperCase() + currentPageName.slice(1);
 
   return (
     <div className="go-home">
