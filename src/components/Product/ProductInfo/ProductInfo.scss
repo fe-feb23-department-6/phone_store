@@ -3,6 +3,8 @@
 @import '../../../styles/utils/reset';
 
 .product-info {
+  border-color: transparent;
+  
   &__title {
     @include h1-mobile;
     @include onTablet {
@@ -160,37 +162,92 @@
   }
 }
 
-.add-to-cart-or-like {
+.buttons-block {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 56px;
 
   &__add-to-cart {
     height: 40px;
-    width: 77%;
-    border: 1px solid $accent-color;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
+    width: calc(100% - 48px);
+
+    @include buttons-text;
+    font-family: $global-font;
     line-height: 37px;
     color: $white-color;
-    text-align: center;
 
+    border: 1px solid $accent-color;
+    border-radius: $border-radius-standart;
     background-color: $accent-color;
+
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: $action-button-hover;
+    }
+
+    &--in-cart {
+      border-color: $elements-color;
+      background-color: $white-color;
+      color: $accent-color;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
   }
 
-  &__like-icon {
+  &__favorites {
     height: 40px;
     width: 40px;
     border-radius: 50%;
     border: 1px solid $icons-color;
     background-color: $white-color;
+    margin-bottom: 32px;
 
     background-image: url('../../../img/icons/favorites_add.svg');
     background-repeat: no-repeat;
     background-position: center;
+
+    cursor: pointer;
+
+    &--remove {
+      background-image: url('../../../img/icons/favorites_remove.svg');
+      border-color: $elements-color;
+    }
   }
 }
+
+// .buttons-block {
+//   display: flex;
+//   justify-content: space-between;
+//   margin-bottom: 56px;
+
+//   &__add-to-cart {
+//     height: 40px;
+//     width: 77%;
+//     border: 1px solid $accent-color;
+//     font-style: normal;
+//     font-weight: 700;
+//     font-size: 14px;
+//     line-height: 37px;
+//     color: $white-color;
+//     text-align: center;
+
+//     background-color: $accent-color;
+//   }
+
+//   &__like-icon {
+//     height: 40px;
+//     width: 40px;
+//     border-radius: 50%;
+//     border: 1px solid $icons-color;
+//     background-color: $white-color;
+
+//     background-image: url('../../../img/icons/favorites_add.svg');
+//     background-repeat: no-repeat;
+//     background-position: center;
+//   }
+// }
 
 .color-icon {
   border: 1px solid transparent;
