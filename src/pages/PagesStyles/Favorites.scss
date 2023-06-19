@@ -2,12 +2,46 @@
 @import '../../styles/utils/_mixins.scss';
 
 .favorites {
-  
   &__title {
+    margin-top: 24px;
+
     @include h1-mobile;
-    
-    @include onTablet{
+
+    @include onTablet {
+      margin-top: 40px;
       @include h1-desktop;
     }
+  }
+}
+
+.favorites__subtitle {
+  margin-top: 8px;
+  color: $secondary-color;
+
+  @include buttons-text;
+}
+
+.favorites__empty {
+  margin-top: 40px;
+  @include  h2-mobile;
+ 
+  @include onTablet {
+    @include h2-desktop;
+  }
+}
+
+.favorites__items {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+
+  max-width: 1200px;
+
+   @include onTablet {
+    padding: 0 24px;
+  }
+
+  @include onDesktop {
+    padding: 0 32px;
   }
 }
