@@ -53,7 +53,7 @@ export const Product: FC = () => {
   }, []);
 
   useEffect(() => {
-    const initProd = products.find(prod => prod.id === prodId);
+    const initProd = products.find((prod) => prod.id === prodId);
 
     setCurrProduct(initProd || null);
   }, [products]);
@@ -77,9 +77,7 @@ export const Product: FC = () => {
             <h1 className="product-page__title">{currProduct.name}</h1>
             <div className="product-page__product-container product-container">
               <div className="product-container__main-section">
-                <ProductGallery
-                  product={currProduct}
-                />
+                <ProductGallery product={currProduct} />
 
                 <ProductInfo
                   product={currProduct}

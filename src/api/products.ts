@@ -58,11 +58,9 @@ export const getProductsByNamespace = async(category: string, id: string) => {
   );
 
   products.map(({ images }) => {
-    images.forEach(
-      (image, index) => {
-        images[index] = `https://backend-phone-store.onrender.com/${image}`;
-      },
-    );
+    images.forEach((image, index) => {
+      images[index] = `https://backend-phone-store.onrender.com/${image}`;
+    });
   });
 
   return products;

@@ -43,7 +43,7 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
 
           <div className="product-info__main-spechs">
             <div className="product-info__available-colors-icons">
-              {colorsAvailable.map(color => {
+              {colorsAvailable.map((color) => {
                 if (isColorOption(color)) {
                   const iconPath = colorIcons[color];
 
