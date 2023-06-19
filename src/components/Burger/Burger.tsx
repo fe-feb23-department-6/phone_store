@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { StoreContext } from '../../context/StoreContext';
 import './Burger.scss';
 import cn from 'classnames';
 import BurgerClose from '../../img/icons/burger_menu_cross.svg';
@@ -12,9 +13,16 @@ interface Props {
 }
 
 export const Burger: FC<Props> = ({ onClose }) => {
+  const [favoriteCount, setFavoriteCount] = useState(0);
   const handleClick = () => {
     onClose();
   };
+
+  const { favContents } = useContext(StoreContext);
+
+  useEffect(() => {
+    setFavoriteCount(favContents.length);
+  }, [favContents]);
 
   return (
     <div id="burger" className="burger">
@@ -99,6 +107,10 @@ export const Burger: FC<Props> = ({ onClose }) => {
             }
             onClick={handleClick}
           >
+            {favoriteCount > 0 && (
+              <span className="burger__action__count
+">{favoriteCount}</span>
+            )}
             <img
               src={Favorite}
               alt="favourite"
@@ -115,6 +127,8 @@ export const Burger: FC<Props> = ({ onClose }) => {
             }
             onClick={handleClick}
           >
+            <span className="burger__action__count
+">{1}</span>
             <img src={Basket} alt="cart" className="burger__action__image" />
           </NavLink>
         </div>

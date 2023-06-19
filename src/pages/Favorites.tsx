@@ -3,6 +3,7 @@ import { GoHomeButton } from '../components/GoHomeButton';
 import './PagesStyles/Favorites.scss';
 
 import { CatalogProductData } from '../types/CatalogProductData';
+import { ProductCard } from '../components/Catalog/ProductCard';
 
 export const Favorites = () => {
   // eslint-disable-next-line max-len
@@ -29,9 +30,12 @@ export const Favorites = () => {
 
       {favoritesCount > 0 ? (
         <div className="favorites__items">
-          {/* favoriteProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          )) */}
+          {favoriteProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          )) }
         </div>
       ) : (
         <h2 className="favorites__empty">

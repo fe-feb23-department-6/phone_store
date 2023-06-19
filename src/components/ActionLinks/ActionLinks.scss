@@ -16,11 +16,9 @@
   justify-content: center;
   height: 48px;
   width: 48px;
-
-  margin: auto;
-
-  box-shadow: -1px 0 0 #e2e6e9;
   position: relative;
+  margin: auto;
+  box-shadow: -1px 0 0 #e2e6e9;
 
   @include onDesktop {
     height: 64px;
@@ -35,3 +33,23 @@
     height: 100%;
   }
 }
+
+.action__count {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 40%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid $white-color;
+  background-color: #F447AF;
+  color: $white-color;
+  font-size: 9px;
+  line-height: 12px;
+  z-index: 1;
+}
+

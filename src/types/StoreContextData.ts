@@ -1,4 +1,4 @@
-import { CartStorageProduct } from './CartStorageProduct';
+import { CartStorageProduct } from './CartStorageProduct.js';
 
 export interface StoreContextData {
   cartContents: CartStorageProduct[];
