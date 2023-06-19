@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { GoHomeButton } from '../components/GoHomeButton';
 import './PagesStyles/Favorites.scss';
-import { ProductCard } from '../components/Catalog/ProductCard/ProductCard';
+
 import { CatalogProductData } from '../types/CatalogProductData';
 
 export const Favorites = () => {
