@@ -2,11 +2,10 @@
 @import '../../styles/utils/_mixins.scss';
 
 .favorites {
-  
   &__title {
     @include h1-mobile;
-    
-    @include onTablet{
+
+    @include onTablet {
       @include h1-desktop;
     }
   }

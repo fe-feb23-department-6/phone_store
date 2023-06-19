@@ -1,8 +1,12 @@
 /* eslint-disable no-shadow */
-import { FC } from 'react';
+import { FC, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import cn from 'classnames';
+import { StoreContext } from '../../../context/StoreContext';
+import { colorIcons } from '../../../img/icons/product_colors';
+import { ColorOptions } from '../../../types/ColorOptions';
 import { FullProductData } from '../../../types/FullProductData';
 import './ProductInfo.scss';
-import { ColorOptions, colorIcons } from '../../../img/icons/product_colors';
 
 const isColorOption = (color: string): color is ColorOptions => {
   return (color as ColorOptions) in colorIcons;
@@ -16,8 +20,14 @@ interface Props {
 const userId = Math.floor(Math.random() * 1000000);
 
 export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
+  const { cartContents, addToCart, favContents, handleFavChange }
+    = useContext(StoreContext);
+
+  const navigate = useNavigate();
+
   const {
-    color,
+    id,
+    color: currentColor,
     colorsAvailable,
     capacityAvailable,
     priceRegular,
@@ -28,6 +38,19 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
     capacity,
     ram,
   } = product;
+
+  const isInCart = cartContents.map(({ id }) => id).includes(id);
+  const isInFavorites = favContents.includes(id);
+
+  const handleCartAction = () => {
+    if (isInCart) {
+      navigate('/cart');
+
+      return;
+    }
+
+    addToCart(id);
+  };
 
   return (
     <section className="product-page__section product-info">
@@ -49,7 +72,9 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
 
                   return (
                     <img
-                      className="color-icon"
+                      className={cn('color-icon', {
+                        'ACTIVE-COLOR': color === currentColor,
+                      })}
                       src={iconPath}
                       alt="beige-color-icon"
                       onClick={() => onProductChange(color, capacity)}
@@ -66,8 +91,10 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
               </div>
               {capacityAvailable.map((memory: string) => (
                 <button
-                  className="product-info__select-capacity-btn"
-                  onClick={() => onProductChange(color, memory)}
+                  className={cn('product-info__select-capacity-btn', {
+                    'ACTIVE-MEMORY': memory === capacity,
+                  })}
+                  onClick={() => onProductChange(currentColor, memory)}
                   key={memory}
                 >
                   {memory}
@@ -87,15 +114,21 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
             >
               <button
                 type="button"
-                className="add-to-cart-or-like__add-to-cart"
+                className={cn('add-to-cart-or-like__add-to-cart', {
+                  'IS-IN-CART': isInCart,
+                })}
+                onClick={handleCartAction}
               >
                 Add to cart
               </button>
 
               <button
                 type="button"
-                className="add-to-cart-or-like__like-icon"
-              ></button>
+                className={cn('add-to-cart-or-like__like-icon', {
+                  'IS-IN-FAVORITES': isInFavorites,
+                })}
+                onClick={() => handleFavChange(id)}
+              />
             </div>
 
             <div className="product-info__phone-info phone-info">
