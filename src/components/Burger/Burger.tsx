@@ -47,7 +47,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
 
             <li>
               <NavLink
-                to="/phones"
+                to="/category/phones"
                 className={({ isActive }) =>
                   cn('nav__link--burger', {
                     'is-active': isActive,
@@ -61,7 +61,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
 
             <li>
               <NavLink
-                to="/tablets"
+                to="/category/tablets"
                 className={({ isActive }) =>
                   cn('nav__link--burger', {
                     'is-active': isActive,
@@ -75,7 +75,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
 
             <li>
               <NavLink
-                to="/accessories"
+                to="/category/accessories"
                 className={({ isActive }) =>
                   cn('nav__link--burger', {
                     'is-active': isActive,
@@ -91,7 +91,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
 
         <div className="burger__actions">
           <NavLink
-            to={'/favorite'}
+            to="/favorites"
             className={({ isActive }) =>
               cn('actions__favorite', {
                 'is-active': isActive,
@@ -107,7 +107,7 @@ export const Burger: FC<Props> = ({ onClose }) => {
           </NavLink>
 
           <NavLink
-            to={'/cart'}
+            to="/cart"
             className={({ isActive }) =>
               cn('actions__cart', {
                 'is-active': isActive,

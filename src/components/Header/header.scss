@@ -52,9 +52,7 @@
   height: 48px;
 
   background-color: $white-color;
-  border: none;
-
-  box-shadow: -1px 0px 0px $elements-color;
+  border: 1px solid $elements-color;
 
   @include onTablet {
     display: none;
