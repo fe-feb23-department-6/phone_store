@@ -1,0 +1,38 @@
+@import '../../styles/utils/_vars.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.go-home {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0;
+  margin-top: 25px;
+  margin-left: auto;
+  color: $secondary-color;
+  font-family: $global-font;
+  @include small-text;
+}
+
+.go-home__button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 13px;
+
+  img {
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &::after {
+    content: '\f054';
+    font-family: FontAwesome;
+    color: $primary-color;
+  }
+}
