@@ -1,5 +1,3 @@
-import './PagesStyles/Home.scss';
-
 import { Banner } from '../components/Home/Banner';
 import { Categories } from '../components/Home/Categories';
 import { ProductsSlider } from '../components/ProductsSlider';
@@ -7,6 +5,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { getProductsForSlider } from '../api';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { Loader } from '../components/Loader';
+
+import './PagesStyles/Home.scss';
+import '../styles/utils/_mixins.scss';
 
 export const Home = () => {
   const [newProducts, setNewProducts] = useState<CatalogProductData[]>([]);
@@ -44,7 +45,7 @@ export const Home = () => {
       <Banner />
 
       <section className="new-models products-slider">
-        <h2 className="new-models__title">Brand new models</h2>
+        <h2 className="products-slider__title">Brand new models</h2>
         {newLoading ? (
           <Loader />
         ) : (
