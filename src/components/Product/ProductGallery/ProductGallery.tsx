@@ -32,12 +32,12 @@ export const ProductGallery: FC<Props> = ({ product }) => {
       <div className="content-gallery__photos-container">
         {images.map((image: string) => (
           <div className="content-gallery__secondary-photo" key={image}>
-              <img
-                className="content-gallery__secondary-photo-item"
-                src={image}
-                alt={prodName}
-                onClick={() => handleImageChange(image)}
-              />
+            <img
+              className="content-gallery__secondary-photo-item"
+              src={image}
+              alt={prodName}
+              onClick={() => handleImageChange(image)}
+            />
           </div>
         ))}
       </div>

@@ -1,0 +1,15 @@
+export type ColorOptions =
+  | 'beige'
+  | 'black'
+  | 'coral'
+  | 'gold'
+  | 'green'
+  | 'grey'
+  | 'midnightgreen'
+  | 'purple'
+  | 'red'
+  | 'rosegold'
+  | 'silver'
+  | 'spacegray'
+  | 'white'
+  | 'yellow';

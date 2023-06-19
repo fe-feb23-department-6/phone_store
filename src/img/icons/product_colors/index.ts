@@ -12,22 +12,7 @@ import silver from './silver.svg';
 import spacegray from './spacegray.svg';
 import white from './white.svg';
 import yellow from './yellow.svg';
-
-export type ColorOptions =
-  | 'beige'
-  | 'black'
-  | 'coral'
-  | 'gold'
-  | 'green'
-  | 'grey'
-  | 'midnightgreen'
-  | 'purple'
-  | 'red'
-  | 'rosegold'
-  | 'silver'
-  | 'spacegray'
-  | 'white'
-  | 'yellow';
+import { ColorOptions } from '../../../types/ColorOptions';
 
 export const colorIcons: Record<ColorOptions, string> = {
   beige,
