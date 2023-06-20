@@ -7,6 +7,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Banner.scss';
+import iphoneBanner from './img/iphone-banner.jpg';
+import ipadBanner from './img/ipad-banner.jpg';
+import watchBanner from './img/watch-banner.png';
 
 export const Banner = () => {
   return (
@@ -36,7 +39,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202201/apple_watch-series7-availability_stainless-steel_10052021_big_carousel-sixteen_nine.jpg?size=948:533"
+              src={iphoneBanner}
               alt="iphone-banner"
             />
           </SwiperSlide>
@@ -44,7 +47,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://www.apple.com/uk/iphone/home/images/overview/hero/alt/hero_iphone_14__de41900yuggi_large_2x.jpg"
+              src={ipadBanner}
               alt="iphone-banner"
             />
           </SwiperSlide>
@@ -52,7 +55,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://i.ytimg.com/vi/I-t2mwrYc6s/maxresdefault.jpg"
+              src={watchBanner}
               alt="iphone-banner"
             />
           </SwiperSlide>

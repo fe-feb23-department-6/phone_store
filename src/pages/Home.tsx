@@ -1,7 +1,7 @@
 import { Banner } from '../components/Home/Banner';
 import { Categories } from '../components/Home/Categories';
 import { ProductsSlider } from '../components/ProductsSlider';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getProductsForSlider } from '../api';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { Loader } from '../components/Loader';
@@ -40,6 +40,12 @@ export const Home = () => {
     getProducts();
   }, []);
 
+  const memNewProducts = useMemo(() => newProducts, [newProducts]);
+  const memDiscountProducts = useMemo(
+    () => discountProducts,
+    [discountProducts],
+  );
+
   return (
     <div className="home">
       <Banner />
@@ -49,7 +55,10 @@ export const Home = () => {
         {newLoading ? (
           <Loader />
         ) : (
-          <ProductsSlider sectionName={'new-models'} products={newProducts} />
+          <ProductsSlider
+            sectionName={'new-models'}
+            products={memNewProducts}
+          />
         )}
       </section>
 
@@ -65,7 +74,7 @@ export const Home = () => {
         ) : (
           <ProductsSlider
             sectionName={'discount'}
-            products={discountProducts}
+            products={memDiscountProducts}
           />
         )}
       </section>
