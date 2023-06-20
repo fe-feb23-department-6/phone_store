@@ -16,9 +16,7 @@ export const Categories = () => {
   const getCategoryCount = useCallback(async() => {
     try {
       const productsData = await getProducts(paramsString);
-      const {
-        totalCount: productsQuantity,
-      } = productsData;
+      const { totalCount: productsQuantity } = productsData;
 
       setProductsCount(productsQuantity);
     } catch {
