@@ -1,35 +1,21 @@
-import { FC, useCallback, useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
-import { getProducts } from '../../../api/phones';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Category.scss';
 
 interface Props {
-  path: string;
-  image: string;
-  categoryName: string;
+  path: string,
+  image: string,
+  categoryName: string,
+  categoryCount: number | null,
 }
 
-export const CategoryCard: FC<Props> = ({ image, path, categoryName }) => {
-  const [productsCount, setProductsCount] = useState<null | number>(null);
-  const [searchParams] = useSearchParams();
-  const paramsString = useLocation().search;
-
-  const getCatalogContents = useCallback(async() => {
-    try {
-      const productsData = await getProducts(paramsString);
-      const { totalCount: productsQuantity } = productsData;
-
-      setProductsCount(productsQuantity);
-    } catch {
-      throw new Error('Server error');
-    }
-  }, [searchParams]);
-
-  useEffect(() => {
-    getCatalogContents();
-  }, [searchParams]);
-
+export const CategoryCard: FC<Props> = ({
+  image,
+  path,
+  categoryName,
+  categoryCount,
+}) => {
   return (
     <div className="category__item">
       <Link to={path} className="category__item__photo">
@@ -40,7 +26,7 @@ export const CategoryCard: FC<Props> = ({ image, path, categoryName }) => {
         {categoryName}
       </Link>
 
-      <div className="category__item__model">{productsCount} models</div>
+      <div className="category__item__model">{categoryCount} models</div>
     </div>
   );
 };
