@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   pageParam,
@@ -7,10 +6,10 @@ import {
   sortOptions,
   pageLimitOptions,
 } from '../../../constants';
-import './SortBar.scss';
 import { SearchBar } from '../SearchBar';
+import './SortBar.scss';
 
-export const SortBar: FC = () => {
+export const SortBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const setSortType = (sortType: string) => {

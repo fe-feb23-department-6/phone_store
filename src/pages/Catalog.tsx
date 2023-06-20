@@ -10,8 +10,8 @@ import './PagesStyles/Catalog.scss';
 
 export const Catalog = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
-  const [totalPages, setTotalPages] = useState<null | number>(null);
-  const [productsCount, setProductsCount] = useState<null | number>(null);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [productsCount, setProductsCount] = useState<number>(0);
   const [searchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -41,19 +41,18 @@ export const Catalog = () => {
       setIsLoading(false);
       throw new Error('Server error');
     }
-  }, [searchParams]);
+  }, [searchParams, categoryName]);
 
   useEffect(() => {
     getCatalogContents();
-  }, [searchParams]);
+  }, [searchParams, categoryName]);
 
   return (
     <div className="catalog-content">
       <div className="category-name">
         <h1 className="category-name-text">Mobile phones</h1>
-        {productsCount && (
-          <p className="category-name-quantity">{`${productsCount} models`}</p>
-        )}
+
+        <p className="category-name-quantity">{`${productsCount} models`}</p>
       </div>
 
       <SortBar />
@@ -63,11 +62,17 @@ export const Catalog = () => {
           <Loader />
         </div>
       ) : (
-        <ProductsList products={products} />
-      )}
+        <>
+          {productsCount > 0 ? (
+            <>
+              <ProductsList products={products} />
 
-      {!isLoading && totalPages !== null && totalPages > 1 && (
-        <Pagination totalPages={totalPages} />
+              {totalPages > 1 && <Pagination totalPages={totalPages} />}
+            </>
+          ) : (
+            <h2>Sorry, we don't have appropriate products</h2>
+          )}
+        </>
       )}
     </div>
   );

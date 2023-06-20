@@ -32,10 +32,12 @@
     color: $selected-color;
 
     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-image: url('../../../img/icons/angle_arrow_down.svg');
     background-repeat: no-repeat;
-    background-position-x: right 15px;
-    background-position-y: 50%;
+    background-position: calc(100% - 12px) center;
+    padding-right: 20px;
 
     &--large {
       @include onTablet {

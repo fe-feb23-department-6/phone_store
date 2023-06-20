@@ -11,13 +11,12 @@
   flex-basis: 20%;
 
   border: 1px solid $elements-color;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   border-radius: $border-radius-standart;
 
   transition: transform 500ms;
 
   &:hover {
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
   }
 
   @include onTablet {
@@ -44,6 +43,10 @@
     height: 42px;
 
     @include body-text;
+
+    & a {
+      color: $primary-color;
+    }
   }
 
   &__price {
@@ -137,6 +140,10 @@
     background-position: center;
 
     cursor: pointer;
+
+    &:hover {
+      border-color: $primary-color;
+    }
 
     &--remove {
       background-image: url('../../../img/icons/favorites_remove.svg');
