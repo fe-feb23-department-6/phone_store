@@ -1,10 +1,10 @@
-import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import debounce from 'lodash.debounce';
 import { queryParam, pageParam } from '../../../constants';
 import './SearchBar.scss';
 
-export const SearchBar: FC = () => {
+export const SearchBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [isResetButtonActive, setIsResetButtonActive] = useState(false);
   const [query, setQuery] = useState('');
