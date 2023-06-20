@@ -2,11 +2,10 @@
 @import '../../../styles/utils/mixins';
 
 .banner-slider {
-  margin: 0 -16px 66px;
+  margin: 0 0 66px;
 
   @include onTablet {
     margin-bottom: 74px;
-    padding-right: 24px;
   }
 
   @include onDesktop {
@@ -16,14 +15,18 @@
 
 .banner {
   position: relative;
-  width: 100%;
-  margin: 0 auto 40px;
+  max-width: 120%;
+  margin: 0 -16px 40px;
   padding: 0;
+
+  @include onTablet {
+    width: 100%;
+    margin: 0 0 40px;
+  }
 
   &-title {
     @include h1-mobile;
     margin-bottom: 24px;
-    margin-left: 16px;
 
     @include onTablet {
       @include h1-desktop;

@@ -6,11 +6,11 @@
 
   .swiper {
     margin-right: -16px;
-    padding-left: 8px;
+    padding-left: 10px;
 
     @include onTablet {
-      margin-right: -20px;
-      padding-right: 10px;
+      margin-right: -23px;
+      padding-right: 8px;
     }
 
     @include onDesktop {
@@ -20,20 +20,21 @@
   &-button {
     position: absolute;
     top: -40px;
-    left: 70%;
+    right: 0;
     border: 1px solid $elements-color;
     border-radius: 48px;
     background-color: transparent;
     height: 32px;
     width: 32px;
-    &-disabled {
-      background-color: $elements-color;
-      &:hover {
-        border-color: $elements-color;
-      }
-    }
-    &:hover {
+
+    &:not(.swiper-button-disabled):hover {
       border-color: $selected-color;
+      border: 2px solid black;
+    }
+
+    &:not(.swiper-button-disabled):active {
+      border-color: $selected-color;
+      box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75) inset;
     }
 
     @include onTablet {
@@ -44,16 +45,9 @@
       background: url('./left-arrow.svg');
       background-repeat: no-repeat;
       background-position: center;
-      left: 78%;
-      @include onTablet {
-        left: 88%;
-      }
+      right: 47px;
 
-      @include onDesktop {
-        left: 90%;
-      }
-
-      &:hover {
+      &:not(.swiper-button-disabled) {
         background-image: url('./left-arrow-active.svg');
       }
     }
@@ -61,11 +55,7 @@
       background-image: url('./right-arrow.svg');
       background-repeat: no-repeat;
       background-position: center;
-      left: 93%;
-      @include onTablet {
-        left: 95%;
-      }
-      &:hover {
+      &:not(.swiper-button-disabled) {
         background-image: url('./right-arrow-active.svg');
       }
     }

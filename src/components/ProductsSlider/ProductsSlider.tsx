@@ -56,7 +56,7 @@ export const ProductsSlider: FC<Props> = ({ sectionName, products }) => {
           450: {
             slidesPerView: 1.5,
           },
-          320: {
+          310: {
             slidesPerView: 1.2,
             slidesPerGroup: 1,
           },
