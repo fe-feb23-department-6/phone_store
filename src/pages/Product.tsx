@@ -18,8 +18,8 @@ export const Product: FC = () => {
   const [products, setProducts] = useState<FullProductData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [discountProducts, setDiscountProducts] = useState<
-  CatalogProductData[]
->([]);
+    CatalogProductData[]
+  >([]);
   const [discountLoading, setDiscountLoading] = useState(false);
 
   const { categoryName, prodId } = useParams();
