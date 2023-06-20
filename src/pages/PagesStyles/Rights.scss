@@ -1,0 +1,33 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.rights {
+  @include body-text;
+  &__title {
+    @include h2-mobile;
+
+    @include onTablet {
+      @include h2-desktop;
+    }
+
+    margin: 0 $large-gap;
+  }
+}
+
+.rights-container {
+  &__categories-list {
+    margin: $large-gap;
+  }
+
+  &__title {
+    @include h3-mobile;
+
+    @include onTablet {
+      @include h3-desktop;
+    }
+  }
+
+  &__rights-list {
+    margin: $medium-gap 0;
+  }
+}
