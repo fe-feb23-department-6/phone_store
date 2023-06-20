@@ -44,10 +44,11 @@ export const Favorites = () => {
         <GoHomeButton />
         <h1 className="favorites__title">Favorites</h1>
       </div>
-      <span className="favorites__subtitle">
-        {favoriteCount} {favoriteCount > 1 ? 'items' : 'item'}
-      </span>
-
+      {favoriteCount > 0 && (
+        <span className="favorites__subtitle">
+          {favoriteCount} {favoriteCount > 1 ? 'items' : 'item'}
+        </span>
+      )}
       {favoriteCount > 0 ? (
         <div className="favorites__items">
           {isLoading ? (
