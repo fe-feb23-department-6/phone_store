@@ -8,7 +8,12 @@ import { StoreContext } from '../../context/StoreContext';
 
 export const ActionsLink = () => {
   const [favoriteCount, setFavoriteCount] = useState(0);
-  const { favContents } = useContext(StoreContext);
+  const [cartCount, setCartCount] = useState(0);
+  const { favContents, cartContents } = useContext(StoreContext);
+
+  useEffect(() => {
+    setCartCount(cartContents.length);
+  }, [cartContents]);
 
   useEffect(() => {
     setFavoriteCount(favContents.length);
@@ -30,7 +35,9 @@ export const ActionsLink = () => {
         to="/cart"
         className={({ isActive }) => cn('action', { 'is-active': isActive })}
       >
-        <span className="action__count">{1}</span>
+        {cartCount > 0 && (
+          <span className="action__count">{cartCount}</span>
+        )}
         <img src={Basket} alt="cart" className="action__image" />
       </NavLink>
     </div>

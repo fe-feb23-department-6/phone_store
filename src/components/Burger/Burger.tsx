@@ -14,15 +14,20 @@ interface Props {
 
 export const Burger: FC<Props> = ({ onClose }) => {
   const [favoriteCount, setFavoriteCount] = useState(0);
-  const handleClick = () => {
-    onClose();
-  };
+  const [cartCount, setCartCount] = useState(0);
+  const { favContents, cartContents } = useContext(StoreContext);
 
-  const { favContents } = useContext(StoreContext);
+  useEffect(() => {
+    setCartCount(cartContents.length);
+  }, [cartContents]);
 
   useEffect(() => {
     setFavoriteCount(favContents.length);
   }, [favContents]);
+
+  const handleClick = () => {
+    onClose();
+  };
 
   return (
     <div id="burger" className="burger">
@@ -131,12 +136,15 @@ export const Burger: FC<Props> = ({ onClose }) => {
             }
             onClick={handleClick}
           >
-            <span
-              className="burger__action__count
+            {cartCount > 0 && (
+              <span
+                className="burger__action__count
 "
-            >
-              {1}
-            </span>
+              >
+                {cartCount}
+              </span>
+            )}
+
             <img src={Basket} alt="cart" className="burger__action__image" />
           </NavLink>
         </div>
