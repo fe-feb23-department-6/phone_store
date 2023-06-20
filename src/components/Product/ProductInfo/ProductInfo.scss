@@ -35,8 +35,8 @@
     margin-bottom: $large-gap;
     text-align: left;
 
-    border-top: 1px solid $secondary-color;
-    border-bottom: 1px solid $secondary-color;
+    border-top: 1px solid $elements-color;
+    border-bottom: 1px solid $elements-color;
   }
 
   &__select-capacity-text {
@@ -198,6 +198,10 @@
     &--is-in-favorites {
       background-image: url('../../../img/icons/favorites_remove.svg');
       border-color: $elements-color;
+    }
+
+    &:hover {
+      border-color: $selected-color;
     }
   }
 }
