@@ -17,7 +17,7 @@ interface Props {
   onProductChange: (newColor: string, newRam: string) => void;
 }
 
-const userId = Math.floor(Math.random() * 1000000);
+const categoryId = 802390;
 
 export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
   const { cartContents, addToCart, favContents, handleFavChange }
@@ -64,7 +64,7 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
               <div className="available-colors__text">Available colors</div>
             </div>
 
-            <div className="available-colors__id">{`ID:${userId}`}</div>
+            <div className="available-colors__id">{`ID:${categoryId}`}</div>
           </div>
 
           <div className="store-product-info__main-spechs">
@@ -119,11 +119,11 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
               <button
                 type="button"
                 className={cn('add-to-cart-or-like__add-to-cart', {
-                  'add-to-cart-or-like__is-in-cart': isInCart,
+                  'add-to-cart-or-like__add-to-cart--is-in-cart': isInCart,
                 })}
                 onClick={handleCartAction}
               >
-                Add to cart
+                {isInCart ? 'Added to cart' : 'Add to cart'}
               </button>
 
               <button
