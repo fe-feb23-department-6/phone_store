@@ -1,5 +1,5 @@
 import { FC, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 import { CatalogProductData } from '../../../types/CatalogProductData';
 import { StoreContext } from '../../../context/StoreContext';
@@ -12,9 +12,12 @@ type Props = {
 export const ProductCard: FC<Props> = ({ product }) => {
   const { cartContents, addToCart, favContents, handleFavChange }
     = useContext(StoreContext);
+  const navigate = useNavigate();
+
   const {
     itemId,
     name: prodName,
+    category,
     image,
     fullPrice,
     price,
@@ -25,7 +28,6 @@ export const ProductCard: FC<Props> = ({ product }) => {
 
   const isInCart = cartContents.map(({ id }) => id).includes(itemId);
   const isInFavorites = favContents.includes(itemId);
-  const navigate = useNavigate();
 
   const handleCartAction = () => {
     if (isInCart) {
@@ -46,7 +48,9 @@ export const ProductCard: FC<Props> = ({ product }) => {
           alt={prodName}
         />
       </div>
-      <div className="product-card__product-name">{prodName}</div>
+      <div className="product-card__product-name">
+        <Link to={`/category/${category}/${itemId}`}>{prodName}</Link>
+      </div>
 
       <div className="product-card__price">
         <div className="product-card__price--current">{`$${price}`}</div>

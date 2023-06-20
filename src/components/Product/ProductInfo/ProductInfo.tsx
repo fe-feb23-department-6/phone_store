@@ -1,30 +1,56 @@
 /* eslint-disable no-shadow */
-import React from 'react';
+import { FC, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import cn from 'classnames';
+import { StoreContext } from '../../../context/StoreContext';
+import { colorIcons } from '../../../img/icons/product_colors';
+import { ColorOptions } from '../../../types/ColorOptions';
 import { FullProductData } from '../../../types/FullProductData';
 import './ProductInfo.scss';
-import Beige from '../../../img/icons/beige_color_icon.svg';
-import Green from '../../../img/icons/green_color_icon.svg';
-import Grey from '../../../img/icons/grey_color_icon.svg';
-import Silver from '../../../img/icons/silver_color_icon.svg';
-// import AddInFav from '../../../img/icons/favorites_add_fullbutton.svg';
+
+const isColorOption = (color: string): color is ColorOptions => {
+  return (color as ColorOptions) in colorIcons;
+};
 
 interface Props {
   product: FullProductData;
+  onProductChange: (newColor: string, newRam: string) => void;
 }
 
 const userId = Math.floor(Math.random() * 1000000);
-// const colors = ['Beige', 'Green', 'Grey', 'Silver'];
 
-export const ProductInfo: React.FC<Props> = ({ product }) => {
+export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
+  const { cartContents, addToCart, favContents, handleFavChange }
+    = useContext(StoreContext);
+
+  const navigate = useNavigate();
+
   const {
+    id,
+    color: currentColor,
+    colorsAvailable,
     capacityAvailable,
     priceRegular,
     priceDiscount,
     screen,
     resolution,
     processor,
+    capacity,
     ram,
   } = product;
+
+  const isInCart = cartContents.map(({ id }) => id).includes(id);
+  const isInFavorites = favContents.includes(id);
+
+  const handleCartAction = () => {
+    if (isInCart) {
+      navigate('/cart');
+
+      return;
+    }
+
+    addToCart(id);
+  };
 
   return (
     <section className="product-page__section product-info">
@@ -40,24 +66,23 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
 
           <div className="product-info__main-spechs">
             <div className="product-info__available-colors-icons">
-              {/* {colors.map((color) => (
-                <img
-                  className='color-icon'
-                  src={`${color}`}
-                  alt={`${color}`}
-                />
-              ))} */}
-              <img className="color-icon" src={Beige} alt="beige-color-icon" />
+              {colorsAvailable.map((color) => {
+                if (isColorOption(color)) {
+                  const iconPath = colorIcons[color];
 
-              <img className="color-icon" src={Green} alt="green-color-icon" />
-
-              <img className="color-icon" src={Grey} alt="grey-color-icon" />
-
-              <img
-                className="color-icon"
-                src={Silver}
-                alt="silver-color-icon"
-              />
+                  return (
+                    <img
+                      className={cn('color-icon', {
+                        'ACTIVE-COLOR': color === currentColor,
+                      })}
+                      src={iconPath}
+                      alt="beige-color-icon"
+                      onClick={() => onProductChange(color, capacity)}
+                      key={color}
+                    />
+                  );
+                }
+              })}
             </div>
 
             <div className="product-info__select-capacity">
@@ -66,7 +91,10 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
               </div>
               {capacityAvailable.map((memory: string) => (
                 <button
-                  className="product-info__select-capacity-btn"
+                  className={cn('product-info__select-capacity-btn', {
+                    'ACTIVE-MEMORY': memory === capacity,
+                  })}
+                  onClick={() => onProductChange(currentColor, memory)}
                   key={memory}
                 >
                   {memory}
@@ -86,15 +114,21 @@ export const ProductInfo: React.FC<Props> = ({ product }) => {
             >
               <button
                 type="button"
-                className="add-to-cart-or-like__add-to-cart"
+                className={cn('add-to-cart-or-like__add-to-cart', {
+                  'IS-IN-CART': isInCart,
+                })}
+                onClick={handleCartAction}
               >
                 Add to cart
               </button>
 
               <button
                 type="button"
-                className="add-to-cart-or-like__like-icon"
-              ></button>
+                className={cn('add-to-cart-or-like__like-icon', {
+                  'IS-IN-FAVORITES': isInFavorites,
+                })}
+                onClick={() => handleFavChange(id)}
+              />
             </div>
 
             <div className="product-info__phone-info phone-info">

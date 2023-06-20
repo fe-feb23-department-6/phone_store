@@ -17,6 +17,7 @@ export const Banner = () => {
         <button className="banner-control banner-control__prev"></button>
         <button className="banner-control banner-control__next"></button>
         <Swiper
+          wrapperClass="banner-swiper"
           modules={[Autoplay, Navigation, Pagination]}
           slidesOffsetAfter={10000}
           slidesPerView={1}

@@ -3,7 +3,19 @@
 
 .slider {
   position: relative;
-  margin-bottom: 80px;
+
+  .swiper {
+    margin-right: -16px;
+    padding-left: 8px;
+
+    @include onTablet {
+      margin-right: -20px;
+    }
+
+    @include onDesktop {
+      margin-right: 0;
+    }
+  }
   &-button {
     position: absolute;
     top: -40px;
@@ -18,14 +30,14 @@
     }
 
     @include onTablet {
-      top: -30px;
+      top: -50px;
     }
 
     &__prev {
       background: url('./left-arrow.svg');
       background-repeat: no-repeat;
       background-position: center;
-      left: 70%;
+      left: 78%;
       @include onTablet {
         left: 88%;
       }
@@ -42,7 +54,7 @@
       background-image: url('./right-arrow.svg');
       background-repeat: no-repeat;
       background-position: center;
-      left: 85%;
+      left: 93%;
       @include onTablet {
         left: 95%;
       }
@@ -55,8 +67,7 @@
 
 .swiper {
   & .product-card {
-    min-width: 270px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 15px;
   }
 }
