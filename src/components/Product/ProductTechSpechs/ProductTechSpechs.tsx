@@ -2,17 +2,6 @@ import React from 'react';
 import './ProductTechSpechs.scss';
 import { FullProductData } from '../../../types/FullProductData';
 
-/* interface Props {
-  screen: string;
-  resolution: string;
-  processor: string;
-  ram: string;
-  capacity: string;
-  camera: string;
-  zoom: string;
-  cell: string[];
-} */
-
 type Props = {
   product: FullProductData;
 };
