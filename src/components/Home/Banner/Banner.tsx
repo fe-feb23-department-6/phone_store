@@ -57,30 +57,6 @@ export const Banner = () => {
               photoIndex={3}
             />
           </SwiperSlide>
-          {/* <SwiperSlide>
-            <img
-              className="banner-img"
-              // eslint-disable-next-line max-len
-              src={iphoneBanner}
-              alt="iphone-banner"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="banner-img"
-              // eslint-disable-next-line max-len
-              src={ipadBanner}
-              alt="iphone-banner"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              className="banner-img"
-              // eslint-disable-next-line max-len
-              src={watchBanner}
-              alt="iphone-banner"
-            />
-          </SwiperSlide> */}
         </Swiper>
         <div className="swiper-pag">
           <div className="swiper-pag__bullet" />
