@@ -57,26 +57,23 @@ export const Catalog = () => {
 
       <SortBar />
 
-      {isLoading
-        ? (
-          <div>
-            <Loader />
-          </div>
-        ) : (
-          <>
-            {
-              productsCount > 0
-                ? <>
-                  <ProductsList products={products} />
+      {isLoading ? (
+        <div>
+          <Loader />
+        </div>
+      ) : (
+        <>
+          {productsCount > 0 ? (
+            <>
+              <ProductsList products={products} />
 
-                  {totalPages > 1 && (
-                    <Pagination totalPages={totalPages} />
-                  )}
-                </>
-                : <h2>Sorry, we don't have appropriate products</h2>
-            }
-          </>
-        )}
+              {totalPages > 1 && <Pagination totalPages={totalPages} />}
+            </>
+          ) : (
+            <h2>Sorry, we don't have appropriate products</h2>
+          )}
+        </>
+      )}
     </div>
   );
 };
