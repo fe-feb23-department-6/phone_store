@@ -35,9 +35,7 @@ export const ActionsLink = () => {
         to="/cart"
         className={({ isActive }) => cn('action', { 'is-active': isActive })}
       >
-        {cartCount > 0 && (
-          <span className="action__count">{cartCount}</span>
-        )}
+        {cartCount > 0 && <span className="action__count">{cartCount}</span>}
         <img src={Basket} alt="cart" className="action__image" />
       </NavLink>
     </div>
