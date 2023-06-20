@@ -4,8 +4,12 @@ import './GoBackButton.scss';
 export const GoBackButton = () => {
   const navigate = useNavigate();
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <button className="go-back" onClick={() => navigate(-1)}>
+    <button className="go-back" onClick={goBack}>
       Back
     </button>
   );

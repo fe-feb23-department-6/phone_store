@@ -8,12 +8,34 @@ interface Props {
 
 export const ProductGallery: FC<Props> = ({ product }) => {
   const { images, name: prodName } = product;
+  const [imageStatuses, setImageStatuses] = useState<(number | null)[]>([]);
 
   const [currentImage, setCurrentImage] = useState('');
 
   const handleImageChange = useCallback((image: string) => {
     setCurrentImage(image);
   }, []);
+
+  const fetchImages = async() => {
+    setImageStatuses((currentStatuses) => currentStatuses.slice(0, 3));
+
+    const statusArray = [];
+
+    for (const img of images) {
+      try {
+        const response = await fetch(img);
+
+        statusArray.push(response.status);
+      } catch (error) {
+        statusArray.push(null);
+      }
+    }
+    setImageStatuses(statusArray);
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, [images]);
 
   useEffect(() => {
     setCurrentImage(images[0]);
@@ -30,16 +52,22 @@ export const ProductGallery: FC<Props> = ({ product }) => {
       </div>
 
       <div className="content-gallery__photos-container">
-        {images.map((image: string) => (
-          <div className="content-gallery__secondary-photo" key={image}>
-            <img
-              className="content-gallery__secondary-photo-item"
-              src={image}
-              alt={prodName}
-              onClick={() => handleImageChange(image)}
-            />
-          </div>
-        ))}
+        {imageStatuses.map((resStatus: number | null, index) => {
+          if (resStatus === 200) {
+            return (
+              <div
+                className="content-gallery__secondary-photo"
+                key={images[index]}
+              >
+                <img
+                  className="content-gallery__secondary-photo-item"
+                  src={images[index]}
+                  onClick={() => handleImageChange(images[index])}
+                />
+              </div>
+            );
+          }
+        })}
       </div>
     </div>
   );

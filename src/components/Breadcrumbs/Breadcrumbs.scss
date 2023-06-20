@@ -3,14 +3,18 @@
 
 .go-home {
   display: flex;
+  margin-bottom: 24px;
   align-items: center;
   gap: 13px;
   padding: 0;
-  margin-top: 25px;
   margin-left: 0;
   color: $secondary-color;
   font-family: $global-font;
   @include small-text;
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
 }
 
 .go-home__button {
@@ -33,6 +37,23 @@
   &::after {
     content: '\f054';
     font-family: FontAwesome;
-    color: $primary-color;
+    color: $icons-color;
+    font-size: 10px;
+    font-weight: 500;
+  }
+}
+
+.go-home__link {
+  display: flex;
+  gap: 13px;
+  color: $primary-color;
+  text-transform: capitalize;
+
+  &::after {
+    content: '\f054';
+    font-family: FontAwesome;
+    color: $icons-color;
+    font-size: 10px;
+    font-weight: 500;
   }
 }
