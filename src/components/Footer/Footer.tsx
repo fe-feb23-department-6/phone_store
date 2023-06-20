@@ -46,10 +46,7 @@ export const Footer = () => {
         </nav>
 
         <a className="store-footer__link" href="#">
-          <div
-            className="store-footer__back-link"
-            onClick={scrollToTop}
-          >
+          <div className="store-footer__back-link" onClick={scrollToTop}>
             <span>Back to top</span>
             <img className="footer-icon" src={BackToTop} />
           </div>
