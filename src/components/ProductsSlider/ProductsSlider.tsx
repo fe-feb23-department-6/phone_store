@@ -29,24 +29,26 @@ export const ProductsSlider: FC<Props> = ({ sectionName, products }) => {
       <Swiper
         wrapperClass="product-slider"
         modules={[Navigation]}
-        spaceBetween={16}
-        loop={true}
+        spaceBetween={22}
         navigation={{
           prevEl: `.${sectionName}-button__prev`,
           nextEl: `.${sectionName}-button__next`,
         }}
         breakpoints={{
           1200: {
-            slidesPerView: 4.1,
+            slidesPerView: 4.03,
+            slidesPerGroup: 4,
           },
           1100: {
             slidesPerView: 3.5,
           },
           900: {
             slidesPerView: 3,
+            slidesPerGroup: 3,
           },
           700: {
             slidesPerView: 2.3,
+            slidesPerGroup: 2,
           },
           550: {
             slidesPerView: 1.9,
@@ -56,6 +58,7 @@ export const ProductsSlider: FC<Props> = ({ sectionName, products }) => {
           },
           320: {
             slidesPerView: 1.2,
+            slidesPerGroup: 1,
           },
         }}
       >

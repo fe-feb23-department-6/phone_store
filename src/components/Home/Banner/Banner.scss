@@ -93,12 +93,13 @@
     width: 100%;
 
     & .banner-img {
+      max-height: 400px;
       height: 100%;
       width: 100%;
       object-fit: none;
       display: block;
       @include onTablet {
-        object-fit: cover;
+        object-fit: fill;
       }
     }
   }
