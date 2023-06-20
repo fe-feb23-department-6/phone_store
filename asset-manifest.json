@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.3e0e5897.css",
-    "main.js": "/phone_store/static/js/main.942d9ed1.js",
+    "main.css": "/phone_store/static/css/main.3b6a8bec.css",
+    "main.js": "/phone_store/static/js/main.b44c5f81.js",
     "static/media/fa-solid-900.ttf": "/phone_store/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
     "static/media/phones.svg": "/phone_store/static/media/phones.912cf91d54687c40a6fa908bf8b897b5.svg",
     "static/media/nice_gadgets.svg": "/phone_store/static/media/nice_gadgets.e1b2d36b34e116d7687be9462d106ebd.svg",
@@ -45,11 +45,11 @@
     "static/media/spacegray.svg": "/phone_store/static/media/spacegray.f4f90d4fc54583e009a826be30bf9220.svg",
     "static/media/white.svg": "/phone_store/static/media/white.fb1ad6e66015d5651db5e9eadc9f9471.svg",
     "static/media/yellow.svg": "/phone_store/static/media/yellow.d938ff19984683d21b48035802eb800d.svg",
-    "main.3e0e5897.css.map": "/phone_store/static/css/main.3e0e5897.css.map",
-    "main.942d9ed1.js.map": "/phone_store/static/js/main.942d9ed1.js.map"
+    "main.3b6a8bec.css.map": "/phone_store/static/css/main.3b6a8bec.css.map",
+    "main.b44c5f81.js.map": "/phone_store/static/js/main.b44c5f81.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e0e5897.css",
-    "static/js/main.942d9ed1.js"
+    "static/css/main.3b6a8bec.css",
+    "static/js/main.b44c5f81.js"
   ]
 }
