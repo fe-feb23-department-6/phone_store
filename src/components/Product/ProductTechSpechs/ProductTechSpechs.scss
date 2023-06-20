@@ -1,17 +1,19 @@
 @import '../../../styles/utils/vars';
 @import '../../../styles/utils/mixins';
-@import '../../../styles/utils/reset';
 
 .tech-spechs {
   flex-grow: 2;
   flex-shrink: 1;
+
   &__title {
     @include h3-mobile;
+
     @include onTablet {
       @include h3-desktop;
     }
-    padding-bottom: 16px;
-    margin-bottom: 32px;
+
+    padding-bottom: $medium-gap;
+    margin-bottom: $large-gap;
 
     border-bottom: 1px solid $secondary-color;
   }
