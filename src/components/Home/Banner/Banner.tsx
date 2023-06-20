@@ -7,6 +7,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Banner.scss';
+import iphoneBanner from './img/iphone-banner.jpg';
+import ipadBanner from './img/ipad-banner.jpg';
+import watchBanner from './img/watch-banner.png';
 
 export const Banner = () => {
   return (
@@ -36,7 +39,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://backend-phone-store.onrender.com/img/banner-phones.png"
+              src={iphoneBanner}
               alt="iphone-banner"
             />
           </SwiperSlide>
@@ -44,7 +47,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://backend-phone-store.onrender.com/img/banner-phones.png"
+              src={ipadBanner}
               alt="iphone-banner"
             />
           </SwiperSlide>
@@ -52,7 +55,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://backend-phone-store.onrender.com/img/banner-phones.png"
+              src={watchBanner}
               alt="iphone-banner"
             />
           </SwiperSlide>

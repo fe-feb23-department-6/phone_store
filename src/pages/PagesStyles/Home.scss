@@ -42,13 +42,21 @@
   }
 }
 
-.products-slider__title {
-  margin-bottom: 10px;
-
-  @include h2-mobile;
+.products-slider {
+  height: 465px;
 
   @include onTablet {
-    @include h2-desktop;
+    height: 531px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include h2-mobile;
+
+    @include onTablet {
+      @include h2-desktop;
+    }
   }
 }
 
