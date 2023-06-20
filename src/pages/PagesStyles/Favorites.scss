@@ -2,11 +2,73 @@
 @import '../../styles/utils/_mixins.scss';
 
 .favorites {
+  display: flex;
+  flex-direction: column;
+  max-width: 440px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+
+  @include onTablet {
+    max-width: 1136px;
+    padding-top: 16px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   &__title {
+    margin-top: 24px;
+
     @include h1-mobile;
 
     @include onTablet {
+      margin-top: 40px;
       @include h1-desktop;
     }
+  }
+}
+
+.favorites__subtitle {
+  margin-top: 8px;
+  color: $secondary-color;
+
+  @include buttons-text;
+}
+
+.favorites__empty {
+  margin-top: 40px;
+}
+
+/*
+ @include h2-mobile;
+
+  @include onTablet {
+    @include h2-desktop;
+*/
+
+.favorites__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+
+  max-width: 1200px;
+
+  @include onTablet {
+    padding: 0 24px;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  @include onDesktop {
+    padding: 0 32px;
   }
 }
