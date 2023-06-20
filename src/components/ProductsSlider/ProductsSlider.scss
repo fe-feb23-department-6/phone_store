@@ -10,6 +10,7 @@
 
     @include onTablet {
       margin-right: -20px;
+      padding-right: 10px;
     }
 
     @include onDesktop {
@@ -25,6 +26,12 @@
     background-color: transparent;
     height: 32px;
     width: 32px;
+    &-disabled {
+      background-color: $elements-color;
+      &:hover {
+        border-color: $elements-color;
+      }
+    }
     &:hover {
       border-color: $selected-color;
     }

@@ -36,7 +36,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://backend-phone-store.onrender.com/img/banner-phones.png"
+              src="https://akm-img-a-in.tosshub.com/businesstoday/images/story/202201/apple_watch-series7-availability_stainless-steel_10052021_big_carousel-sixteen_nine.jpg?size=948:533"
               alt="iphone-banner"
             />
           </SwiperSlide>
@@ -44,7 +44,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://backend-phone-store.onrender.com/img/banner-phones.png"
+              src="https://www.apple.com/uk/iphone/home/images/overview/hero/alt/hero_iphone_14__de41900yuggi_large_2x.jpg"
               alt="iphone-banner"
             />
           </SwiperSlide>
@@ -52,7 +52,7 @@ export const Banner = () => {
             <img
               className="banner-img"
               // eslint-disable-next-line max-len
-              src="https://backend-phone-store.onrender.com/img/banner-phones.png"
+              src="https://i.ytimg.com/vi/I-t2mwrYc6s/maxresdefault.jpg"
               alt="iphone-banner"
             />
           </SwiperSlide>
