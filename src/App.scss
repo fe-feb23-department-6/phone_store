@@ -2,6 +2,10 @@
 @import './styles/utils/_mixins.scss';
 @import './styles/utils/_vars.scss';
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $global-font;
 }
