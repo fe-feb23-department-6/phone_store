@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.245a48e0.css",
-    "main.js": "/phone_store/static/js/main.827d41cb.js",
+    "main.css": "/phone_store/static/css/main.2670801e.css",
+    "main.js": "/phone_store/static/js/main.5c46eccc.js",
     "static/media/watch-banner.png": "/phone_store/static/media/watch-banner.4b1bcbfee5df4463e110.png",
     "static/media/fa-solid-900.ttf": "/phone_store/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
     "static/media/iphone-banner.jpg": "/phone_store/static/media/iphone-banner.d870f4e0f9f22484d937.jpg",
@@ -48,11 +48,11 @@
     "static/media/spacegray.svg": "/phone_store/static/media/spacegray.f4f90d4fc54583e009a826be30bf9220.svg",
     "static/media/white.svg": "/phone_store/static/media/white.fb1ad6e66015d5651db5e9eadc9f9471.svg",
     "static/media/yellow.svg": "/phone_store/static/media/yellow.d938ff19984683d21b48035802eb800d.svg",
-    "main.245a48e0.css.map": "/phone_store/static/css/main.245a48e0.css.map",
-    "main.827d41cb.js.map": "/phone_store/static/js/main.827d41cb.js.map"
+    "main.2670801e.css.map": "/phone_store/static/css/main.2670801e.css.map",
+    "main.5c46eccc.js.map": "/phone_store/static/js/main.5c46eccc.js.map"
   },
   "entrypoints": [
-    "static/css/main.245a48e0.css",
-    "static/js/main.827d41cb.js"
+    "static/css/main.2670801e.css",
+    "static/js/main.5c46eccc.js"
   ]
 }
