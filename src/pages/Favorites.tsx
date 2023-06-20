@@ -1,43 +1,61 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext, useEffect, useCallback } from 'react';
 import { ProductCard } from '../components/Catalog/ProductCard';
 import { StoreContext } from '../context/StoreContext';
-
+import { Loader } from '../components/Loader';
 import { GoHomeButton } from '../components/GoHomeButton';
 import './PagesStyles/Favorites.scss';
+import { CatalogProductData } from '../types/CatalogProductData';
+import { getFavoriteProducts } from '../api';
 
 export const Favorites = () => {
-  const [favoriteCount, setFavoriteCount] = useState(0);
+  const [favoriteProducts, setFavoriteProducts]
+    = useState<CatalogProductData[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { favContents } = useContext(StoreContext);
-  const [favoriteProducts, setFavoriteProducts] = useState([]);
+
+  const favIds = favContents.map((id) => id).join(',');
+
+  const getFavContent = useCallback(async() => {
+    try {
+      setIsLoading(true);
+
+      const products = await getFavoriteProducts(favIds);
+
+      setFavoriteProducts(products);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      throw new Error('Error loading favorite products');
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchFavoriteProducts = async() => {
-      const response = await fetch(
-        `/api/products/favorites?ids=${favContents.join(',')}`,
-      ); // endpoint
-      const data = await response.json();
+    if (favIds.length > 0) {
+      getFavContent();
+    }
+  }, []);
 
-      setFavoriteProducts(data);
-    };
-
-    fetchFavoriteProducts();
-  }, [favContents]);
-
-  useEffect(() => {
-    setFavoriteCount(favContents.length);
-  }, [favContents]);
+  const favoriteCount = favContents.length;
 
   return (
     <div className="favorites">
-      <GoHomeButton />
-      <h1 className="favorites__title">Favorites</h1>
-      <span className="favorites__subtitle">{favoriteCount} items</span>
+      <div className="favorites__header">
+        <GoHomeButton />
+        <h1 className="favorites__title">Favorites</h1>
+      </div>
+      <span className="favorites__subtitle">
+        {favoriteCount} {favoriteCount > 1 ? 'items' : 'item'}
+      </span>
 
       {favoriteCount > 0 ? (
         <div className="favorites__items">
-          {favoriteProducts.map((product) => (
-            <ProductCard key={product} product={product} />
-          ))}
+          {isLoading ? (
+            <Loader />
+          ) : (
+            favoriteProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))
+          )}
         </div>
       ) : (
         <h2 className="favorites__empty">

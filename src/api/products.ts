@@ -39,6 +39,18 @@ export const getProductsForCart = async(phoneIds: string) => {
   return products;
 };
 
+export const getFavoriteProducts = async(favoriteIds: string) => {
+  const products = await client.getProductsFromServer<CatalogProductData[]>(
+    `favorites?phoneIds=${favoriteIds}`,
+  );
+
+  products.map((item) => {
+    item.image = `https://backend-phone-store.onrender.com/${item.image}`;
+  });
+
+  return products;
+};
+
 export const getProductsByNamespace = async(category: string, id: string) => {
   const products = await client.getProductsFromServer<FullProductData[]>(
     `products/${category}/${id}`,
