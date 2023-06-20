@@ -19,6 +19,10 @@
     border-bottom: 1px solid $elements-color;
   }
 
+  @include onDesktop {
+    margin-bottom: 0;
+  }
+
   &__characteristics-subtitle {
     @include h4-mobile;
 
@@ -34,5 +38,9 @@
 
     margin-bottom: $large-gap;
     color: $secondary-color;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
   }
 }

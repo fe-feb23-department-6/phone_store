@@ -23,6 +23,12 @@
       max-width: 560px;
       margin-bottom: 80px;
     }
+
+    &:nth-child(3) {
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__title {
