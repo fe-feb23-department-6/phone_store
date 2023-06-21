@@ -1,8 +1,30 @@
 import './LogIn.scss';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Formik, Form, Field } from 'formik';
+import { Link } from 'react-router-dom';
+import { Formik, Form, Field, FormikHelpers } from 'formik';
 import cn from 'classnames';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { userLogin } from '../../api';
+import { logInReq } from '../../types/authTypes';
+
+export const usePageError = (initialError: string) => {
+  const [error, setError] = useState(initialError);
+
+  useEffect(() => {
+    if (!error) {
+      return;
+    }
+
+    const timerId = setTimeout(() => {
+      setError('');
+    }, 3000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [error]);
+
+  return [error, setError];
+};
 
 function validateEmail(value: string) {
   if (!value) {
@@ -27,10 +49,28 @@ function validatePassword(value: string) {
 }
 
 export const LogIn = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  // const navigate = useNavigate();
+  // const location = useLocation();
 
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
+
+  const [userName, setUserName] = useState('');
+  const [submitError, setSubmitError] = useState('');
+
+  const handleSubmit = async(
+    data: logInReq,
+    { setSubmitting, setErrors }: FormikHelpers<logInReq>,
+  ) => {
+    try {
+      const response = await userLogin(data);
+
+      setUserName(response.user.name);
+    } catch (error) {
+      setSubmitError((error as Error).message);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -40,15 +80,7 @@ export const LogIn = () => {
           password: '',
         }}
         validateOnMount={true}
-        onSubmit={({ email, password }) => {
-          return login({ email, password })
-            .then(() => {
-              navigate(location.state?.from?.pathname || '/');
-            })
-            .catch(error => {
-              setError(error.response?.data?.message);
-            });
-        }}
+        onSubmit={handleSubmit}
       >
         {({ touched, errors, isSubmitting }) => (
           <Form className="box">
@@ -126,7 +158,7 @@ export const LogIn = () => {
                 className={cn('button is-success has-text-weight-bold', {
                   'is-loading': isSubmitting,
                 })}
-                disabled={isSubmitting || errors.email || errors.password}
+                disabled={isSubmitting || !!errors.email || !!errors.password}
               >
                 Log in
               </button>
@@ -139,7 +171,10 @@ export const LogIn = () => {
         )}
       </Formik>
 
-      {error && <p className="notification is-danger is-light">{error}</p>}
+      {submitError
+        && <p className="notification is-danger is-light">
+          {submitError}
+        </p>}
     </>
   );
 };
