@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+// import { useCallback, useEffect, useState } from 'react';
+// import { useLocation, useSearchParams } from 'react-router-dom';
 import { CategoryCard } from '../CategoryCard';
-import { getProducts } from '../../../api/phones';
+// import { getProducts } from '../../../api/products';
 import './Categories.scss';
 
 import Phones from '../../../img/phones.svg';
@@ -9,7 +9,7 @@ import Tablets from '../../../img/tablets.png';
 import Accessories from '../../../img/accessories.png';
 
 export const Categories = () => {
-  const [productsCount, setProductsCount] = useState<null | number>(null);
+  /* const [productsCount, setProductsCount] = useState<null | number>(null);
   const [searchParams] = useSearchParams();
   const paramsString = useLocation().search;
 
@@ -26,7 +26,7 @@ export const Categories = () => {
 
   useEffect(() => {
     getCategoryCount();
-  }, [searchParams]);
+  }, [searchParams]); */
 
   return (
     <div className="categories">
@@ -34,21 +34,21 @@ export const Categories = () => {
         path="/category/phones"
         image={Phones}
         categoryName="Phones"
-        categoryCount={productsCount}
+        categoryCount={71}
       />
 
       <CategoryCard
         path="/category/tablets"
         image={Tablets}
         categoryName="Tablets"
-        categoryCount={productsCount}
+        categoryCount={0}
       />
 
       <CategoryCard
         path="/category/accessories"
         image={Accessories}
         categoryName="Accessories"
-        categoryCount={productsCount}
+        categoryCount={0}
       />
     </div>
   );
