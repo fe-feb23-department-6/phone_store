@@ -44,8 +44,10 @@ export const Product = () => {
     } catch (error) {
       setIsLoading(false);
       setDiscountLoading(false);
+      navigate('/NotFound');
 
-      throw new Error('Failed to load product from server');
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
   }, []);
 
