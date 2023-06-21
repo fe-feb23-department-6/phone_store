@@ -28,19 +28,13 @@ export const Contact: React.FC<Props> = ({ contact }) => {
       <div className="contact-item__person-info">
         <div className="contact-item__social-media social-media">
           <div className="social-media__gmail-linkedin">
-            <a
-              href={contact.gmail}
-              target='_blank'
-            >
+            <a href={contact.gmail} target="_blank">
               <div className="social-media__icon-container">
                 <img className="social-media__icon" src={Gmail} alt={gmail} />
               </div>
             </a>
 
-            <a
-              href={contact.linkedin}
-              target='_blank'
-            >
+            <a href={contact.linkedin} target="_blank">
               <div className="social-media__icon-container">
                 <img
                   className="social-media__icon"
@@ -52,19 +46,13 @@ export const Contact: React.FC<Props> = ({ contact }) => {
           </div>
 
           <div className="social-media__github-telegram">
-            <a
-              href={contact.github}
-              target='_blank'
-            >
+            <a href={contact.github} target="_blank">
               <div className="social-media__icon-container">
                 <img className="social-media__icon" src={Github} alt={github} />
               </div>
             </a>
 
-            <a
-              href={contact.telegram}
-              target='_blank'
-            >
+            <a href={contact.telegram} target="_blank">
               <div className="social-media__icon-container">
                 <img
                   className="social-media__icon"
