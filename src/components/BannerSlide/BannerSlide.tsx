@@ -28,8 +28,9 @@ export const BannerSlide: FC<Props> = ({
 
       <Link
         to={`/category/${productCategory}/${productId}`}
-        className="banner-slide__order-now">
-          Order now
+        className="banner-slide__order-now"
+      >
+        Order now
       </Link>
     </div>
 
