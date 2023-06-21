@@ -64,7 +64,7 @@ export const Cart = () => {
   return (
     <>
       <div className="cart-wrapper">
-        <Breadcrumbs page="Cart"/>
+        <Breadcrumbs page="Cart" />
 
         <GoBackButton />
 
