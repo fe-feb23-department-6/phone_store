@@ -24,11 +24,11 @@
       margin-bottom: 80px;
     }
 
-  &:nth-child(3) {
-    @include onTablet {
-      margin-bottom: 0;
+    &:nth-child(3) {
+      @include onTablet {
+        margin-bottom: 0;
+      }
     }
-  }
 
   &__title {
     @include h1-mobile;
