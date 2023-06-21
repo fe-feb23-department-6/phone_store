@@ -23,41 +23,45 @@ export const Contact: React.FC<Props> = ({ contact }) => {
         />
       </div>
 
-      <div className="contact-item__person-info">
-        <h3 className="contact-item__person-name">{personName}</h3>
+      <h3 className="contact-item__person-name">{personName}</h3>
 
+      <div className="contact-item__person-info">
         <div className="contact-item__social-media social-media">
-          <div className="social-media__icon-container">
+          <div className="social-media__gmail-linkedin">
             <a href={contact.gmail}>
-              <img className="social-media__icon" src={Gmail} alt={gmail} />
+              <div className="social-media__icon-container">
+                <img className="social-media__icon" src={Gmail} alt={gmail} />
+              </div>
+            </a>
+
+            <a href={contact.linkedin}>
+              <div className="social-media__icon-container">
+                <img
+                  className="social-media__icon"
+                  src={Linkedin}
+                  alt={linkedin}
+                />
+              </div>
             </a>
           </div>
 
-          <a href={contact.linkedin}>
-            <div className="social-media__icon-container">
-              <img
-                className="social-media__icon"
-                src={Linkedin}
-                alt={linkedin}
-              />
-            </div>
-          </a>
+          <div className="social-media__github-telegram">
+            <a href={contact.github}>
+              <div className="social-media__icon-container">
+                <img className="social-media__icon" src={Github} alt={github} />
+              </div>
+            </a>
 
-          <a href={contact.github}>
-            <div className="social-media__icon-container">
-              <img className="social-media__icon" src={Github} alt={github} />
-            </div>
-          </a>
-
-          <a href={contact.telegram}>
-            <div className="social-media__icon-container">
-              <img
-                className="social-media__icon"
-                src={Telegram}
-                alt={telegram}
-              />
-            </div>
-          </a>
+            <a href={contact.telegram}>
+              <div className="social-media__icon-container">
+                <img
+                  className="social-media__icon"
+                  src={Telegram}
+                  alt={telegram}
+                />
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
