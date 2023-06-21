@@ -1,13 +1,11 @@
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Banner } from '../components/Home/Banner';
 import { Categories } from '../components/Home/Categories';
 import { ProductsSlider } from '../components/ProductsSlider';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { getProductsForSlider } from '../api';
-import { CatalogProductData } from '../types/CatalogProductData';
 import { Loader } from '../components/Loader';
-
+import { CatalogProductData } from '../types/CatalogProductData';
+import { getProductsForSlider } from '../api';
 import './PagesStyles/Home.scss';
-import '../styles/utils/_mixins.scss';
 
 export const Home = () => {
   const [newProducts, setNewProducts] = useState<CatalogProductData[]>([]);
