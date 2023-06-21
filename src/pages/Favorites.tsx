@@ -8,13 +8,12 @@ import { CatalogProductData } from '../types/CatalogProductData';
 import { getFavoriteProducts } from '../api';
 
 export const Favorites = () => {
-  const [favoriteProducts, setFavoriteProducts] = useState<
-    CatalogProductData[]
-  >([]);
+  const [favoriteProducts, setFavoriteProducts]
+    = useState<CatalogProductData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const { favContents } = useContext(StoreContext);
 
-  const favIds = favContents.map((id) => id).join(',');
+  const favIds = favContents.join(',');
 
   const getFavContent = useCallback(async() => {
     try {
@@ -28,7 +27,7 @@ export const Favorites = () => {
       setIsLoading(false);
       throw new Error('Error loading favorite products');
     }
-  }, []);
+  }, [favoriteProducts]);
 
   useEffect(() => {
     if (favIds.length > 0) {

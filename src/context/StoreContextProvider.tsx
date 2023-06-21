@@ -60,14 +60,18 @@ export const StoreContextProvider: FC<Props> = ({ children }) => {
   const handleFavChange = (id: string) => {
     setFavContents((currentContents) => {
       if (currentContents.includes(id)) {
-        const newContents = currentContents.filter((prodId) => prodId !== id);
+        const contents = currentContents.filter((prodId) => prodId !== id);
 
-        localStorage.setItem('favoritesContents', JSON.stringify(newContents));
+        localStorage.setItem('favoritesContents', JSON.stringify(contents));
 
-        return newContents;
+        return contents;
       }
 
-      return [...currentContents, id];
+      const newContents = [...currentContents, id];
+
+      localStorage.setItem('favoritesContents', JSON.stringify(newContents));
+
+      return newContents;
     });
   };
 
