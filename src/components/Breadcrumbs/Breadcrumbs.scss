@@ -11,6 +11,7 @@
   margin-left: 0;
   color: $secondary-color;
   font-family: $global-font;
+  text-transform: capitalize;
   @include small-text;
 
   @include onTablet {
@@ -48,7 +49,6 @@
   display: flex;
   gap: 13px;
   color: $primary-color;
-  text-transform: capitalize;
 
   &::after {
     content: '\f054';
