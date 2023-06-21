@@ -1,16 +1,21 @@
-import React from 'react';
+import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import './BannerSlide.scss';
 
 interface Props {
   photoIndex: number;
   productTitle: string;
   productQuote: string;
+  productId: string;
+  productCategory: string;
 }
 
-export const BannerSlide: React.FC<Props> = ({
+export const BannerSlide: FC<Props> = ({
   photoIndex,
   productTitle,
   productQuote,
+  productId,
+  productCategory,
 }) => (
   <div className="banner-slide">
     <div className="banner-slide__now-available">
@@ -21,7 +26,12 @@ export const BannerSlide: React.FC<Props> = ({
 
       <p className="banner-slide__now-available-quote">Be the first!</p>
 
-      <a className="banner-slide__order-now">Order now</a>
+      <Link
+        to={`/category/${productCategory}/${productId}`}
+        className="banner-slide__order-now"
+      >
+        Order now
+      </Link>
     </div>
 
     <div className="banner-slide__phone-model">

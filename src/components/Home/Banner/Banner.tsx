@@ -1,16 +1,10 @@
-/* eslint-disable no-console */
-
 import { Navigation, Pagination, Autoplay } from 'swiper';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { BannerSlide } from '../../BannerSlide';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Banner.scss';
-// import iphoneBanner from './img/iphone-banner.jpg';
-// import ipadBanner from './img/ipad-banner.jpg';
-// import watchBanner from './img/watch-banner.png';
-import { BannerSlide } from '../../BannerSlide';
 
 export const Banner = () => {
   return (
@@ -41,6 +35,8 @@ export const Banner = () => {
               productTitle={'Iphone 11'}
               productQuote={'Lots more power. Lots more battery life.'}
               photoIndex={1}
+              productId={'apple-iphone-11-256gb-white'}
+              productCategory={'phones'}
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -48,6 +44,8 @@ export const Banner = () => {
               productTitle={'Iphone 11 pro'}
               productQuote={'Pro. Beyond.'}
               photoIndex={2}
+              productId={'apple-iphone-11-pro-512gb-spacegray'}
+              productCategory={'phones'}
             />
           </SwiperSlide>
           <SwiperSlide>
@@ -55,6 +53,8 @@ export const Banner = () => {
               productTitle={'Iphone 11 pro max'}
               productQuote={'Pro cameras. Pro display. Pro performance.'}
               photoIndex={3}
+              productId={'apple-iphone-11-pro-max-512gb-silver'}
+              productCategory={'phones'}
             />
           </SwiperSlide>
         </Swiper>

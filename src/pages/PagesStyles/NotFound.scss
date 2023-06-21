@@ -4,7 +4,7 @@
 $footer-height: 300px;
 $footer-height-desktop: 96px;
 
-.container {
+.container-404 {
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -37,6 +37,9 @@ $footer-height-desktop: 96px;
 
     @include onTablet {
       @include h1-desktop;
+    }
+
+    @include onDesktop {
       text-align: left;
     }
   }
@@ -60,8 +63,11 @@ $footer-height-desktop: 96px;
 
     @include onTablet {
       @include h2-desktop;
-      text-align: left;
       font-weight: 800;
+    }
+
+    @include onDesktop {
+      text-align: left;
     }
   }
 
