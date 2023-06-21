@@ -6,16 +6,8 @@
 
   .swiper {
     overflow: visible;
-    /* margin-right: -16px;
-    padding-left: 10px; 
-
-    @include onTablet {
-      margin-right: -23px;
-      padding-right: 8px;
-    } */
 
     @include onDesktop {
-      // margin-right: 0;
       overflow: hidden;
       padding-left: 14px;
       padding-right: 14px;
