@@ -1,7 +1,6 @@
 import { logInReq, signUpReq } from '../types/authTypes';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-console */
 
 const BASE_URL = 'https://backend-phone-store.onrender.com/';
 

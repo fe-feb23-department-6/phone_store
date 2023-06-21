@@ -13,7 +13,7 @@ export type user = {
 export type logInReq = {
   email: string;
   password: string;
-}
+};
 
 export type logInRes = {
   user: user;
