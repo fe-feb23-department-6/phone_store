@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import './PagesStyles/NotFound.scss';
 
 export const NotFound = () => (
   <div className="not-found">
+    <Breadcrumbs page="Not found" />
+
     <h1 className="not-found__title">404</h1>
 
     <div className="not-found__content">

@@ -1,9 +1,12 @@
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import { Contact } from '../components/Contact';
 import { contacts } from '../components/Contact/contacts';
 import './PagesStyles/Contacts.scss';
 
-export const Contacts: React.FC = () => (
+export const Contacts = () => (
   <div className="contacts-page">
+    <Breadcrumbs page="Contacts" />
+
     <h1 className="contacts-page__title">Contacts</h1>
 
     <div className="contacts-page__wrapper">

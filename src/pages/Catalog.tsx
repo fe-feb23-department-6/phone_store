@@ -8,6 +8,7 @@ import { CatalogProductData } from '../types/CatalogProductData';
 import { getProducts } from '../api';
 import { categorTitles } from '../constants';
 import './PagesStyles/Catalog.scss';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export const Catalog = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
@@ -50,6 +51,8 @@ export const Catalog = () => {
 
   return (
     <div className="catalog-content">
+      {categoryName && <Breadcrumbs page={categoryName} />}
+
       <div className="category-name">
         <h1 className="category-name-text">
           {categoryName && categorTitles[categoryName]}

@@ -1,18 +1,18 @@
-import 'bulma/css/bulma.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import './App.scss';
 import { Home } from './pages/Home';
 import { Catalog } from './pages/Catalog';
 import { Product } from './pages/Product';
 import { Favorites } from './pages/Favorites';
 import { Cart } from './pages/Cart';
 import { NotFound } from './pages/NotFound';
-import { Footer } from './components/Footer/Footer';
-import { Header } from './components/Header/Header';
 import { Contacts } from './pages/Contacts';
 import { Rights } from './pages/Rights';
+import { Footer } from './components/Footer/Footer';
+import { Header } from './components/Header/Header';
 import { ThreadData } from './types/ThreadData';
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import './App.scss';
 
 export const App = () => {
   return (
