@@ -28,13 +28,13 @@ export const Favorites = () => {
       setIsLoading(false);
       throw new Error('Error loading favorite products');
     }
-  }, [favoriteProducts]);
+  }, [favIds]);
 
   useEffect(() => {
     if (favIds.length > 0) {
       getFavContent();
     }
-  }, []);
+  }, [favContents, favIds, getFavContent]);
 
   const favoriteCount = favContents.length;
 
