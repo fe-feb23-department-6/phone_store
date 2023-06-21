@@ -31,12 +31,6 @@
     }
   }
 
-  &:nth-child(4) {
-    @include onTablet {
-      margin-bottom: 0;
-    }
-  }
-
   &__title {
     @include h1-mobile;
 
