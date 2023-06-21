@@ -3,7 +3,7 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import './PagesStyles/NotFound.scss';
 
 export const NotFound = () => (
-  <div className='container'>
+  <div className="container">
     <Breadcrumbs page="Not found" />
 
     <div className="not-found">
