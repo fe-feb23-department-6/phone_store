@@ -45,12 +45,12 @@ export const Footer = () => {
           </ul>
         </nav>
 
-        <a className="store-footer__link" href="#">
+        <div className="store-footer__link">
           <div className="store-footer__back-link" onClick={scrollToTop}>
             <span>Back to top</span>
             <img className="footer-icon" src={BackToTop} />
           </div>
-        </a>
+        </div>
       </div>
     </footer>
   );

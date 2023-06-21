@@ -21,7 +21,7 @@ export const Breadcrumbs: FC<Props> = ({ page, category }) => {
           {category}
         </Link>
       )}
-      {page}
+      <div>{page}</div>
     </div>
   );
 };
