@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.b55990c5.css",
-    "main.js": "/phone_store/static/js/main.230a5a0d.js",
+    "main.css": "/phone_store/static/css/main.4a068347.css",
+    "main.js": "/phone_store/static/js/main.a4b821ff.js",
     "static/media/fa-solid-900.ttf": "/phone_store/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
     "static/media/banner-3.png": "/phone_store/static/media/banner-3.ff0dbc78f40dc2b573cc.png",
     "static/media/phones.svg": "/phone_store/static/media/phones.912cf91d54687c40a6fa908bf8b897b5.svg",
@@ -13,13 +13,23 @@
     "static/media/Mont-Bold.otf": "/phone_store/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
     "static/media/banner-2.png": "/phone_store/static/media/banner-2.14efdb949e698cd0291f.png",
     "static/media/fa-solid-900.woff2": "/phone_store/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/person-3.jpg": "/phone_store/static/media/person-3.be0a2d8ed50e4ddb28c8.jpg",
     "static/media/accessories.png": "/phone_store/static/media/accessories.b914f4124f0dab3439fb.png",
     "static/media/fa-brands-400.woff2": "/phone_store/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/person-1.jpg": "/phone_store/static/media/person-1.bb58d7493c3f4d4eb63f.jpg",
     "static/media/tablets.png": "/phone_store/static/media/tablets.ed3dd9df51129690126b.png",
+    "static/media/person-5.jpg": "/phone_store/static/media/person-5.659428e8045ad7a92afc.jpg",
+    "static/media/person-4.jpg": "/phone_store/static/media/person-4.3484c61a3a5b14a90bfb.jpg",
     "static/media/fa-regular-400.ttf": "/phone_store/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "static/media/person-6.jpg": "/phone_store/static/media/person-6.0622b6a3ec4e1b9198f0.jpg",
+    "static/media/person-2.jpg": "/phone_store/static/media/person-2.7c46c1088df7921bbf5e.jpg",
     "static/media/fa-regular-400.woff2": "/phone_store/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
     "static/media/fa-v4compatibility.ttf": "/phone_store/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/github.svg": "/phone_store/static/media/github.3ecf27711255ef69c6785f9440457d46.svg",
     "static/media/fa-v4compatibility.woff2": "/phone_store/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "static/media/telegram.svg": "/phone_store/static/media/telegram.04cf4804f41145386b50aed7306f8116.svg",
+    "static/media/gmail.svg": "/phone_store/static/media/gmail.e6ddfac94aadca00d41c5070fc24f187.svg",
+    "static/media/linkedin.svg": "/phone_store/static/media/linkedin.96627ab0c0324e5bcd949a65df2e9a71.svg",
     "static/media/shopping_bag.svg": "/phone_store/static/media/shopping_bag.1beda4df7b041090b588f858e7122d17.svg",
     "static/media/favorite.svg": "/phone_store/static/media/favorite.2901080b7c6eae55f8fa052d2d362a56.svg",
     "static/media/favorites_add.svg": "/phone_store/static/media/favorites_add.a8d9e1341bff31e7955d.svg",
@@ -48,11 +58,11 @@
     "static/media/spacegray.svg": "/phone_store/static/media/spacegray.f4f90d4fc54583e009a826be30bf9220.svg",
     "static/media/white.svg": "/phone_store/static/media/white.fb1ad6e66015d5651db5e9eadc9f9471.svg",
     "static/media/yellow.svg": "/phone_store/static/media/yellow.d938ff19984683d21b48035802eb800d.svg",
-    "main.b55990c5.css.map": "/phone_store/static/css/main.b55990c5.css.map",
-    "main.230a5a0d.js.map": "/phone_store/static/js/main.230a5a0d.js.map"
+    "main.4a068347.css.map": "/phone_store/static/css/main.4a068347.css.map",
+    "main.a4b821ff.js.map": "/phone_store/static/js/main.a4b821ff.js.map"
   },
   "entrypoints": [
-    "static/css/main.b55990c5.css",
-    "static/js/main.230a5a0d.js"
+    "static/css/main.4a068347.css",
+    "static/js/main.a4b821ff.js"
   ]
 }
