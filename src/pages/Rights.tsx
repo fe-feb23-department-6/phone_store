@@ -15,15 +15,15 @@ export const Rights = () => (
 
           <ul className="rights-container__rights-list">
             <li>
-              The store has the right to sell smartphones and tablets as
+              The Nice Gadgets store &trade; has the right to sell smartphones and tablets as
               products in its inventory.
             </li>
             <li>
-              The store has the right to display and advertise the smartphones
+              The Nice Gadgets store &trade; has the right to display and advertise the smartphones
               and tablets for sale.
             </li>
             <li>
-              The store has the right to set prices, promotions, and discounts
+              The Nice Gadgets store &trade; has the right to set prices, promotions, and discounts
               for the smartphones and tablets.
             </li>
           </ul>
@@ -36,16 +36,16 @@ export const Rights = () => (
 
           <ul className="rights-container__rights-list">
             <li>
-              The store acknowledges and respects the intellectual property
+              The Nice Gadgets store &trade; acknowledges and respects the intellectual property
               rights of smartphone and tablet manufacturers.
             </li>
             <li>
-              The store does not engage in any unauthorized reproduction,
+              The Nice Gadgets store &trade; does not engage in any unauthorized reproduction,
               modification, or distribution of copyrighted materials, including
               software, applications, or content on smartphones and tablets.
             </li>
             <li>
-              The store does not claim ownership over trademarks, logos, or
+              The Nice Gadgets store &trade; does not claim ownership over trademarks, logos, or
               branding of smartphone and tablet manufacturers.
             </li>
           </ul>
@@ -55,21 +55,21 @@ export const Rights = () => (
 
           <ul className="rights-container__rights-list">
             <li>
-              The store respects the rights of consumers and provides accurate
+              The Nice Gadgets store &trade; respects the rights of consumers and provides accurate
               information about the specifications, features, and warranties of
               smartphones and tablets.
             </li>
             <li>
-              The store ensures that the smartphones and tablets sold are
+              The Nice Gadgets store &trade; ensures that the smartphones and tablets sold are
               genuine, in working condition, and free from defects.
             </li>
             <li>
-              The store provides a clear and fair return policy for defective
+              The Nice Gadgets store &trade; provides a clear and fair return policy for defective
               products or cases where customers are not satisfied with their
               purchase.
             </li>
             <li>
-              The store handles customer data and personal information with
+              The Nice Gadgets store &trade; handles customer data and personal information with
               utmost confidentiality and adheres to relevant data protection
               regulations.
             </li>
@@ -83,16 +83,16 @@ export const Rights = () => (
 
           <ul className="rights-container__rights-list">
             <li>
-              The store complies with all applicable laws, regulations, and
+              The Nice Gadgets store &trade; complies with all applicable laws, regulations, and
               industry standards related to the sale and distribution of
               smartphones and tablets.
             </li>
             <li>
-              The store ensures that smartphones and tablets meet safety
+              The Nice Gadgets store &trade; ensures that smartphones and tablets meet safety
               standards and regulations set by relevant authorities.
             </li>
             <li>
-              The store follows proper procedures for warranty claims, repairs,
+              The Nice Gadgets store &trade; follows proper procedures for warranty claims, repairs,
               and replacements in accordance with consumer protection laws.
             </li>
           </ul>
@@ -102,17 +102,17 @@ export const Rights = () => (
 
           <ul className="rights-container__rights-list">
             <li>
-              The store respects customer privacy and ensures that personal
+              The Nice Gadgets store &trade; respects customer privacy and ensures that personal
               information is collected, stored, and used in compliance with
               applicable privacy laws.
             </li>
             <li>
-              The store refrains from engaging in deceptive practices, such as
+              The Nice Gadgets store &trade; refrains from engaging in deceptive practices, such as
               false advertising, misleading product descriptions, or
               unauthorized use of customer data.
             </li>
             <li>
-              The store promotes ethical business conduct, fair competition, and
+              The Nice Gadgets store &trade; promotes ethical business conduct, fair competition, and
               transparency in its operations.
             </li>
           </ul>
