@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
 import { Burger } from '../Burger';
@@ -17,6 +17,21 @@ export const Header: FC = () => {
   const handleCloseMenu = () => {
     setIsMenuOpen(false);
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+    } else {
+      document.body.style.overflow = 'auto';
+      document.body.style.position = 'static';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+      document.body.style.position = 'static';
+    };
+  }, [isMenuOpen]);
 
   return (
     <>
