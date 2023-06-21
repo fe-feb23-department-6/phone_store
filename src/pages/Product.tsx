@@ -90,7 +90,7 @@ export const Product = () => {
 
   return (
     <div className="product-page">
-      <Breadcrumbs category={categoryName} page={prodId} />
+      {prodId && <Breadcrumbs category={categoryName} page={prodId} />}
 
       <GoBackButton />
 

@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
-import { FC } from 'react';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import './PagesStyles/Rights.scss';
 
-export const Rights: FC = () => (
+export const Rights = () => (
   <div className="rights">
+    <Breadcrumbs page="Rights" />
+
     <h2 className="rights__title">Rights</h2>
 
     <div className="rights__rights-container rights-container">

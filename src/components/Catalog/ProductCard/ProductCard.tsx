@@ -42,11 +42,13 @@ export const ProductCard: FC<Props> = ({ product }) => {
   return (
     <div className="product-card">
       <div className="product-card__image-container">
-        <img
-          src={image}
-          className="product-card__product-image"
-          alt={prodName}
-        />
+        <Link to={`/category/${category}/${itemId}`}>
+          <img
+            src={image}
+            className="product-card__product-image"
+            alt={prodName}
+          />
+        </Link>
       </div>
       <div className="product-card__product-name">
         <Link to={`/category/${category}/${itemId}`}>{prodName}</Link>

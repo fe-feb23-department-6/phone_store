@@ -4,7 +4,7 @@ import Home from '../../img/icons/home_icon.svg';
 import './Breadcrumbs.scss';
 
 type Props = {
-  page?: string;
+  page: string;
   category?: string;
 };
 

@@ -2,7 +2,11 @@
 @import '../../styles/utils/mixins';
 
 .rights {
+  max-width: 1200px;
+  margin: 0 auto;
+
   @include body-text;
+
   &__title {
     @include h2-mobile;
 

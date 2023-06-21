@@ -3,11 +3,12 @@ import { CartList } from '../components/Cart/Cartlist';
 import { Checkout } from '../components/Cart/Checkout';
 import { CartModal } from '../components/Cart/CartModal';
 import { Loader } from '../components/Loader';
+import { GoBackButton } from '../components/GoBackButton';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import { StoreContext } from '../context/StoreContext';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { getProductsForCart } from '../api';
 import './PagesStyles/Cart.scss';
-import { GoBackButton } from '../components/GoBackButton';
 
 export const Cart = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
@@ -63,7 +64,10 @@ export const Cart = () => {
   return (
     <>
       <div className="cart-wrapper">
+        <Breadcrumbs page="Cart" />
+
         <GoBackButton />
+
         <h1 className="cart-title">Cart</h1>
         {isNotEmptyCart ? (
           <>
