@@ -8,8 +8,9 @@ import { CatalogProductData } from '../types/CatalogProductData';
 import { getFavoriteProducts } from '../api';
 
 export const Favorites = () => {
-  const [favoriteProducts, setFavoriteProducts]
-    = useState<CatalogProductData[]>([]);
+  const [favoriteProducts, setFavoriteProducts] = useState<
+    CatalogProductData[]
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
   const { favContents } = useContext(StoreContext);
 
