@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.885dcf5e.css",
-    "main.js": "/phone_store/static/js/main.097dbe56.js",
+    "main.css": "/phone_store/static/css/main.14f080af.css",
+    "main.js": "/phone_store/static/js/main.64e073e0.js",
     "static/media/fa-solid-900.ttf": "/phone_store/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
     "static/media/banner-3.png": "/phone_store/static/media/banner-3.ff0dbc78f40dc2b573cc.png",
     "static/media/phones.svg": "/phone_store/static/media/phones.912cf91d54687c40a6fa908bf8b897b5.svg",
@@ -18,7 +18,7 @@
     "static/media/fa-brands-400.woff2": "/phone_store/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
     "static/media/person-1.jpg": "/phone_store/static/media/person-1.bb58d7493c3f4d4eb63f.jpg",
     "static/media/tablets.png": "/phone_store/static/media/tablets.ed3dd9df51129690126b.png",
-    "static/media/person-5.jpg": "/phone_store/static/media/person-5.659428e8045ad7a92afc.jpg",
+    "static/media/person-5.jpg": "/phone_store/static/media/person-5.57410b93a910079d12a6.jpg",
     "static/media/person-4.jpg": "/phone_store/static/media/person-4.3484c61a3a5b14a90bfb.jpg",
     "static/media/fa-regular-400.ttf": "/phone_store/static/media/fa-regular-400.d87474231f4192884802.ttf",
     "static/media/person-6.jpg": "/phone_store/static/media/person-6.0622b6a3ec4e1b9198f0.jpg",
@@ -58,11 +58,11 @@
     "static/media/spacegray.svg": "/phone_store/static/media/spacegray.f4f90d4fc54583e009a826be30bf9220.svg",
     "static/media/white.svg": "/phone_store/static/media/white.fb1ad6e66015d5651db5e9eadc9f9471.svg",
     "static/media/yellow.svg": "/phone_store/static/media/yellow.d938ff19984683d21b48035802eb800d.svg",
-    "main.885dcf5e.css.map": "/phone_store/static/css/main.885dcf5e.css.map",
-    "main.097dbe56.js.map": "/phone_store/static/js/main.097dbe56.js.map"
+    "main.14f080af.css.map": "/phone_store/static/css/main.14f080af.css.map",
+    "main.64e073e0.js.map": "/phone_store/static/js/main.64e073e0.js.map"
   },
   "entrypoints": [
-    "static/css/main.885dcf5e.css",
-    "static/js/main.097dbe56.js"
+    "static/css/main.14f080af.css",
+    "static/js/main.64e073e0.js"
   ]
 }
