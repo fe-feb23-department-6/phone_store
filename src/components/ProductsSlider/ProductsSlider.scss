@@ -1,0 +1,70 @@
+@import '../../styles/utils/_vars.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.slider {
+  position: relative;
+
+  .swiper {
+    margin-right: -16px;
+    padding-left: 10px;
+
+    @include onTablet {
+      margin-right: -23px;
+      padding-right: 8px;
+    }
+
+    @include onDesktop {
+      margin-right: 0;
+    }
+  }
+  &-button {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    border: 1px solid $elements-color;
+    border-radius: 48px;
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+
+    &:not(.swiper-button-disabled):hover {
+      border-color: $selected-color;
+      border: 2px solid black;
+    }
+
+    &:not(.swiper-button-disabled):active {
+      border-color: $selected-color;
+      box-shadow: 0px 0px 3px 0.1px rgba(0, 0, 0, 0.75) inset;
+    }
+
+    @include onTablet {
+      top: -50px;
+    }
+
+    &__prev {
+      background: url('./left-arrow.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      right: 47px;
+
+      &:not(.swiper-button-disabled) {
+        background-image: url('./left-arrow-active.svg');
+      }
+    }
+    &__next {
+      background-image: url('./right-arrow.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      &:not(.swiper-button-disabled) {
+        background-image: url('./right-arrow-active.svg');
+      }
+    }
+  }
+}
+
+.swiper {
+  & .product-card {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+}

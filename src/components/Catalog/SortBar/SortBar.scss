@@ -5,9 +5,12 @@
   display: flex;
   margin-bottom: 24px;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .params-block {
+  padding-top: 10px;
+
   &__title {
     margin-bottom: 4px;
 
@@ -22,37 +25,24 @@
     padding-left: 12px;
 
     border: 1px solid $icons-color;
-    background-color: $productCard-background;
-    border-radius: $borderRadius-standart;
+    background-color: $white-color;
+    border-radius: $border-radius-standart;
 
     font-family: $global-font;
     color: $selected-color;
 
     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-image: url('../../../img/icons/angle_arrow_down.svg');
     background-repeat: no-repeat;
-    background-position-x: right 15px;
-    background-position-y: 50%;
+    background-position: calc(100% - 12px) center;
+    padding-right: 20px;
 
     &--large {
       @include onTablet {
         width: 185px;
       }
     }
-  }
-
-  &__input {
-    height: 40px;
-    max-width: 360px;
-    width: 100%;
-    margin-right: 24px;
-    padding-left: 12px;
-
-    border: 1px solid $icons-color;
-    background-color: $productCard-background;
-    border-radius: $borderRadius-standart;
-
-    font-family: $global-font;
-    color: $selected-color;
   }
 }

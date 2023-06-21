@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { StoreContext } from '../../context/StoreContext';
 import './Burger.scss';
 import cn from 'classnames';
 import BurgerClose from '../../img/icons/burger_menu_cross.svg';
@@ -12,6 +13,18 @@ interface Props {
 }
 
 export const Burger: FC<Props> = ({ onClose }) => {
+  const [favoriteCount, setFavoriteCount] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
+  const { favContents, cartContents } = useContext(StoreContext);
+
+  useEffect(() => {
+    setCartCount(cartContents.length);
+  }, [cartContents]);
+
+  useEffect(() => {
+    setFavoriteCount(favContents.length);
+  }, [favContents]);
+
   const handleClick = () => {
     onClose();
   };
@@ -28,94 +41,113 @@ export const Burger: FC<Props> = ({ onClose }) => {
         </button>
       </header>
 
-      <nav className="burger__nav">
-        <ul className="nav__list--burger">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Home
-            </NavLink>
-          </li>
+      <div className="burger_content">
+        <nav className="burger__nav">
+          <ul className="nav__list--burger">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Home
+              </NavLink>
+            </li>
 
-          <li>
-            <NavLink
-              to="/phones"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Phones
-            </NavLink>
-          </li>
+            <li>
+              <NavLink
+                to="/category/phones"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Phones
+              </NavLink>
+            </li>
 
-          <li>
-            <NavLink
-              to="/tablets"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Tablets
-            </NavLink>
-          </li>
+            <li>
+              <NavLink
+                to="/category/tablets"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Tablets
+              </NavLink>
+            </li>
 
-          <li>
-            <NavLink
-              to="/accessories"
-              className={({ isActive }) =>
-                cn('nav__link--burger', {
-                  'is-active': isActive,
-                })
-              }
-              onClick={handleClick}
-            >
-              Accessories
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+            <li>
+              <NavLink
+                to="/category/accessories"
+                className={({ isActive }) =>
+                  cn('nav__link--burger', {
+                    'is-active': isActive,
+                  })
+                }
+                onClick={handleClick}
+              >
+                Accessories
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
 
-      <div className="burger__actions">
-        <NavLink
-          to={'/favorite'}
-          className={({ isActive }) =>
-            cn('actions__favorite', {
-              'is-active': isActive,
-            })
-          }
-          onClick={handleClick}
-        >
-          <img
-            src={Favorite}
-            alt="favourite"
-            className="burger__action__image"
-          />
-        </NavLink>
+        <div className="burger__actions">
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) =>
+              cn('actions__favorite', {
+                'is-active': isActive,
+              })
+            }
+            onClick={handleClick}
+          >
+            {favoriteCount > 0 && (
+              <span
+                className="burger__action__count
+"
+              >
+                {favoriteCount}
+              </span>
+            )}
+            <img
+              src={Favorite}
+              alt="favourite"
+              className="burger__action__image"
+            />
+          </NavLink>
 
-        <NavLink
-          to={'/cart'}
-          className={({ isActive }) =>
-            cn('actions__cart', {
-              'is-active': isActive,
-            })
-          }
-          onClick={handleClick}
-        >
-          <img src={Basket} alt="cart" className="burger__action__image" />
-        </NavLink>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              cn('actions__cart', {
+                'is-active': isActive,
+              })
+            }
+            onClick={handleClick}
+          >
+            {cartCount > 0 && (
+              <span
+                className="burger__action__count
+"
+              >
+                {cartCount}
+              </span>
+            )}
+
+            <img src={Basket} alt="cart" className="burger__action__image" />
+          </NavLink>
+        </div>
       </div>
     </div>
   );

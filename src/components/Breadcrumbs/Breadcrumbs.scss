@@ -1,0 +1,60 @@
+@import '../../styles/utils/_vars.scss';
+@import '../../styles/utils/_mixins.scss';
+
+.go-home {
+  display: flex;
+  width: 100%;
+  margin-bottom: 24px;
+  align-items: center;
+  gap: 13px;
+  padding: 0;
+  margin-left: 0;
+  color: $secondary-color;
+  font-family: $global-font;
+  text-transform: capitalize;
+  @include small-text;
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+}
+
+.go-home__button {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 13px;
+
+  img {
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &::after {
+    content: '\f054';
+    font-family: FontAwesome;
+    color: $icons-color;
+    font-size: 10px;
+    font-weight: 500;
+  }
+}
+
+.go-home__link {
+  display: flex;
+  gap: 13px;
+  color: $primary-color;
+
+  &::after {
+    content: '\f054';
+    font-family: FontAwesome;
+    color: $icons-color;
+    font-size: 10px;
+    font-weight: 500;
+  }
+}

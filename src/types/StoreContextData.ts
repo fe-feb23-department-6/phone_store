@@ -1,9 +1,11 @@
-import { CartProductData } from './CartProductData';
-import { CatalogProductData } from './CatalogProductData';
-import { FullProductData } from './FullProductData';
+import { CartStorageProduct } from './CartStorageProduct.js';
 
 export interface StoreContextData {
-  cartContents: CartProductData[];
-  addToCartCatalog: (product: CatalogProductData) => void;
-  addToCartProductPage: (product: FullProductData) => void;
+  cartContents: CartStorageProduct[];
+  addToCart: (id: string) => void;
+  changeCartProdQuantity: (id: string, delta: number) => void;
+  removeCartProduct: (id: string) => void;
+  cleanCartContents: () => void;
+  favContents: string[];
+  handleFavChange: (id: string) => void;
 }

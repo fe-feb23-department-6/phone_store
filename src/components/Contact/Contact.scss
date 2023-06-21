@@ -1,0 +1,75 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0 auto $large-gap;
+  width: 200px;
+  // max-width: 220px;
+  padding: $large-gap;
+  background-color: $white-color;
+
+  border: 1px solid $secondary-color;
+  border-radius: $border-radius-standart;
+
+  @include onTablet {
+    width: 30%;
+    margin: $large-gap $medium-gap;
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 1px $elements-color;
+  }
+
+  &__person-img-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__person-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: $medium-gap;
+  }
+
+  &__person-name {
+    text-align: center;
+
+    @include h3-mobile;
+
+    @include onTablet {
+      @include h3-desktop;
+    }
+  }
+}
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: $large-gap 0;
+
+  &__icon-container {
+    margin: 0 $small-gap $medium-gap;
+    border: 1px solid $secondary-color;
+    border-radius: $border-radius-standart;
+
+    &:hover {
+      cursor: pointer;
+      transition: 0.3s;
+      transform: scale(1.1);
+      box-shadow: -2px -2px 2px $elements-color;
+    }
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    margin: $small-gap;
+  }
+}

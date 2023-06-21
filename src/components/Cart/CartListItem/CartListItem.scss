@@ -1,0 +1,121 @@
+@import '../../../styles/utils/_vars.scss';
+@import '../../../styles/utils/mixins';
+
+.cart-item {
+  display: flex;
+  width: 100%;
+
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 16px;
+
+  border: 1px solid $elements-color;
+  border-radius: 16px;
+  background-color: $white-color;
+
+  @include onTablet {
+    flex-direction: row;
+
+    height: 128px;
+    padding: 24px;
+  }
+
+  &-phoneinfo-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+    width: 100%;
+
+    @include onTablet {
+      column-gap: 35px;
+    }
+  }
+
+  &__delete-button {
+    padding: 0;
+    height: 16px;
+    width: 16px;
+
+    background-color: $white-color;
+    color: $icons-color;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__photo-container {
+    display: flex;
+    height: 80px;
+
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  &__photo {
+    height: 67px;
+  }
+
+  &__description {
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: $primary-color;
+  }
+
+  &-quantity-and-price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    @include onTablet {
+      width: 330px;
+      padding-left: 31px;
+    }
+  }
+
+  &__quantity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 13px;
+
+    font-size: 14px;
+
+    &-button {
+      height: 32px;
+      width: 32px;
+      padding: 0;
+
+      border: 1px solid $icons-color;
+      border-radius: 50%;
+      background-color: $white-color;
+      cursor: pointer;
+
+      font-family: $global-font;
+      font-size: 24px;
+      line-height: 24px;
+
+      &:hover {
+        border: 1px solid $primary-color;
+      }
+
+      &--disabled {
+        border-color: $elements-color;
+        color: $elements-color;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__price {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.tech-spechs {
+  flex-grow: 2;
+  flex-shrink: 1;
+
+  &__title {
+    @include h3-mobile;
+
+    @include onTablet {
+      @include h3-desktop;
+    }
+
+    padding-bottom: $medium-gap;
+    margin-bottom: $large-gap;
+
+    border-bottom: 1px solid $elements-color;
+  }
+}
+
+.phone-info {
+  &__param {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $small-gap;
+
+    @include small-text;
+
+    @include onTablet {
+      @include body-text;
+    }
+
+    &-text {
+      color: $secondary-color;
+      margin-right: $medium-gap;
+    }
+
+    &-size {
+      text-align: right;
+      color: $selected-color;
+    }
+  }
+}

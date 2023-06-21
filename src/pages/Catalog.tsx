@@ -1,54 +1,64 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { SortBar } from '../components/Catalog/SortBar';
 import { ProductsList } from '../components/Catalog/ProductsList';
 import { Pagination } from '../components/Catalog/Pagination';
-import { CatalogProductData } from '../types/CatalogProductData';
-import { getProducts } from '../api/phones';
-import './PagesStyles/Catalog.scss';
 import { Loader } from '../components/Loader';
+import { CatalogProductData } from '../types/CatalogProductData';
+import { getProducts } from '../api';
+import { categorTitles } from '../constants';
+import './PagesStyles/Catalog.scss';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 
 export const Catalog = () => {
   const [products, setProducts] = useState<CatalogProductData[]>([]);
-  const [totalPages, setTotalPages] = useState<null | number>(null);
-  const [productsCount, setProductsCount] = useState<null | number>(null);
+  const [totalPages, setTotalPages] = useState<number>(0);
+  const [productsCount, setProductsCount] = useState<number>(0);
   const [searchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const paramsString = useLocation().search;
+  const { categoryName } = useParams();
 
   const getCatalogContents = useCallback(async() => {
     try {
       setIsLoading(true);
 
-      const productsData = await getProducts(paramsString);
-      const {
-        products: productsFromServer,
-        totalPages: pagesQuantity,
-        totalCount: productsQuantity,
-      } = productsData;
+      if (categoryName) {
+        const productsData = await getProducts(categoryName, paramsString);
 
-      setProductsCount(productsQuantity);
-      setTotalPages(pagesQuantity);
-      setProducts(productsFromServer);
+        const {
+          products: productsFromServer,
+          totalPages: pagesQuantity,
+          totalCount: productsQuantity,
+        } = productsData;
+
+        setProductsCount(productsQuantity);
+        setTotalPages(pagesQuantity);
+        setProducts(productsFromServer);
+      }
+
       setIsLoading(false);
-    } catch {
+    } catch (error) {
       setIsLoading(false);
       throw new Error('Server error');
     }
-  }, [searchParams]);
+  }, [searchParams, categoryName]);
 
   useEffect(() => {
     getCatalogContents();
-  }, [searchParams]);
+  }, [searchParams, categoryName]);
 
   return (
-    <div className="catalogContent">
-      <div className="categoryName">
-        <h1 className="categoryName-text">Mobile phones</h1>
-        {productsCount && (
-          <p className="categoryName-quantity">{`${productsCount} models`}</p>
-        )}
+    <div className="catalog-content">
+      {categoryName && <Breadcrumbs page={categoryName} />}
+
+      <div className="category-name">
+        <h1 className="category-name-text">
+          {categoryName && categorTitles[categoryName]}
+        </h1>
+
+        <p className="category-name-quantity">{`${productsCount} models`}</p>
       </div>
 
       <SortBar />
@@ -58,10 +68,18 @@ export const Catalog = () => {
           <Loader />
         </div>
       ) : (
-        <ProductsList products={products} />
-      )}
+        <>
+          {productsCount > 0 ? (
+            <>
+              <ProductsList products={products} />
 
-      {!isLoading && totalPages && <Pagination totalPages={totalPages} />}
+              {totalPages > 1 && <Pagination totalPages={totalPages} />}
+            </>
+          ) : (
+            <h2>Sorry, we don't have appropriate products</h2>
+          )}
+        </>
+      )}
     </div>
   );
 };

@@ -1,0 +1,16 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/_mixins.scss';
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  @include onTablet {
+    gap: 16px;
+    flex-direction: row;
+  }
+}

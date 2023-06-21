@@ -1,0 +1,134 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.banner-slider {
+  margin: 0 0 66px;
+
+  @include onTablet {
+    margin-bottom: 74px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+}
+
+.banner {
+  position: relative;
+  max-width: 120%;
+  margin: 0 -16px 40px;
+  padding: 0;
+
+  @include onTablet {
+    width: 100%;
+    margin: 0 0 40px;
+  }
+
+  &-title {
+    @include h1-mobile;
+    margin-bottom: 24px;
+
+    @include onTablet {
+      @include h1-desktop;
+      margin-bottom: 32px;
+    }
+  }
+
+  @include onTablet {
+    height: 180px;
+    padding: 0 50px;
+  }
+
+  @include onDesktop {
+    height: 400px;
+  }
+
+  &-control {
+    display: none;
+    position: absolute;
+    top: 0;
+
+    &__prev {
+      background: url(./left-arrow.svg) no-repeat center;
+      left: 0;
+      &:hover {
+        background: url(./left-arrow-active.svg) no-repeat center;
+        border-color: $selected-color;
+      }
+    }
+
+    &__next {
+      background: url(./right-arrow.svg) no-repeat center;
+      right: 0;
+      &:hover {
+        background: url(./right-arrow-active.svg) no-repeat center;
+        border-color: $selected-color;
+      }
+    }
+
+    @include onTablet {
+      display: block;
+      height: 100%;
+      background-color: transparent;
+      border: 1px solid #b4bdc4;
+      border-radius: 48px;
+      width: 32px;
+    }
+
+    @include onDesktop {
+      display: block;
+      background-color: transparent;
+      border: 1px solid #b4bdc4;
+      border-radius: 48px;
+      width: 32px;
+    }
+  }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+
+  &-slide {
+    width: 100%;
+
+    & .banner-img {
+      max-height: 400px;
+      height: 100%;
+      width: 100%;
+      object-fit: none;
+      display: block;
+      @include onTablet {
+        object-fit: fill;
+      }
+    }
+  }
+
+  &-container {
+    overflow: auto;
+  }
+
+  &-pag {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+
+    & .swiper-pagination-bullet {
+      position: relative;
+      bottom: -18px;
+      width: 14px;
+      height: 4px;
+      border-radius: 0;
+      background-color: $secondary-color;
+      margin-left: auto;
+
+      &-active {
+        background-color: $selected-color;
+      }
+    }
+  }
+}

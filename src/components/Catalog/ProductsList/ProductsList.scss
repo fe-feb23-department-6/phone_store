@@ -2,11 +2,11 @@
 @import '../../../styles/utils/_mixins.scss';
 
 .productList {
+  display: flex;
   box-sizing: border-box;
   margin-bottom: 40px;
-  display: flex;
   flex-wrap: wrap;
 
-  column-gap: $productCards-gap-column;
-  row-gap: $productCards-gap-row;
+  column-gap: $product-cards-gap-column;
+  row-gap: $product-cards-gap-row;
 }

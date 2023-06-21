@@ -1,0 +1,50 @@
+@import '../../../styles/utils/vars';
+@import '../../../styles/utils/mixins';
+
+.about {
+  flex-grow: 1;
+  flex-shrink: 2;
+  text-align: left;
+
+  &__title {
+    @include h3-mobile;
+
+    @include onTablet {
+      @include h3-desktop;
+    }
+
+    padding-bottom: $medium-gap;
+    margin-bottom: $large-gap;
+
+    border-bottom: 1px solid $elements-color;
+  }
+
+  @include onDesktop {
+    margin-bottom: 0;
+  }
+
+  &__characteristics {
+    margin-bottom: 32px;
+  }
+
+  &__characteristics-subtitle {
+    @include h4-mobile;
+
+    @include onTablet {
+      @include h4-desktop;
+    }
+
+    margin-bottom: $medium-gap;
+  }
+
+  &__characteristics-text {
+    @include body-text;
+
+    margin-bottom: $large-gap;
+    color: $secondary-color;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+}

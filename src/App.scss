@@ -1,15 +1,32 @@
 @import './styles/fonts/fonts.scss';
+@import './styles/utils/_mixins.scss';
 @import './styles/utils/_vars.scss';
 
 html {
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: $global-font;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
+.App {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
   background-color: $hover-bg-color;
+  padding: 24px 16px 56px;
+  flex: 1 1 auto;
+
+  @include onTablet {
+    padding: 24px 24px 64px;
+  }
+
+  @include onDesktop {
+    padding: 24px 32px 80px;
+  }
 }
