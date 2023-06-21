@@ -4,8 +4,11 @@
 .contact-item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
   margin: 0 auto $large-gap;
   width: 200px;
+  // max-width: 220px;
   padding: $large-gap;
   background-color: $white-color;
 
@@ -13,11 +16,17 @@
   border-radius: $border-radius-standart;
 
   @include onTablet {
+    width: 30%;
     margin: $large-gap $medium-gap;
   }
 
   &:hover {
     box-shadow: 1px 1px 1px $elements-color;
+  }
+
+  &__person-img-container {
+    display: flex;
+    justify-content: center;
   }
 
   &__person-img {
@@ -28,6 +37,8 @@
   }
 
   &__person-name {
+    text-align: center;
+
     @include h3-mobile;
 
     @include onTablet {
@@ -40,7 +51,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: $large-gap 0;
 
   &__icon-container {
