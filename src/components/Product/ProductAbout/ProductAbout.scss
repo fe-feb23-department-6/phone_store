@@ -23,6 +23,10 @@
     margin-bottom: 0;
   }
 
+  &__characteristics {
+    margin-bottom: 32px;
+  }
+
   &__characteristics-subtitle {
     @include h4-mobile;
 

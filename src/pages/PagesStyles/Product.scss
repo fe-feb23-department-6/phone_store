@@ -55,6 +55,12 @@
   &__breadcrumbs-img {
     margin: 0 0 $medium-gap;
   }
+
+  & .hot-prices {
+    @include onDesktop {
+      margin-top: 0;
+    }
+  }
 }
 
 .product-container {
