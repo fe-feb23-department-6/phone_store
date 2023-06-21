@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto $large-gap;
-  max-width: 300px;
+  width: 200px;
   padding: $large-gap;
   background-color: $white-color;
 
@@ -21,6 +21,8 @@
   }
 
   &__person-img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     margin-bottom: $medium-gap;
   }
@@ -39,7 +41,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin: $large-gap;
+  margin: $large-gap 0;
 
   &__icon-container {
     margin: 0 $small-gap $medium-gap;
@@ -55,8 +57,8 @@
   }
 
   &__icon {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     margin: $small-gap;
   }
 }
