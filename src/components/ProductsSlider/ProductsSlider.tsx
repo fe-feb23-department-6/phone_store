@@ -1,11 +1,9 @@
 import { FC } from 'react';
+import { ProductCard } from '../Catalog/ProductCard';
 import { CatalogProductData } from '../../types/CatalogProductData';
-
 import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
-import { ProductCard } from '../Catalog/ProductCard';
 import './ProductsSlider.scss';
 
 type Props = {
