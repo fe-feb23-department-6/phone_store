@@ -4,6 +4,23 @@
 $footer-height: 300px;
 $footer-height-desktop: 96px;
 
+.container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  flex-direction: column;
+  padding: 0 16px;
+
+  @include onTablet {
+    padding: 0 24px;
+  }
+
+  @include onDesktop {
+    padding: 0 32px;
+  }
+}
 .not-found {
   display: flex;
   flex-direction: column;
