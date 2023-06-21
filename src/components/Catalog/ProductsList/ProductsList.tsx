@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const ProductsList: FC<Props> = ({ products }) => (
-  <div className="productList">
+  <div className="product-list">
     {products.map((product) => (
       <ProductCard key={product.id} product={product} />
     ))}

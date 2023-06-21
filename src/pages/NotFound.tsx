@@ -3,10 +3,8 @@ import { Breadcrumbs } from '../components/Breadcrumbs';
 import './PagesStyles/NotFound.scss';
 
 export const NotFound = () => (
-  <div className="container">
+  <div className="container-404">
     <Breadcrumbs page="Not found" />
-
-    <h1 className="not-found__title">404</h1>
 
     <div className="not-found">
       <h1 className="not-found__title">404</h1>
