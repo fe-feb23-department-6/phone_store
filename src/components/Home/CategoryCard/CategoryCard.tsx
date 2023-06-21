@@ -7,9 +7,15 @@ interface Props {
   path: string;
   image: string;
   categoryName: string;
+  categoryCount: number | null;
 }
 
-export const CategoryCard: FC<Props> = ({ image, path, categoryName }) => {
+export const CategoryCard: FC<Props> = ({
+  image,
+  path,
+  categoryName,
+  categoryCount,
+}) => {
   return (
     <div className="category__item">
       <Link to={path} className="category__item__photo">
@@ -20,7 +26,7 @@ export const CategoryCard: FC<Props> = ({ image, path, categoryName }) => {
         {categoryName}
       </Link>
 
-      <div className="category__item__model">95 models</div>
+      <div className="category__item__model">{categoryCount} models</div>
     </div>
   );
 };
