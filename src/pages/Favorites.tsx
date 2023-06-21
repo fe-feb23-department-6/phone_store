@@ -2,7 +2,7 @@ import { useState, useContext, useEffect, useCallback } from 'react';
 import { ProductCard } from '../components/Catalog/ProductCard';
 import { StoreContext } from '../context/StoreContext';
 import { Loader } from '../components/Loader';
-import { GoHomeButton } from '../components/GoHomeButton';
+import { Breadcrumbs } from '../components/Breadcrumbs';
 import './PagesStyles/Favorites.scss';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { getFavoriteProducts } from '../api';
@@ -41,7 +41,7 @@ export const Favorites = () => {
   return (
     <div className="favorites">
       <div className="favorites__header">
-        <GoHomeButton />
+        <Breadcrumbs page="Favorites" />
         <h1 className="favorites__title">Favorites</h1>
       </div>
       {favoriteCount > 0 && (

@@ -17,7 +17,7 @@ interface Props {
   onProductChange: (newColor: string, newRam: string) => void;
 }
 
-const vendorСode = 802390;
+const vendorCode = 802390;
 
 export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
   const { cartContents, addToCart, favContents, handleFavChange }
@@ -64,7 +64,7 @@ export const ProductInfo: FC<Props> = ({ product, onProductChange }) => {
               <div className="available-colors__text">Available colors</div>
             </div>
 
-            <div className="available-colors__id">{`ID:${vendorСode}`}</div>
+            <div className="available-colors__id">{`ID:${vendorCode}`}</div>
           </div>
 
           <div className="store-product-info__main-spechs">

@@ -6,6 +6,7 @@ import { Pagination } from '../components/Catalog/Pagination';
 import { Loader } from '../components/Loader';
 import { CatalogProductData } from '../types/CatalogProductData';
 import { getProducts } from '../api';
+import { categorTitles } from '../constants';
 import './PagesStyles/Catalog.scss';
 
 export const Catalog = () => {
@@ -50,7 +51,9 @@ export const Catalog = () => {
   return (
     <div className="catalog-content">
       <div className="category-name">
-        <h1 className="category-name-text">Mobile phones</h1>
+        <h1 className="category-name-text">
+          {categoryName && categorTitles[categoryName]}
+        </h1>
 
         <p className="category-name-quantity">{`${productsCount} models`}</p>
       </div>

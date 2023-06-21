@@ -1,19 +1,19 @@
-import { FC, useCallback, useState, useEffect } from 'react';
-import { FullProductData } from '../types/FullProductData';
-import { Link, useParams } from 'react-router-dom';
-import Home from '../img/icons/home_icon.svg';
-import './PagesStyles/Product.scss';
+import { useCallback, useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductGallery } from '../components/Product/ProductGallery';
 import { ProductInfo } from '../components/Product/ProductInfo';
 import { ProductAbout } from '../components/Product/ProductAbout';
 import { ProductTechSpechs } from '../components/Product/ProductTechSpechs';
-import { getProductsByNamespace, getProductsForSlider } from '../api';
 import { Loader } from '../components/Loader';
 import { GoBackButton } from '../components/GoBackButton';
 import { ProductsSlider } from '../components/ProductsSlider';
+import { Breadcrumbs } from '../components/Breadcrumbs';
+import { getProductsByNamespace, getProductsForSlider } from '../api';
 import { CatalogProductData } from '../types/CatalogProductData';
+import { FullProductData } from '../types/FullProductData';
+import './PagesStyles/Product.scss';
 
-export const Product: FC = () => {
+export const Product = () => {
   const [currProduct, setCurrProduct] = useState<FullProductData | null>(null);
   const [products, setProducts] = useState<FullProductData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,6 +23,7 @@ export const Product: FC = () => {
   const [discountLoading, setDiscountLoading] = useState(false);
 
   const { categoryName, prodId } = useParams();
+  const navigate = useNavigate();
 
   const getNamespaceProducts = useCallback(async() => {
     try {
@@ -56,10 +57,22 @@ export const Product: FC = () => {
 
       if (newCurrentProd) {
         setCurrProduct(newCurrentProd);
+
+        navigate(`/category/${categoryName}/${newCurrentProd.id}`);
       }
     },
     [products],
   );
+
+  const onUrlChange = useCallback(() => {
+    if (currProduct && prodId !== currProduct.id) {
+      const newCurrentProd = products.find(({ id }) => id === prodId);
+
+      if (newCurrentProd) {
+        setCurrProduct(newCurrentProd);
+      }
+    }
+  }, [prodId]);
 
   useEffect(() => {
     getNamespaceProducts();
@@ -71,19 +84,16 @@ export const Product: FC = () => {
     setCurrProduct(initProd || null);
   }, [products]);
 
+  useEffect(() => {
+    onUrlChange();
+  }, [prodId]);
+
   return (
     <div className="product-page">
-      <div className="product-page__breadcrumbs">
-        <Link to={'/'} className="product-page__breadcrumbs-link">
-          <img
-            className="product-page__breadcrumbs-img"
-            src={Home}
-            alt="home"
-          />
-        </Link>
-      </div>
+      <Breadcrumbs category={categoryName} page={prodId} />
 
       <GoBackButton />
+
       {!isLoading ? (
         currProduct ? (
           <>

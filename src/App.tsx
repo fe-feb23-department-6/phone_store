@@ -12,6 +12,7 @@ import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
 import { Contacts } from './pages/Contacts';
 import { Rights } from './pages/Rights';
+import { ThreadData } from './types/ThreadData';
 
 export const App = () => {
   return (
@@ -22,7 +23,12 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
-          <Route path="/category/:categoryName">
+          <Route
+            path="/category/:categoryName"
+            handle={{
+              crumb: (data: ThreadData) => <span>{data.threadName}</span>,
+            }}
+          >
             <Route index element={<Catalog />} />
             <Route path=":prodId" element={<Product />} />
           </Route>

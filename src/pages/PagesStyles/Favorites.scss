@@ -10,7 +10,6 @@
 
   @include onTablet {
     max-width: 1136px;
-    padding-top: 16px;
   }
 
   &__header {
@@ -20,12 +19,9 @@
   }
 
   &__title {
-    margin-top: 24px;
-
     @include h1-mobile;
 
     @include onTablet {
-      margin-top: 40px;
       @include h1-desktop;
     }
   }
