@@ -22,6 +22,12 @@ export const ActionsLink = () => {
   return (
     <div className="header__actions">
       <NavLink
+        to="/login"
+        className={({ isActive }) => cn('action', { 'is-active': isActive })}
+      >
+        <i className="fa-regular fa-circle-user action__icon"></i>
+      </NavLink>
+      <NavLink
         to="/favorites"
         className={({ isActive }) => cn('action', { 'is-active': isActive })}
       >
