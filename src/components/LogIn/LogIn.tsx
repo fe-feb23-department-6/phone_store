@@ -83,7 +83,7 @@ export const LogIn = () => {
     <>
       {isSuccess ? (
         <p>
-          {`Wellcome back, ${userName}`}
+          {`Welcome back, ${userName}`}
         </p>
       ) : (
         <>
