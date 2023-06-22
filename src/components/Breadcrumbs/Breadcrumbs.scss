@@ -6,11 +6,10 @@
   width: 100%;
   margin-bottom: 24px;
   align-items: center;
+  justify-content: flex-start;
   gap: 13px;
   padding: 0;
-  margin-left: 0;
   color: $secondary-color;
-  font-family: $global-font;
   text-transform: capitalize;
   @include small-text;
 
@@ -22,12 +21,12 @@
 .go-home__button {
   display: flex;
   align-items: center;
-  position: relative;
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
   gap: 13px;
+  flex-shrink: 0;
 
   img {
     transition: transform 0.3s ease;

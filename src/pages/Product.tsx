@@ -17,37 +17,37 @@ export const Product = () => {
   const [currProduct, setCurrProduct] = useState<FullProductData | null>(null);
   const [products, setProducts] = useState<FullProductData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [discountProducts, setDiscountProducts] = useState<
-    CatalogProductData[]
-  >([]);
-  const [discountLoading, setDiscountLoading] = useState(false);
+  const [recProducts, setRecProducts] = useState<CatalogProductData[]>([]);
 
-  const { categoryName, prodId } = useParams();
   const navigate = useNavigate();
+  const { categoryName, prodId } = useParams();
 
   const getNamespaceProducts = useCallback(async() => {
     try {
       setIsLoading(true);
-      setDiscountLoading(true);
-
-      const discountProductsData = await getProductsForSlider('discount');
 
       if (prodId && categoryName) {
         const productsData = await getProductsByNamespace(categoryName, prodId);
 
         setProducts(productsData);
+
+        const nameSpace = productsData[0].namespaceId;
+        const recProductsData = await getProductsForSlider(
+          `${nameSpace}/recommended`,
+        );
+
+        setRecProducts(recProductsData);
       }
 
-      setDiscountProducts(discountProductsData);
       setIsLoading(false);
-      setDiscountLoading(false);
     } catch (error) {
       setIsLoading(false);
-      setDiscountLoading(false);
+      navigate('/NotFound');
 
-      throw new Error('Failed to load product from server');
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
-  }, []);
+  }, [categoryName, prodId]);
 
   const onProductChange = useCallback(
     (newColor: string, newCapacity: string) => {
@@ -70,6 +70,8 @@ export const Product = () => {
 
       if (newCurrentProd) {
         setCurrProduct(newCurrentProd);
+      } else {
+        getNamespaceProducts();
       }
     }
   }, [prodId]);
@@ -117,14 +119,8 @@ export const Product = () => {
 
             <section className="hot-prices products-slider">
               <h2 className="products-slider__title">You may also like</h2>
-              {discountLoading ? (
-                <Loader />
-              ) : (
-                <ProductsSlider
-                  sectionName={'discount'}
-                  products={discountProducts}
-                />
-              )}
+
+              <ProductsSlider sectionName={'discount'} products={recProducts} />
             </section>
           </>
         ) : (

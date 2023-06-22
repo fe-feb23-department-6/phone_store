@@ -1,5 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useLocation, useParams, useSearchParams } from 'react-router-dom';
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from 'react-router-dom';
 import { SortBar } from '../components/Catalog/SortBar';
 import { ProductsList } from '../components/Catalog/ProductsList';
 import { Pagination } from '../components/Catalog/Pagination';
@@ -19,6 +24,7 @@ export const Catalog = () => {
 
   const paramsString = useLocation().search;
   const { categoryName } = useParams();
+  const navigate = useNavigate();
 
   const getCatalogContents = useCallback(async() => {
     try {
@@ -41,7 +47,10 @@ export const Catalog = () => {
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      throw new Error('Server error');
+      navigate('/NotFound');
+
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
   }, [searchParams, categoryName]);
 

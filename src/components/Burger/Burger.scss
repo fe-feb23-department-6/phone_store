@@ -5,13 +5,14 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  position: absolute;
+  position: fixed;
   top: 0;
+  overflow: hidden;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  margin: 0;
   background-color: $white-color;
-  z-index: 2;
+  z-index: 9999;
   opacity: 0;
   animation: fade-in 0.5s forwards;
 
@@ -19,8 +20,16 @@
     display: none;
   }
 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
   @include onTablet {
     display: none;
+  }
+  &__content {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -31,11 +40,6 @@
   100% {
     opacity: 1;
   }
-}
-
-.burger__content {
-  overflow-y: scroll;
-  max-height: 100vh;
 }
 
 .burger__header {
@@ -105,6 +109,7 @@
   align-items: center;
   bottom: 0;
   border-top: 1px solid $elements-color;
+  background-color: $white-color;
 }
 
 .actions__favorite,
