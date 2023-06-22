@@ -49,11 +49,6 @@ function validatePassword(value: string) {
 }
 
 export const LogIn = () => {
-  // const navigate = useNavigate();
-  // const location = useLocation();
-
-  // const [error, setError] = useState('');
-
   const [userName, setUserName] = useState('');
   const [submitError, setSubmitError] = useState('');
 

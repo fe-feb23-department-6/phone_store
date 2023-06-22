@@ -13,6 +13,7 @@ import { Header } from './components/Header/Header';
 import { Contacts } from './pages/Contacts';
 import { Rights } from './pages/Rights';
 import { LoginPage } from './pages/LoginPage';
+import { SignupPage } from './pages/SignupPage';
 // import { SignupPage } from './pages/SignupPage';
 
 export const App = () => {
@@ -34,7 +35,7 @@ export const App = () => {
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/rights" element={<Rights />} />
             <Route path="/login" element={<LoginPage />} />
-            {/* <Route path="/signup" element={<SignupPage />} /> */}
+            <Route path="/signup" element={<SignupPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

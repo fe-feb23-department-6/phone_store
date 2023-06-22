@@ -22,6 +22,9 @@ async function request<T>(
   try {
     const response = await fetch(BASE_URL + searchParams, options);
 
+    // eslint-disable-next-line no-console
+    console.log(response);
+
     const responseData = await response.json();
 
     return responseData;
