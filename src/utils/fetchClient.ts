@@ -9,7 +9,10 @@ async function request<T>(
   method = 'GET',
   data: any = null,
 ): Promise<T> {
-  const options: RequestInit = { method };
+  const options: RequestInit = {
+    method,
+    credentials: 'include',
+  };
 
   if (data) {
     options.body = JSON.stringify(data);
@@ -21,6 +24,10 @@ async function request<T>(
 
   try {
     const response = await fetch(BASE_URL + searchParams, options);
+
+    if (response.status === 204) {
+      return {} as T;
+    }
 
     const responseData = await response.json();
 
@@ -34,6 +41,6 @@ export const client = {
   getProductsFromServer: <T>(url: string) => request<T>(url),
   signUp: <T>(url: string, data: signUpReq) => request<T>(url, 'POST', data),
   logIn: <T>(url: string, data: logInReq) => request<T>(url, 'POST', data),
-  logOut: <T>(url: string) => request<T>(url),
+  logOut: <T>(url: string) => request<T>(url, 'POST'),
   activate: <T>(url: string) => request<T>(url),
 };
