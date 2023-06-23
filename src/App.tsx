@@ -17,6 +17,7 @@ import { SignUp } from './components/SignUp/SignUp';
 import { SignUpSaccess } from './components/SignUpSaccess/SignUpSaccess';
 import { LogIn } from './components/LogIn/LogIn';
 import { MyAccount } from './components/MyAccount/MyAccount';
+import { Activation } from './components/Activation/Activation';
 
 export const App = () => {
   return (
@@ -43,6 +44,7 @@ export const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/account" element={<MyAccount />} />
+          <Route path="/activation/:activateToken" element={<Activation />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
