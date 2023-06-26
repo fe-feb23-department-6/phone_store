@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/phone_store/static/css/main.44171a33.css",
-    "main.js": "/phone_store/static/js/main.1a3a404d.js",
+    "main.css": "/phone_store/static/css/main.5b7ac01a.css",
+    "main.js": "/phone_store/static/js/main.fdf75b9a.js",
     "static/media/fa-solid-900.ttf": "/phone_store/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/auth_banner.png": "/phone_store/static/media/auth_banner.0e7f8dfd704f0678ef39.png",
     "static/media/banner-3.png": "/phone_store/static/media/banner-3.ff0dbc78f40dc2b573cc.png",
     "static/media/phones.svg": "/phone_store/static/media/phones.912cf91d54687c40a6fa908bf8b897b5.svg",
     "static/media/nice_gadgets.svg": "/phone_store/static/media/nice_gadgets.e1b2d36b34e116d7687be9462d106ebd.svg",
@@ -37,6 +38,7 @@
     "static/media/favorites_remove.svg": "/phone_store/static/media/favorites_remove.0a5015bc0d543429a896.svg",
     "index.html": "/phone_store/index.html",
     "static/media/burger_menu_cross.svg": "/phone_store/static/media/burger_menu_cross.ab8ba6b8a2b2e909c744c9ff6ca3d86d.svg",
+    "static/media/login.svg": "/phone_store/static/media/login.2859c3d608e7cc489315875f694048db.svg",
     "static/media/burger.svg": "/phone_store/static/media/burger.3f3c3f2fcc2d0b60dfa752fd3c1cab9c.svg",
     "static/media/back_to_top.svg": "/phone_store/static/media/back_to_top.63f7694b63fe546e42e6bb102a0ec7b0.svg",
     "static/media/angle_arrow_down.svg": "/phone_store/static/media/angle_arrow_down.6f403b1254ae9f90c650.svg",
@@ -44,6 +46,7 @@
     "static/media/right-arrow.svg": "/phone_store/static/media/right-arrow.a1ab235df9f10c24edff.svg",
     "static/media/left-arrow-active.svg": "/phone_store/static/media/left-arrow-active.ab4565c1223f5dd2db05.svg",
     "static/media/left-arrow.svg": "/phone_store/static/media/left-arrow.6b946107b7a612f5da4f.svg",
+    "static/media/login_active.svg": "/phone_store/static/media/login_active.3b274576bdce017b1ad56323590d58f5.svg",
     "static/media/red.svg": "/phone_store/static/media/red.f6e5f609fa9162faa847b93215b9e9b6.svg",
     "static/media/beige.svg": "/phone_store/static/media/beige.613bafd2acf3a137a59c2a505a64de4c.svg",
     "static/media/black.svg": "/phone_store/static/media/black.303d88cf312542d3c955fcda56596393.svg",
@@ -58,11 +61,11 @@
     "static/media/spacegray.svg": "/phone_store/static/media/spacegray.f4f90d4fc54583e009a826be30bf9220.svg",
     "static/media/white.svg": "/phone_store/static/media/white.fb1ad6e66015d5651db5e9eadc9f9471.svg",
     "static/media/yellow.svg": "/phone_store/static/media/yellow.d938ff19984683d21b48035802eb800d.svg",
-    "main.44171a33.css.map": "/phone_store/static/css/main.44171a33.css.map",
-    "main.1a3a404d.js.map": "/phone_store/static/js/main.1a3a404d.js.map"
+    "main.5b7ac01a.css.map": "/phone_store/static/css/main.5b7ac01a.css.map",
+    "main.fdf75b9a.js.map": "/phone_store/static/js/main.fdf75b9a.js.map"
   },
   "entrypoints": [
-    "static/css/main.44171a33.css",
-    "static/js/main.1a3a404d.js"
+    "static/css/main.5b7ac01a.css",
+    "static/js/main.fdf75b9a.js"
   ]
 }
