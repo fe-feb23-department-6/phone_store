@@ -29,6 +29,18 @@ const validatePassword = (value: string) => {
   }
 };
 
+export const validateName = (value: string) => {
+  if (value.trim() === '') {
+    return 'Name is required';
+  }
+
+  const namePattern = /^[a-zA-Zа-яА-ЯіІїЇ\s'-]+$/;
+
+  if (!namePattern.test(value.trim())) {
+    return 'Name is not valid';
+  }
+};
+
 export const SignUp = () => {
   const [submitError, setSubmitError] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
@@ -53,7 +65,7 @@ export const SignUp = () => {
     if (isSuccess) {
       const timer = setTimeout(() => {
         setIsSuccess(false);
-        navigate('/');
+        navigate('/login');
       }, 5000);
 
       return () => clearTimeout(timer);
@@ -87,18 +99,34 @@ export const SignUp = () => {
 
                       <div className="control has-icons-left has-icons-right">
                         <Field
+                          validate={validateName}
                           name="name"
                           type="text"
                           id="name"
                           placeholder="e.g. Bob"
-                          className={'input'}
+                          className={cn('input', {
+                            'is-danger': touched.name && errors.name,
+                          })}
                         />
 
                         <span className="icon is-small is-left">
                           <i className="fa fa-user"></i>
                         </span>
+
+                        {touched.name && errors.name && (
+                          <span
+                            className="icon is-small is-right has-text-danger"
+                          >
+                            <i className="fas fa-exclamation-triangle"></i>
+                          </span>
+                        )}
                       </div>
+
+                      {touched.name && errors.name && (
+                        <p className="help is-danger">{errors.name}</p>
+                      )}
                     </div>
+
                     <div className="field">
                       <label htmlFor="email" className="label">Email</label>
 
@@ -181,6 +209,7 @@ export const SignUp = () => {
                           isSubmitting
                           || !!errors.email
                           || !!errors.password
+                          || !!errors.name
                         }
                       >
                         Sign up

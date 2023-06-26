@@ -15,6 +15,8 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { SignUp } from './components/SignUp/SignUp';
 import { SignUpSaccess } from './components/SignUpSaccess/SignUpSaccess';
+import { LogIn } from './components/LogIn/LogIn';
+import { MyAccount } from './components/MyAccount/MyAccount';
 
 export const App = () => {
   return (
@@ -38,8 +40,9 @@ export const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/rights" element={<Rights />} />
-          {/* <Route path="/signup" element={<SignUpSaccess />} /> */}
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/account" element={<MyAccount />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
