@@ -17,5 +17,5 @@ export type logInReq = {
 
 export type logInRes = {
   user: user;
-  token: string;
+  accessToken: string;
 };

@@ -12,3 +12,9 @@ export const userLogin = async(data: logInReq): Promise<logInRes> => {
 export const userLogOut = async(): Promise<void> => {
   return client.logOut('logout');
 };
+
+export const userActivation = async(
+  activateToken: string | undefined,
+): Promise<logInRes> => {
+  return client.activate(`activation/${activateToken}`);
+};

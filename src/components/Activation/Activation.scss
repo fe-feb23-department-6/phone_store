@@ -1,0 +1,13 @@
+@import '../../styles/utils/_vars.scss';
+@import '../../styles/utils/mixins';
+
+.title {
+  color: $secondary-accent-color;
+  font-style: $global-font;
+
+  @include h1-mobile;
+
+  @include onTablet {
+    @include h1-desktop;
+  }
+}

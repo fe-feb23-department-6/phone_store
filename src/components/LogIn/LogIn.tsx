@@ -2,9 +2,10 @@ import './LogIn.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, FormikHelpers } from 'formik';
 import cn from 'classnames';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { userLogin } from '../../api';
 import { logInReq } from '../../types/authTypes';
+import { AuthContext } from '../../context/AuthContext';
 
 export const usePageError = (initialError: string) => {
   const [submitError, setSubmitError] = useState(initialError);
@@ -50,6 +51,12 @@ function validatePassword(value: string) {
 
 export const LogIn = () => {
   const [submitError, setSubmitError] = usePageError('');
+  const {
+    accessToken,
+    setAccessToken,
+    user,
+    setUser,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async(
@@ -57,7 +64,11 @@ export const LogIn = () => {
     { setSubmitting, resetForm }: FormikHelpers<logInReq>,
   ) => {
     try {
-      await userLogin(data);
+      const response = await userLogin(data);
+
+      setAccessToken(response.accessToken);
+      setUser(response.user);
+
       resetForm();
       navigate('/account');
     } catch (error) {

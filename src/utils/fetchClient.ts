@@ -35,4 +35,5 @@ export const client = {
   signUp: <T>(url: string, data: signUpReq) => request<T>(url, 'POST', data),
   logIn: <T>(url: string, data: logInReq) => request<T>(url, 'POST', data),
   logOut: <T>(url: string) => request<T>(url),
+  activate: <T>(url: string) => request<T>(url),
 };
