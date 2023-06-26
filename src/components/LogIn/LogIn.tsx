@@ -52,7 +52,6 @@ function validatePassword(value: string) {
 export const LogIn = () => {
   const [submitError, setSubmitError] = usePageError('');
   const {
-    accessToken,
     setAccessToken,
     user,
     setUser,

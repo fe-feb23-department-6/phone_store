@@ -14,7 +14,6 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { SignUp } from './components/SignUp/SignUp';
-import { SignUpSaccess } from './components/SignUpSaccess/SignUpSaccess';
 import { LogIn } from './components/LogIn/LogIn';
 import { MyAccount } from './components/MyAccount/MyAccount';
 import { Activation } from './components/Activation/Activation';
