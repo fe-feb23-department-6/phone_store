@@ -9,7 +9,6 @@ export const MyAccount = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const {
-    accessToken,
     setAccessToken,
     user,
     setUser,

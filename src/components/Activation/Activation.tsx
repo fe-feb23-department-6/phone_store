@@ -3,15 +3,10 @@ import './Activation.scss';
 import { useContext, useEffect, useState } from 'react';
 import { userActivation } from '../../api/auth';
 import { AuthContext } from '../../context/AuthContext';
-import { logInRes } from '../../types/authTypes';
 import { Loader } from '../Loader';
 
 export const Activation = () => {
   const { activateToken } = useParams();
-
-  // eslint-disable-next-line no-console
-  console.log('activateToken+++', activateToken);
-
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const {

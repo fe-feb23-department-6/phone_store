@@ -1,5 +1,5 @@
 import './SignUp.scss';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, FormikHelpers } from 'formik';
 import cn from 'classnames';
