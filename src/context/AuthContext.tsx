@@ -24,12 +24,26 @@ export const AuthContext = createContext<AuthContextData>({
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [accessToken, setAccessToken] = useState('');
-  const [user, setUser] = useState<User | null>(null);
+  const [accessToken, setAccessToken] = useState(
+    () => localStorage.getItem('token') || '',
+  );
+  const [user, setUser] = useState<User | null>(() => {
+    const storedUser = localStorage.getItem('user');
+
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
 
   useEffect(() => {
     localStorage.setItem('token', accessToken);
   }, [accessToken]);
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    } else {
+      localStorage.removeItem('user');
+    }
+  }, [user]);
 
   return (
     <AuthContext.Provider value={{

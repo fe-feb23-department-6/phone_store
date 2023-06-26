@@ -59,6 +59,12 @@ export const LogIn = () => {
   } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (user) {
+      navigate('/account');
+    }
+  }, [user]);
+
   const handleSubmit = async(
     data: logInReq,
     { setSubmitting, resetForm }: FormikHelpers<logInReq>,
